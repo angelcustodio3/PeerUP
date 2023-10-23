@@ -1,1 +1,1 @@
-Folder for PeerUP's pomodoro technique
+Folder for PeerUP's flashcard technique
