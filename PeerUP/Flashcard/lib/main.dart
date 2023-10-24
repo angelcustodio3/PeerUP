@@ -645,8 +645,8 @@ class PracticePageAndCard extends StatelessWidget {
                     ),
                   ),
                   PracticeCard(
-                    title: 'Card 1',
-                    subtitle: 'Practice Card 1',
+                    title: 'Basic Flashcard Review',
+                    subtitle: 'Create Flashcard',
                     onTap: () {
                       // Navigate to another page for Card 1
                       Navigator.push(
@@ -662,8 +662,8 @@ class PracticePageAndCard extends StatelessWidget {
             ),
           ),
           PracticeCard(
-            title: 'Card 2',
-            subtitle: 'Practice Card 2',
+            title: 'Multiple Choice',
+            subtitle: 'Select the correct answer',
             onTap: () {
               // Navigate to another page for Card 2
               Navigator.push(
