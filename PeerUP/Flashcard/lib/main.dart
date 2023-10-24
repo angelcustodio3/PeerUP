@@ -93,7 +93,12 @@ class SecondPage extends StatelessWidget {
                         alignment: const FractionalOffset(0.035, 0.20),
                         child: ElevatedButton(
                           onPressed: () {
-                            _showPracticeOptionsDialog(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Practice(),
+                              ),
+                            );
                           },
                           child: const Text('Practice'),
                         ),
