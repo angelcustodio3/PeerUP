@@ -1,2 +1,2 @@
-Folder for PeerUP's pomodoro study technique
+Folder for PeerUP's Pomodoro study technique
 
