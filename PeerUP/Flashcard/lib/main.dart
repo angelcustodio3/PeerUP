@@ -1,24 +1,6 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-
-ThemeData myCustomTheme = ThemeData(
-  textTheme: TextTheme(
-    bodyText1: myDefaultTextStyle,
-    bodyText2: myDefaultTextStyle,
-  ),
-  primaryColor: const Color(0xFF0FA3B1),  // Primary color
-  accentColor: const Color(0xFFB5E2FA),   // Accent color
-  scaffoldBackgroundColor: const Color(0xFFF9F7F3), // Background color
-  backgroundColor: const Color(0xFFEDDEA4),
-  buttonColor: const Color(0xFFF7A072),
-  // Add more colors as needed
-);
-
-TextStyle myDefaultTextStyle = TextStyle(
-  fontFamily: 'Poppins', // Use the Poppins font
-  fontSize: 16.0,
-  color: Colors.black, // You can change the color if needed
-);
-
 
 void main() {
   runApp(const MyApp());
@@ -34,19 +16,21 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: myCustomTheme,
+    return const MaterialApp(
       home: FirstPage(),
     );
   }
 }
 
 class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('PeerUP'),
+        backgroundColor: const Color(0xFF6493A5),
       ),
       body: Center(
         child: Column(
@@ -59,10 +43,16 @@ class FirstPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SecondPage(),
+                    builder: (context) => const SecondPage(),
                   ),
                 );
               },
+                  style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
               child: const Text('Flashcard Technique'),
             ),
           ],
@@ -73,11 +63,14 @@ class FirstPage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flashcard Sets'),
+        backgroundColor: const Color(0xFF6493A5),
       ),
       body: Column(
         children: [
@@ -88,10 +81,10 @@ class SecondPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ViewCard(),
+                      builder: (context) => const ViewCard(),
                     ),
                   );
-                },
+                }, 
                 child: Card(
                   child: Column(
                     children: [
@@ -105,23 +98,37 @@ class SecondPage extends StatelessWidget {
                               onTap: () {
                                 _showOptionsDialog(context);
                               },
-                              child: Icon(Icons.more_vert),
+                              child: const Icon(Icons.more_vert),
                             ),
                           ],
                         ),
                       ),
                       Align(
-                        alignment: const FractionalOffset(0.035, 0.20),
+                        alignment: const FractionalOffset(0.035, 0.90),
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Practice(),
-                              ),
-                            );
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Practice(),
+                  ),
+                );
                           },
-                          child: const Text('Practice'),
+                  style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromRGBO(251, 173, 47, 100)
+          ,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                         child: const Text(
+                    'Practice',
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                          
                         ),
                       ),
                     ],
@@ -190,7 +197,7 @@ class SecondPage extends StatelessWidget {
             icon,
             color: iconColor,
           ),
-          SizedBox(width: 8), // Adjust the spacing between icon and text
+          const SizedBox(width: 8), // Adjust the spacing between icon and text
           Text(text),
         ],
       ),
@@ -198,58 +205,60 @@ class SecondPage extends StatelessWidget {
   }
 }
 
-void _showPracticeOptionsDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return SimpleDialog(
-        title: const Text('Practice'),
-        children: <Widget>[
-          SimpleDialogOption(
-            onPressed: () {
-              // Add code for the first practice option
-              Navigator.pop(context);
-            },
-            child: const Column(
-              children: [
-                Text(
-                  'Basic Flashcard Review',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'Classic Flashcard Method',
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
-                ),
-              ],
-            ),
-          ),
-          SimpleDialogOption(
-            onPressed: () {
-              // Add code for the second practice option
-              Navigator.pop(context);
-            },
-            child: const Column(
-              children: [
-                Text(
-                  'Multiple Choice',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'Select the correct answer',
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
-                ),
-              ],
-            ),
-          ),
-        ],
-      );
-    },
-  );
-}
+// void _showPracticeOptionsDialog(BuildContext context) {
+//   showDialog(
+//     context: context,
+//     builder: (BuildContext context) {
+//       return SimpleDialog(
+//         title: const Text('Practice'),
+//         children: <Widget>[
+//           SimpleDialogOption(
+//             onPressed: () {
+//               // Add code for the first practice option
+//               Navigator.pop(context);
+//             },
+//             child: const Column(
+//               children: [
+//                 Text(
+//                   'Basic Flashcard Review',
+//                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+//                 ),
+//                 Text(
+//                   'Classic Flashcard Method',
+//                   style: TextStyle(fontSize: 14, color: Colors.grey),
+//                 ),
+//               ],
+//             ),
+//           ),
+//           SimpleDialogOption(
+//             onPressed: () {
+//               // Add code for the second practice option
+//               Navigator.pop(context);
+//             },
+//             child: const Column(
+//               children: [
+//                 Text(
+//                   'Multiple Choice',
+//                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+//                 ),
+//                 Text(
+//                   'Select the correct answer',
+//                   style: TextStyle(fontSize: 14, color: Colors.grey),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       );
+//     },
+//   );
+// }
 
 class AddCard extends StatelessWidget {
   final answerController = TextEditingController();
   final questionController = TextEditingController();
+
+  AddCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -257,10 +266,10 @@ class AddCard extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.indigo[300],
         actions: [
-          Container(
+          SizedBox(
             width: 80,
             child: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.check_circle,
                 size: 30,
               ),
@@ -268,7 +277,7 @@ class AddCard extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SecondPage(),
+                    builder: (context) => const SecondPage(),
                   ),
                 );
               },
@@ -278,10 +287,10 @@ class AddCard extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Text(
                 'Create FlashCard',
                 style: TextStyle(
@@ -312,19 +321,19 @@ class AddCard extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),
                           child: TextField(
                             controller: answerController,
                             maxLines: null,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: 'Answer / Description',
                               border: OutlineInputBorder(),
                             ),
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Builder(
                           builder: (BuildContext context) {
                             return Padding(
@@ -335,14 +344,14 @@ class AddCard extends StatelessWidget {
                                   questionController.clear();
                                   answerController.clear();
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
+                                    const SnackBar(
                                       content: Text("Flashcard Added"),
                                       duration: Duration(seconds: 1),
                                     ),
                                   );
                                 },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(8.0),
                                   child: Text('Add Card',
                                       style: TextStyle(
                                         fontSize: 16,
@@ -366,6 +375,8 @@ class AddCard extends StatelessWidget {
 }
 
 class ViewCard extends StatefulWidget {
+  const ViewCard({super.key});
+
   @override
   _ViewCardState createState() => _ViewCardState();
 }
@@ -376,7 +387,9 @@ class _ViewCardState extends State<ViewCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF6493A5),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -411,7 +424,7 @@ class _ViewCardState extends State<ViewCard> {
                               onTap: () {
                                 _showOptionsDialog(context);
                               },
-                              child: Icon(Icons.more_vert),
+                              child: const Icon(Icons.more_vert),
                             ),
                           ],
                         ),
@@ -436,13 +449,12 @@ class _ViewCardState extends State<ViewCard> {
                       ),
                     );
                   },
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
+                  style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
+                ),
                   child: Row(
                     children: [
                       Icon(Icons.add),
@@ -456,17 +468,16 @@ class _ViewCardState extends State<ViewCard> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Practice(),
+                        builder: (context) => const Practice(),
                       ),
                     );
                   },
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
+                  style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
+                ),
                   child: Row(
                     children: [
                       Text('Practice'),
@@ -527,7 +538,7 @@ Widget _buildOption({
           icon,
           color: iconColor,
         ),
-        SizedBox(width: 8), // Adjust the spacing between icon and text
+        const SizedBox(width: 8), // Adjust the spacing between icon and text
         Text(text),
       ],
     ),
@@ -535,16 +546,19 @@ Widget _buildOption({
 }
 
 class Practice extends StatelessWidget {
+  const Practice({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xAD060606),
+      backgroundColor: const Color(0xAD060606),
       appBar: AppBar(
-        title: Text('Practice',
+        title: const Text('Practice',
             style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600)),
+            backgroundColor: const Color(0xFF6493A5),
         actions: [
           IconButton(
-            icon: Icon(Icons.close),
+            icon: const Icon(Icons.close),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -553,7 +567,7 @@ class Practice extends StatelessWidget {
       ),
       body: Center(
         child: Card(
-          color: Color(0xFFE6F0F2),
+          color: const Color(0xFFE6F0F2),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -567,7 +581,7 @@ class Practice extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AnotherPage(),
+                      builder: (context) => const ViewFlashcard(),
                     ),
                   );
                 },
@@ -580,7 +594,7 @@ class Practice extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AnotherPage(),
+                      builder: (context) => const AnotherPage(),
                     ),
                   );
                 },
@@ -598,7 +612,7 @@ class PracticeCard extends StatelessWidget {
   final String subtitle;
   final VoidCallback onTap;
 
-  PracticeCard({
+  const PracticeCard({super.key, 
     required this.title,
     required this.subtitle,
     required this.onTap,
@@ -609,14 +623,14 @@ class PracticeCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        color: Color(0xFF6493A5),
+        color: const Color(0xFF6493A5),
         child: ListTile(
           title: Text(title,
               style:
-                  TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+                  const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
           subtitle: Text(subtitle,
               style:
-                  TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w400)),
+                  const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w400)),
         ),
       ),
     );
@@ -624,14 +638,18 @@ class PracticeCard extends StatelessWidget {
 }
 
 class AnotherPage extends StatelessWidget {
+  const AnotherPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Premium Feature'),
+        title: const Text('Premium Feature'),
+        backgroundColor: const Color(0xFF6493A5),
       ),
-      body: Center(
+      body: const Center(
         child: Text(
+            textAlign: TextAlign.center,
             'WOW! You have opened a Premium Feature!, access Premium to try this feature out!!'),
       ),
     );
@@ -639,16 +657,18 @@ class AnotherPage extends StatelessWidget {
 }
 
 class PracticePageAndCard extends StatelessWidget {
+  const PracticePageAndCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xAD060606),
+      backgroundColor: const Color(0xAD060606),
       appBar: AppBar(
-        title: Text('Practice',
+        title: const Text('Practice',
             style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600)),
         actions: [
           IconButton(
-            icon: Icon(Icons.close),
+            icon: const Icon(Icons.close),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -657,13 +677,13 @@ class PracticePageAndCard extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height /
                 2, // Half of the screen's height
             child: Card(
               child: Column(
                 children: [
-                  ListTile(
+                  const ListTile(
                     title: Text(
                       'Practice',
                       style: TextStyle(
@@ -671,14 +691,14 @@ class PracticePageAndCard extends StatelessWidget {
                     ),
                   ),
                   PracticeCard(
-                    title: 'Basic Flashcard Review',
-                    subtitle: 'Create Flashcard',
+                    title: 'Card 1',
+                    subtitle: 'Practice Card 1',
                     onTap: () {
                       // Navigate to another page for Card 1
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AnotherPage(),
+                          builder: (context) => const ViewFlashcard(),
                         ),
                       );
                     },
@@ -688,14 +708,14 @@ class PracticePageAndCard extends StatelessWidget {
             ),
           ),
           PracticeCard(
-            title: 'Multiple Choice',
-            subtitle: 'Select the correct answer',
+            title: 'Card 2',
+            subtitle: 'Practice Card 2',
             onTap: () {
               // Navigate to another page for Card 2
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AnotherPage(),
+                  builder: (context) => const AnotherPage(),
                 ),
               );
             },
@@ -711,7 +731,7 @@ class PracticeCards extends StatelessWidget {
   final String subtitle;
   final VoidCallback onTap;
 
-  PracticeCards({
+  const PracticeCards({super.key, 
     required this.title,
     required this.subtitle,
     required this.onTap,
@@ -720,12 +740,12 @@ class PracticeCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xFF6493A5),
+      color: const Color(0xFF6493A5),
       child: ListTile(
         title: Text(title,
-            style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+            style: const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
         subtitle: Text(subtitle,
-            style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w400)),
+            style: const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w400)),
         onTap: onTap,
       ),
     );
@@ -740,7 +760,7 @@ Widget build(BuildContext context) {
     height: 800,
     clipBehavior: Clip.antiAlias,
     decoration: ShapeDecoration(
-      color: Color(0xAD060606),
+      color: const Color(0xAD060606),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(25),
       ),
@@ -760,7 +780,7 @@ Widget build(BuildContext context) {
               bottom: 63.88,
             ),
             clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(),
+            decoration: const BoxDecoration(),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -784,8 +804,8 @@ Widget build(BuildContext context) {
               bottom: 127.88,
             ),
             clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(),
-            child: Row(
+            decoration: const BoxDecoration(),
+            child:  Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -803,7 +823,7 @@ Widget build(BuildContext context) {
             width: 127,
             height: 278,
             decoration: ShapeDecoration(
-              color: Color(0xFFE6F0F2),
+              color: const Color(0xFFE6F0F2),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -816,7 +836,7 @@ Widget build(BuildContext context) {
           child: Container(
             width: 305,
             height: 66,
-            decoration: BoxDecoration(color: Color(0xFF6493A5)),
+            decoration: const BoxDecoration(color: Color(0xFF6493A5)),
           ),
         ),
         Positioned(
@@ -825,10 +845,10 @@ Widget build(BuildContext context) {
           child: Container(
             width: 305,
             height: 66,
-            decoration: BoxDecoration(color: Color(0xFF6493A5)),
+            decoration: const BoxDecoration(color: Color(0xFF6493A5)),
           ),
         ),
-        Positioned(
+        const Positioned(
           left: 62,
           top: 340,
           child: SizedBox(
@@ -845,7 +865,7 @@ Widget build(BuildContext context) {
             ),
           ),
         ),
-        Positioned(
+        const Positioned(
           left: 62,
           top: 370,
           child: SizedBox(
@@ -863,7 +883,7 @@ Widget build(BuildContext context) {
             ),
           ),
         ),
-        Positioned(
+        const Positioned(
           left: 62,
           top: 278,
           child: SizedBox(
@@ -887,7 +907,7 @@ Widget build(BuildContext context) {
           child: Container(
             width: 200,
             height: 225,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage("https://via.placeholder.com/200x225"),
                 fit: BoxFit.contain,
@@ -895,7 +915,7 @@ Widget build(BuildContext context) {
             ),
           ),
         ),
-        Positioned(
+        const Positioned(
           left: 26,
           top: 169,
           child: SizedBox(
@@ -912,7 +932,7 @@ Widget build(BuildContext context) {
             ),
           ),
         ),
-        Positioned(
+        const Positioned(
           left: 62,
           top: 248,
           child: SizedBox(
@@ -935,7 +955,7 @@ Widget build(BuildContext context) {
           child: Container(
             width: 30,
             height: 40,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage("https://via.placeholder.com/30x40"),
                 fit: BoxFit.contain,
@@ -946,4 +966,352 @@ Widget build(BuildContext context) {
       ],
     ),
   ));
+}
+
+class ViewFlashcard extends StatelessWidget {
+  const ViewFlashcard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF6493A5),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        actions: const [],
+        centerTitle: true,
+        elevation: 2,
+      ),
+      body: Stack(
+        children: [
+          Align(
+            alignment: const Alignment(0.0, -0.40),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Page2Widget()));
+              },
+              child: Container(
+                width: 314,
+                height: 420,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFE6F0F2),
+                  boxShadow: const [
+                    BoxShadow(
+                      blurRadius: 4,
+                      color: Color(0x40000000),
+                      offset: Offset(0, 4),
+                      spreadRadius: 0,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Page2Widget()));
+                    },
+                    child: const Text(
+                      'Lorem Ipsum',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 25,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Page2Widget extends StatelessWidget {
+  const Page2Widget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF6493A5),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        actions: const [],
+        centerTitle: true,
+        elevation: 2,
+      ),
+      body: SafeArea(
+        top: true,
+        child: Stack(
+          children: [
+            Align(
+              alignment: const Alignment(0.0, -0.40),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Page2Widget()));
+                },
+                child: Container(
+                  width: 314,
+                  height: 420,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE6F0F2),
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 4,
+                        color: Color(0x40000000),
+                        offset: Offset(0, 4),
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Align(
+                    alignment: const Alignment(0.00, 0.00),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const Page2Widget()));
+                      },
+                      child: const Text(
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci ac auctor augue mauris augue neque gravida in fermentum.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const Align(
+              alignment: Alignment(-0.70, 0.70),
+              child: Text(
+                'Did you get it?',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            Align(
+              alignment: const Alignment(-0.30, 0.90),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                  context,
+                    MaterialPageRoute(builder: (context) => const ReviewCompletePage()),
+                    );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text('Wrong'),
+              ),
+            ),
+            Align(
+              alignment: const Alignment(0.30, 0.90),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                  context,
+                    MaterialPageRoute(builder: (context) => const ReviewCompletePage()),
+                    );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text('Correct'),
+              ),
+            )
+          ]
+        )
+      )
+      );
+  }
+  }
+
+class ReviewCompletePage extends StatelessWidget {
+  const ReviewCompletePage({Key? key}) : super(key: key);
+
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF6493A5),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        actions: const [],
+        centerTitle: true,
+        elevation: 2,
+      ),
+      body: Center(
+        child: InkWell(
+          child: Container(
+            width: 314,
+            height: 420,
+            decoration: BoxDecoration(
+              color: const Color(0xFFE6F0F2),
+              boxShadow: const [
+                BoxShadow(
+                  blurRadius: 4,
+                  color: Color(0x40000000),
+                  offset: Offset(0, 4),
+                  spreadRadius: 0,
+                ),
+              ],
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Stack(
+              children: [
+                const Align(
+                  alignment: Alignment(-0.73, -0.65),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    child: Text(
+                      'Review\nCompleted!',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: const Alignment(1.20, -1.00),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'welcome.png',
+                      width: 155,
+                      height: 185,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: const Alignment(-1.24, -0.85),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'confetti.png',
+                      width: 184,
+                      height: 78,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: const Alignment(1.22, -0.34),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'confetti.png',
+                      width: 184,
+                      height: 78,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const Align(
+                  alignment: Alignment(0.00, 0.23),
+                  child: Text(
+                    'Score Summary',
+                    style: TextStyle(
+                      fontFamily: 'Readex Pro',
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                const Align(
+                  alignment: Alignment(0.04, 0.44),
+                  child: Text(
+                    'CORRECT: 2',
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      color: Color(0xFF0CDF4C),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const Align(
+                  alignment: Alignment(0.05, 0.62),
+                  child: Text(
+                    'WRONG: 1',
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      color: Color.fromARGB(255, 255, 89, 100),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                            Align(
+              alignment: const Alignment(0.049, 1.25),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                  context,
+                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                    );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text('Done'),
+              ),
+            )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
