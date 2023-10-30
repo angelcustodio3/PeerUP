@@ -1,5 +1,25 @@
 import 'package:flutter/material.dart';
 
+ThemeData myCustomTheme = ThemeData(
+  textTheme: TextTheme(
+    bodyText1: myDefaultTextStyle,
+    bodyText2: myDefaultTextStyle,
+  ),
+  primaryColor: const Color(0xFF0FA3B1),  // Primary color
+  accentColor: const Color(0xFFB5E2FA),   // Accent color
+  scaffoldBackgroundColor: const Color(0xFFF9F7F3), // Background color
+  backgroundColor: const Color(0xFFEDDEA4),
+  buttonColor: const Color(0xFFF7A072),
+  // Add more colors as needed
+);
+
+TextStyle myDefaultTextStyle = TextStyle(
+  fontFamily: 'Poppins', // Use the Poppins font
+  fontSize: 16.0,
+  color: Colors.black, // You can change the color if needed
+);
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,6 +35,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: myCustomTheme,
       home: FirstPage(),
     );
   }
