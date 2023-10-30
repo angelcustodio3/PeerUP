@@ -16,11 +16,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+    // Other theme properties
+    iconTheme: customIconTheme, // Set the custom icon theme here
+  ),
       home: FirstPage(),
     );
   }
 }
+
+IconThemeData customIconTheme = IconThemeData(
+  color: Colors.black,
+);
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -85,7 +93,10 @@ class SecondPage extends StatelessWidget {
                     ),
                   );
                 }, 
+                child: Container(
+                  color: Color(0xFFE6F0F2),
                 child: Card(
+                   margin: EdgeInsets.zero,
                   child: Column(
                     children: [
                       ListTile(
@@ -115,14 +126,13 @@ class SecondPage extends StatelessWidget {
                 );
                           },
                   style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromRGBO(251, 173, 47, 100)
-          ,
+                  backgroundColor: const Color(0xFFFBAD2F),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(0),
                   ),
                 ),
                          child: const Text(
-                    'Practice',
+                    'PRACTICE',
                     style: TextStyle(
                       fontFamily: 'Inter',
                       color: Color.fromARGB(255, 0, 0, 0),
@@ -133,6 +143,7 @@ class SecondPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
                 ),
               ),
             ],
@@ -205,54 +216,56 @@ class SecondPage extends StatelessWidget {
   }
 }
 
-// void _showPracticeOptionsDialog(BuildContext context) {
-//   showDialog(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return SimpleDialog(
-//         title: const Text('Practice'),
-//         children: <Widget>[
-//           SimpleDialogOption(
-//             onPressed: () {
-//               // Add code for the first practice option
-//               Navigator.pop(context);
-//             },
-//             child: const Column(
-//               children: [
-//                 Text(
-//                   'Basic Flashcard Review',
-//                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-//                 ),
-//                 Text(
-//                   'Classic Flashcard Method',
-//                   style: TextStyle(fontSize: 14, color: Colors.grey),
-//                 ),
-//               ],
-//             ),
-//           ),
-//           SimpleDialogOption(
-//             onPressed: () {
-//               // Add code for the second practice option
-//               Navigator.pop(context);
-//             },
-//             child: const Column(
-//               children: [
-//                 Text(
-//                   'Multiple Choice',
-//                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-//                 ),
-//                 Text(
-//                   'Select the correct answer',
-//                   style: TextStyle(fontSize: 14, color: Colors.grey),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ],
-//       );
-//     },
-//   );
-// }
+/*
+void _showPracticeOptionsDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return SimpleDialog(
+        title: const Text('Practice'),
+        children: <Widget>[
+          SimpleDialogOption(
+            onPressed: () {
+              // Add code for the first practice option
+              Navigator.pop(context);
+            },
+            child: const Column(
+              children: [
+                Text(
+                  'Basic Flashcard Review',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'Classic Flashcard Method',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+          SimpleDialogOption(
+            onPressed: () {
+              // Add code for the second practice option
+              Navigator.pop(context);
+            },
+            child: const Column(
+              children: [
+                Text(
+                  'Multiple Choice',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'Select the correct answer',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
+*/
 
 class AddCard extends StatelessWidget {
   final answerController = TextEditingController();
@@ -1068,7 +1081,7 @@ class Page2Widget extends StatelessWidget {
               alignment: const Alignment(0.0, -0.40),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Page2Widget()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ViewFlashcard()));
                 },
                 child: Container(
                   width: 314,
