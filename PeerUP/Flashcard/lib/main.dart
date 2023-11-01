@@ -18,9 +18,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-    // Other theme properties
-    iconTheme: customIconTheme, // Set the custom icon theme here
-  ),
+        // Other theme properties
+        iconTheme: customIconTheme, // Set the custom icon theme here
+      ),
       home: FirstPage(),
     );
   }
@@ -55,12 +55,12 @@ class FirstPage extends StatelessWidget {
                   ),
                 );
               },
-                  style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
                 ),
+              ),
               child: const Text('Flashcard Technique'),
             ),
           ],
@@ -92,58 +92,57 @@ class SecondPage extends StatelessWidget {
                       builder: (context) => const ViewCard(),
                     ),
                   );
-                }, 
+                },
                 child: Container(
                   color: Color(0xFFE6F0F2),
-                child: Card(
-                   margin: EdgeInsets.zero,
-                  child: Column(
-                    children: [
-                      ListTile(
-                        title: const Text('CMSC 128'),
-                        subtitle: const Text('Flashcard set for 1st LE'),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                _showOptionsDialog(context);
-                              },
-                              child: const Icon(Icons.more_vert),
-                            ),
-                          ],
+                  child: Card(
+                    margin: EdgeInsets.zero,
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: const Text('CMSC 128'),
+                          subtitle: const Text('Flashcard set for 1st LE'),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  _showOptionsDialog(context);
+                                },
+                                child: const Icon(Icons.more_vert),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Align(
-                        alignment: const FractionalOffset(0.035, 0.90),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Practice(),
-                  ),
-                );
-                          },
-                  style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFBAD2F),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                ),
-                         child: const Text(
-                    'PRACTICE',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      color: Color.fromARGB(255, 0, 0, 0),
+                        Align(
+                          alignment: const FractionalOffset(0.035, 0.90),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Practice(),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFFBAD2F),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                            ),
+                            child: const Text(
+                              'PRACTICE',
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                color: Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                          
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 ),
               ),
             ],
@@ -277,9 +276,10 @@ class AddCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo[300],
+        backgroundColor: const Color(0xFF6493A5),
         actions: [
           SizedBox(
+            // FOR FUTURE IMPLEMENTATION OF SAVING CARDS
             width: 80,
             child: IconButton(
               icon: const Icon(
@@ -299,83 +299,99 @@ class AddCard extends StatelessWidget {
         ],
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Create FlashCard',
-                style: TextStyle(
-                  fontSize: 24,
-                ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Create FlashCard',
+              style: TextStyle(
+                fontSize: 24,
+                fontFamily: 'Poppins Medium Regular',
               ),
             ),
           ),
-          Expanded(
-            child: Center(
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.7,
               child: Card(
                 color: Colors.grey[350],
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  height: MediaQuery.of(context).size.height * 0.5,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 25.0),
-                          child: TextField(
-                            controller: questionController,
-                            maxLines: null,
-                            decoration: const InputDecoration(
-                              labelText: ('Question / Topic'),
-                              border: OutlineInputBorder(),
-                            ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 22.0),
+                        child: TextField(
+                          controller: questionController,
+                          maxLines: null,
+                          decoration: const InputDecoration(
+                            labelText: ('Question / Topic'),
+                            border: OutlineInputBorder(),
                           ),
                         ),
-                        const SizedBox(height: 5),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: TextField(
-                            controller: answerController,
-                            maxLines: null,
-                            decoration: const InputDecoration(
-                              labelText: 'Answer / Description',
-                              border: OutlineInputBorder(),
-                            ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 6.0),
+                        child: TextField(
+                          controller: answerController,
+                          maxLines: null,
+                          decoration: const InputDecoration(
+                            labelText: 'Answer / Description',
+                            border: OutlineInputBorder(),
                           ),
                         ),
-                        const Spacer(),
-                        Builder(
-                          builder: (BuildContext context) {
-                            return Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  // Add flashcards in a list or backend
-                                  questionController.clear();
-                                  answerController.clear();
+                      ),
+                      Builder(
+                        builder: (BuildContext context) {
+                          return Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    const Color.fromRGBO(100, 147, 165, 100),
+                              ),
+                              onPressed: () {
+                                String question = questionController.text;
+                                String answer = answerController.text;
+
+                                if (question.isNotEmpty && answer.isNotEmpty) {
+                                  // add flashcards to backend; FOR FUTURE IMPLEMENTATION
+
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text("Flashcard Added"),
+                                    SnackBar(
+                                      content: Text("Flashcard Added",
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins Regular')),
                                       duration: Duration(seconds: 1),
                                     ),
                                   );
-                                },
-                                child: const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('Add Card',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      )),
-                                ),
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text("Invalid Input",
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins Regular')),
+                                      duration: Duration(seconds: 1),
+                                    ),
+                                  );
+                                }
+                                questionController.clear();
+                                answerController.clear();
+                              },
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text('Add Card',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "Poppins SemiBold Regular",
+                                    )),
                               ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -533,7 +549,6 @@ class _ViewCardState extends State<ViewCard> {
                 ),
               ],
             ),
-            
           ),
           Container(
             color: Colors.white,
@@ -672,7 +687,7 @@ class Practice extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Practice',
             style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600)),
-            backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF6493A5),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
@@ -729,7 +744,8 @@ class PracticeCard extends StatelessWidget {
   final String subtitle;
   final VoidCallback onTap;
 
-  const PracticeCard({super.key, 
+  const PracticeCard({
+    super.key,
     required this.title,
     required this.subtitle,
     required this.onTap,
@@ -743,11 +759,11 @@ class PracticeCard extends StatelessWidget {
         color: const Color(0xFF6493A5),
         child: ListTile(
           title: Text(title,
-              style:
-                  const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+              style: const TextStyle(
+                  fontFamily: 'Inter', fontWeight: FontWeight.w500)),
           subtitle: Text(subtitle,
-              style:
-                  const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w400)),
+              style: const TextStyle(
+                  fontFamily: 'Inter', fontWeight: FontWeight.w400)),
         ),
       ),
     );
@@ -848,7 +864,8 @@ class PracticeCards extends StatelessWidget {
   final String subtitle;
   final VoidCallback onTap;
 
-  const PracticeCards({super.key, 
+  const PracticeCards({
+    super.key,
     required this.title,
     required this.subtitle,
     required this.onTap,
@@ -860,9 +877,11 @@ class PracticeCards extends StatelessWidget {
       color: const Color(0xFF6493A5),
       child: ListTile(
         title: Text(title,
-            style: const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+            style: const TextStyle(
+                fontFamily: 'Inter', fontWeight: FontWeight.w500)),
         subtitle: Text(subtitle,
-            style: const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w400)),
+            style: const TextStyle(
+                fontFamily: 'Inter', fontWeight: FontWeight.w400)),
         onTap: onTap,
       ),
     );
@@ -922,7 +941,7 @@ Widget build(BuildContext context) {
             ),
             clipBehavior: Clip.antiAlias,
             decoration: const BoxDecoration(),
-            child:  Row(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -1113,7 +1132,10 @@ class ViewFlashcard extends StatelessWidget {
             alignment: const Alignment(0.0, -0.40),
             child: InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Page2Widget()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Page2Widget()));
               },
               child: Container(
                 width: 314,
@@ -1133,7 +1155,10 @@ class ViewFlashcard extends StatelessWidget {
                 child: Center(
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Page2Widget()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Page2Widget()));
                     },
                     child: const Text(
                       'Lorem Ipsum',
@@ -1161,125 +1186,129 @@ class Page2Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF6493A5),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.white,
-            size: 30,
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF6493A5),
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          actions: const [],
+          centerTitle: true,
+          elevation: 2,
         ),
-        actions: const [],
-        centerTitle: true,
-        elevation: 2,
-      ),
-      body: SafeArea(
-        top: true,
-        child: Stack(
-          children: [
-            Align(
-              alignment: const Alignment(0.0, -0.40),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ViewFlashcard()));
-                },
-                child: Container(
-                  width: 314,
-                  height: 420,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFE6F0F2),
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 4,
-                        color: Color(0x40000000),
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Align(
-                    alignment: const Alignment(0.00, 0.00),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const Page2Widget()));
-                      },
-                      child: const Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci ac auctor augue mauris augue neque gravida in fermentum.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
+        body: SafeArea(
+            top: true,
+            child: Stack(children: [
+              Align(
+                alignment: const Alignment(0.0, -0.40),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ViewFlashcard()));
+                  },
+                  child: Container(
+                    width: 314,
+                    height: 420,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFE6F0F2),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 4,
+                          color: Color(0x40000000),
+                          offset: Offset(0, 4),
+                          spreadRadius: 0,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Align(
+                      alignment: const Alignment(0.00, 0.00),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Page2Widget()));
+                        },
+                        child: const Text(
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci ac auctor augue mauris augue neque gravida in fermentum.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const Align(
-              alignment: Alignment(-0.70, 0.70),
-              child: Text(
-                'Did you get it?',
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-            Align(
-              alignment: const Alignment(-0.30, 0.90),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                  context,
-                    MaterialPageRoute(builder: (context) => const ReviewCompletePage()),
-                    );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+              const Align(
+                alignment: Alignment(-0.70, 0.70),
+                child: Text(
+                  'Did you get it?',
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                child: const Text('Wrong'),
               ),
-            ),
-            Align(
-              alignment: const Alignment(0.30, 0.90),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                  context,
-                    MaterialPageRoute(builder: (context) => const ReviewCompletePage()),
+              Align(
+                alignment: const Alignment(-0.30, 0.90),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ReviewCompletePage()),
                     );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
+                  child: const Text('Wrong'),
                 ),
-                child: const Text('Correct'),
               ),
-            )
-          ]
-        )
-      )
-      );
+              Align(
+                alignment: const Alignment(0.30, 0.90),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ReviewCompletePage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: const Text('Correct'),
+                ),
+              )
+            ])));
   }
-  }
+}
 
 class ReviewCompletePage extends StatelessWidget {
   const ReviewCompletePage({Key? key}) : super(key: key);
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -1406,24 +1435,25 @@ class ReviewCompletePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                            Align(
-              alignment: const Alignment(0.049, 1.25),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                  context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
-                    );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                Align(
+                  alignment: const Alignment(0.049, 1.25),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SecondPage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: const Text('Done'),
                   ),
-                ),
-                child: const Text('Done'),
-              ),
-            )
+                )
               ],
             ),
           ),
