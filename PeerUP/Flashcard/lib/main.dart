@@ -420,14 +420,19 @@ class _ViewCardState extends State<ViewCard> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF6493A5),
       ),
-      body: Column(
+      body: 
+      Padding(
+    padding: const EdgeInsets.only(top: 12.0, bottom: 16.0), 
+      child: Column(
         children: [
-          _buildCard('CMSC 128', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'),
+          _buildCard('Title', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'),
           _buildCard('Another Title', 'Another Lorem ipsum content goes here.'),
           _buildCard('New Title', 'New Lorem ipsum content for the third card.'),
+          _buildCard('New Another Title', 'New Another Lorem ipsum content for the third card.'),
+          _buildCard('NextTitle', 'Next Lorem ipsum content for the third card.'),
           // You can continue adding more cards here as needed
           Container(
-            color: Colors.white,
+            // color: Color(0xFFE6F0F2),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -484,7 +489,7 @@ class _ViewCardState extends State<ViewCard> {
                         'Practice',
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'YourFontFamily',
+                          fontFamily: 'Poppins',
                           fontSize: 16.0,
                         ),
                       ),
@@ -500,16 +505,19 @@ class _ViewCardState extends State<ViewCard> {
           ),
         ],
       ),
+      ),
     );
   }
 
   Widget _buildCard(String title, String subtitle) {
     return Card(
+      color: Color(0xFFE6F0F2),
       child: Column(
         children: [
           ListTile(
             title: Text(title),
             subtitle: Text(subtitle),
+            contentPadding: EdgeInsets.symmetric(vertical: 12.0),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -530,7 +538,8 @@ class _ViewCardState extends State<ViewCard> {
                   onTap: () {
                     _showOptionsDialog(context);
                   },
-                  child: const Icon(Icons.more_vert),
+                  child: const Icon(Icons.more_vert,
+                  color: Colors.black),
                 ),
               ],
             ),
