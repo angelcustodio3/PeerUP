@@ -512,6 +512,7 @@ class _ViewCardState extends State<ViewCard> {
   Widget _buildCard(String title, String subtitle) {
     return Card(
       color: Color.fromRGBO(237, 222, 164, 1),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       child: Column(
         children: [
           ListTile(
