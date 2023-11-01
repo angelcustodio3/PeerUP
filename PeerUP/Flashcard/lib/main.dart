@@ -418,7 +418,7 @@ class _ViewCardState extends State<ViewCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: Color.fromRGBO(51, 50, 50, 1),
       ),
       body: 
       Padding(
@@ -446,7 +446,7 @@ class _ViewCardState extends State<ViewCard> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF6493A5),
+                    backgroundColor: const Color.fromRGBO(247, 160, 114, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0),
                     ),
@@ -461,8 +461,8 @@ class _ViewCardState extends State<ViewCard> {
                         'Add Card',
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'YourFontFamily',
-                          fontSize: 16.0,
+                          fontFamily: 'Poppins',
+                          fontSize: 12.0,
                         ),
                       ),
                     ],
@@ -478,7 +478,7 @@ class _ViewCardState extends State<ViewCard> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF6493A5),
+                    backgroundColor: Color.fromRGBO(247, 160, 114, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0),
                     ),
@@ -490,7 +490,7 @@ class _ViewCardState extends State<ViewCard> {
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'Poppins',
-                          fontSize: 16.0,
+                          fontSize: 12.0,
                         ),
                       ),
                       Icon(
@@ -511,13 +511,25 @@ class _ViewCardState extends State<ViewCard> {
 
   Widget _buildCard(String title, String subtitle) {
     return Card(
-      color: Color(0xFFE6F0F2),
+      color: Color.fromRGBO(237, 222, 164, 1),
       child: Column(
         children: [
           ListTile(
-            title: Text(title),
-            subtitle: Text(subtitle),
-            contentPadding: EdgeInsets.symmetric(vertical: 8.0),
+            title: Text(title,
+            style: TextStyle(
+            fontFamily: 'Poppins',
+            // fontSize: 20, // Set the desired font family
+            fontWeight: FontWeight.bold, // Set the desired font weight
+            color: Colors.black,          // Set the desired font color
+          ),),
+            subtitle: Text(subtitle,
+             style: TextStyle(
+            fontFamily: 'Poppins', // Set the desired font family
+            // fontSize: 15,
+            fontWeight: FontWeight.normal, // Set the desired font weight
+            color: Colors.black,          // Set the desired font color
+          ),),
+            contentPadding: EdgeInsets.all(8.0),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
