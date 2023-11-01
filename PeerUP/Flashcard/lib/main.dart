@@ -403,7 +403,6 @@ class AddCard extends StatelessWidget {
   }
 }
 
-
 class ViewCard extends StatefulWidget {
   const ViewCard({super.key});
 
@@ -420,91 +419,94 @@ class _ViewCardState extends State<ViewCard> {
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(51, 50, 50, 1),
       ),
-      body: 
-      Padding(
-    padding: const EdgeInsets.only(top: 5.0, bottom: 15.0), 
-      child: Column(
-        children: [
-          _buildCard('Software', 'Collection of programs, procedure rules, and associated documentation and data.'),
-          _buildCard('Not Software', 'Not a collection of programs, procedure rules, and associated documentation and data.'),
-          _buildCard('Bug', 'sometimes insect, sometimes fault or flaw in a software, usually nilalagyan gamit'),
-          _buildCard('Softwaring', 'The act of doing a software'),
-          _buildCard('The Apartment', 'We wont share I wonder what sad wife lives there.'),
-          // You can continue adding more cards here as needed
-          Container(
-            // color: Color(0xFFE6F0F2),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AddCard(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 5.0, bottom: 15.0),
+        child: Column(
+          children: [
+            _buildCard('Software',
+                'Collection of programs, procedure rules, and associated documentation and data.'),
+            _buildCard('Not Software',
+                'Not a collection of programs, procedure rules, and associated documentation and data.'),
+            _buildCard('Bug',
+                'sometimes insect, sometimes fault or flaw in a software, usually nilalagyan gamit'),
+            _buildCard('Softwaring', 'The act of doing a software'),
+            _buildCard('The Apartment',
+                'We wont share I wonder what sad wife lives there.'),
+            // You can continue adding more cards here as needed
+            Container(
+              // color: Color(0xFFE6F0F2),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AddCard(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromRGBO(247, 160, 114, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(0),
                       ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(247, 160, 114, 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.add,
+                          color: Colors.black,
+                        ),
+                        Text(
+                          'Add Card',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Poppins',
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.add,
-                        color: Colors.black,
-                      ),
-                      Text(
-                        'Add Card',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Poppins',
-                          fontSize: 12.0,
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Practice(),
                         ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(247, 160, 114, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(0),
                       ),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Practice(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromRGBO(247, 160, 114, 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Practice',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Poppins',
+                            fontSize: 12.0,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: Colors.black,
+                        ),
+                      ],
                     ),
                   ),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Practice',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Poppins',
-                          fontSize: 12.0,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_forward,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
       ),
     );
   }
@@ -516,20 +518,24 @@ class _ViewCardState extends State<ViewCard> {
       child: Column(
         children: [
           ListTile(
-            title: Text(title,
-            style: TextStyle(
-            fontFamily: 'Poppins',
-            // fontSize: 20, // Set the desired font family
-            fontWeight: FontWeight.bold, // Set the desired font weight
-            color: Colors.black,          // Set the desired font color
-          ),),
-            subtitle: Text(subtitle,
-             style: TextStyle(
-            fontFamily: 'Poppins', // Set the desired font family
-            // fontSize: 15,
-            fontWeight: FontWeight.normal, // Set the desired font weight
-            color: Colors.black,          // Set the desired font color
-          ),),
+            title: Text(
+              title,
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                // fontSize: 20, // Set the desired font family
+                fontWeight: FontWeight.bold, // Set the desired font weight
+                color: Colors.black, // Set the desired font color
+              ),
+            ),
+            subtitle: Text(
+              subtitle,
+              style: TextStyle(
+                fontFamily: 'Poppins', // Set the desired font family
+                // fontSize: 15,
+                fontWeight: FontWeight.normal, // Set the desired font weight
+                color: Colors.black, // Set the desired font color
+              ),
+            ),
             contentPadding: EdgeInsets.all(8.0),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
@@ -541,9 +547,7 @@ class _ViewCardState extends State<ViewCard> {
                     });
                   },
                   icon: Icon(
-                    isHeartFilled
-                        ? Icons.favorite
-                        : Icons.favorite_border,
+                    isHeartFilled ? Icons.favorite : Icons.favorite_border,
                     color: isHeartFilled ? Colors.red : Colors.black,
                   ),
                 ),
@@ -551,8 +555,7 @@ class _ViewCardState extends State<ViewCard> {
                   onTap: () {
                     _showOptionsDialog(context);
                   },
-                  child: const Icon(Icons.more_vert,
-                  color: Colors.black),
+                  child: const Icon(Icons.more_vert, color: Colors.black),
                 ),
               ],
             ),
@@ -633,40 +636,65 @@ class Practice extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Card(
-          color: const Color(0xFFE6F0F2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            children: [
-              PracticeCard(
-                title: 'Basic Flashcard Review',
-                subtitle: 'Classic flashcard method',
-                onTap: () {
-                  // Navigate to another page for Card 1
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ViewFlashcard(),
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.height * 0.4,
+          child: Card(
+            color: const Color(0xFFE6F0F2),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft, // Align text to the left
+                    child: Text(
+                      'Practice', // Add your text inside the Text widget
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontFamily: "Poppins Medium Regular",
+                      ),
                     ),
-                  );
-                },
-              ),
-              PracticeCard(
-                title: 'Multiple Choice',
-                subtitle: 'Select the correct answer',
-                onTap: () {
-                  // Navigate to another page for Card 2
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AnotherPage(),
+                  ),
+                ),
+                PracticeCard(
+                  title: 'Basic Flashcard Review',
+                  subtitle: 'Classic flashcard method',
+                  onTap: () {
+                    // Navigate to another page for Card 1
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ViewFlashcard(),
+                      ),
+                    );
+                  },
+                ),
+                PracticeCard(
+                  title: 'Multiple Choice',
+                  subtitle: 'Select the correct answer',
+                  onTap: () {
+                    // Navigate to another page for Card 2
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AnotherPage(),
+                      ),
+                    );
+                  },
+                ),
+                Expanded(
+                  child: Container(
+                    child: Image.asset(
+                      'design1.png',
+                      fit: BoxFit.contain,
                     ),
-                  );
-                },
-              ),
-            ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -1397,4 +1425,3 @@ class ReviewCompletePage extends StatelessWidget {
     );
   }
 }
-
