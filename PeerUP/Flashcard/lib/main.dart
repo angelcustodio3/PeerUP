@@ -403,6 +403,7 @@ class AddCard extends StatelessWidget {
   }
 }
 
+
 class ViewCard extends StatefulWidget {
   const ViewCard({super.key});
 
@@ -421,135 +422,10 @@ class _ViewCardState extends State<ViewCard> {
       ),
       body: Column(
         children: [
-          Card(
-            /*Text(
-                    'CMSC 128',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),*/
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text(
-                    'Lorem Ipsum',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  subtitle: const Text(
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                  ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isHeartFilled = !isHeartFilled;
-                          });
-                        },
-                        icon: Icon(
-                          isHeartFilled
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          color: isHeartFilled ? Colors.red : Colors.black,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          _showOptionsDialog(context);
-                        },
-                        child: const Icon(Icons.more_vert),
-                      ),
-                    ],
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    'Lorem Ipsum',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  subtitle: const Text(
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                  ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isHeartFilled = !isHeartFilled;
-                          });
-                        },
-                        icon: Icon(
-                          isHeartFilled
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          color: isHeartFilled ? Colors.red : Colors.black,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          _showOptionsDialog(context);
-                        },
-                        child: const Icon(Icons.more_vert),
-                      ),
-                    ],
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    'Lorem Ipsum',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  subtitle: const Text(
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                  ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isHeartFilled = !isHeartFilled;
-                          });
-                        },
-                        icon: Icon(
-                          isHeartFilled
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          color: isHeartFilled ? Colors.red : Colors.black,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          _showOptionsDialog(context);
-                        },
-                        child: const Icon(Icons.more_vert),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+          _buildCard('CMSC 128', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'),
+          _buildCard('Another Title', 'Another Lorem ipsum content goes here.'),
+          _buildCard('New Title', 'New Lorem ipsum content for the third card.'),
+          // You can continue adding more cards here as needed
           Container(
             color: Colors.white,
             child: Row(
@@ -627,6 +503,43 @@ class _ViewCardState extends State<ViewCard> {
     );
   }
 
+  Widget _buildCard(String title, String subtitle) {
+    return Card(
+      child: Column(
+        children: [
+          ListTile(
+            title: Text(title),
+            subtitle: Text(subtitle),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isHeartFilled = !isHeartFilled;
+                    });
+                  },
+                  icon: Icon(
+                    isHeartFilled
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: isHeartFilled ? Colors.red : Colors.black,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _showOptionsDialog(context);
+                  },
+                  child: const Icon(Icons.more_vert),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _showOptionsDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -654,27 +567,27 @@ class _ViewCardState extends State<ViewCard> {
       },
     );
   }
-}
 
-Widget _buildOption({
-  required String text,
-  required IconData icon,
-  Color? iconColor,
-  required VoidCallback onTap,
-}) {
-  return SimpleDialogOption(
-    onPressed: onTap,
-    child: Row(
-      children: [
-        Icon(
-          icon,
-          color: iconColor,
-        ),
-        const SizedBox(width: 8),
-        Text(text),
-      ],
-    ),
-  );
+  Widget _buildOption({
+    required String text,
+    required IconData icon,
+    Color? iconColor,
+    required VoidCallback onTap,
+  }) {
+    return SimpleDialogOption(
+      onPressed: onTap,
+      child: Row(
+        children: [
+          Icon(
+            icon,
+            color: iconColor,
+          ),
+          const SizedBox(width: 8),
+          Text(text),
+        ],
+      ),
+    );
+  }
 }
 
 class Practice extends StatelessWidget {
@@ -1462,3 +1375,4 @@ class ReviewCompletePage extends StatelessWidget {
     );
   }
 }
+
