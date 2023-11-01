@@ -405,48 +405,135 @@ class _ViewCardState extends State<ViewCard> {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: Stack(
+          Card(
+            /*Text(
+                    'CMSC 128',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),*/
+            child: Column(
               children: [
-                // Your existing card content
-                Card(
-                  child: Column(
+                ListTile(
+                  title: Text(
+                    'Lorem Ipsum',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      ListTile(
-                        title: const Text('Lorem ipsum'),
-                        subtitle: const Text(
-                            'Lorem ipsum dolor sit amet consectetur adipisicing elit.'),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  isHeartFilled = !isHeartFilled;
-                                });
-                              },
-                              icon: Icon(
-                                isHeartFilled
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                color:
-                                    isHeartFilled ? Colors.red : Colors.black,
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                _showOptionsDialog(context);
-                              },
-                              child: const Icon(Icons.more_vert),
-                            ),
-                          ],
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isHeartFilled = !isHeartFilled;
+                          });
+                        },
+                        icon: Icon(
+                          isHeartFilled
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: isHeartFilled ? Colors.red : Colors.black,
                         ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _showOptionsDialog(context);
+                        },
+                        child: const Icon(Icons.more_vert),
+                      ),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    'Lorem Ipsum',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isHeartFilled = !isHeartFilled;
+                          });
+                        },
+                        icon: Icon(
+                          isHeartFilled
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: isHeartFilled ? Colors.red : Colors.black,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _showOptionsDialog(context);
+                        },
+                        child: const Icon(Icons.more_vert),
+                      ),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    'Lorem Ipsum',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isHeartFilled = !isHeartFilled;
+                          });
+                        },
+                        icon: Icon(
+                          isHeartFilled
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: isHeartFilled ? Colors.red : Colors.black,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _showOptionsDialog(context);
+                        },
+                        child: const Icon(Icons.more_vert),
                       ),
                     ],
                   ),
                 ),
               ],
             ),
+            
           ),
           Container(
             color: Colors.white,
@@ -463,21 +550,30 @@ class _ViewCardState extends State<ViewCard> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    backgroundColor: const Color(0xFF6493A5),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
                   ),
-                ),
                   child: Row(
                     children: [
-                      Icon(Icons.add),
-                      Text('Add Card'),
+                      Icon(
+                        Icons.add,
+                        color: Colors.black,
+                      ),
+                      Text(
+                        'Add Card',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'YourFontFamily',
+                          fontSize: 16.0,
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Practice navigation here
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -486,15 +582,25 @@ class _ViewCardState extends State<ViewCard> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    backgroundColor: const Color(0xFF6493A5),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
                   ),
-                ),
                   child: Row(
                     children: [
-                      Text('Practice'),
-                      Icon(Icons.arrow_forward),
+                      Text(
+                        'Practice',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'YourFontFamily',
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: Colors.black,
+                      ),
                     ],
                   ),
                 ),
@@ -515,18 +621,16 @@ class _ViewCardState extends State<ViewCard> {
           children: <Widget>[
             _buildOption(
               text: 'Edit',
-              icon: Icons.edit, // Pen icon
+              icon: Icons.edit,
               onTap: () {
-                // Add code for the "Edit" option
                 Navigator.pop(context);
               },
             ),
             _buildOption(
               text: 'Remove',
-              icon: Icons.delete, // Red trash bin icon
-              iconColor: Colors.red, // Set the icon color
+              icon: Icons.delete,
+              iconColor: Colors.red,
               onTap: () {
-                // Add code for the "Remove" option
                 Navigator.pop(context);
               },
             ),
@@ -551,7 +655,7 @@ Widget _buildOption({
           icon,
           color: iconColor,
         ),
-        const SizedBox(width: 8), // Adjust the spacing between icon and text
+        const SizedBox(width: 8),
         Text(text),
       ],
     ),
