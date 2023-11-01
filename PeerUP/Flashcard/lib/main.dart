@@ -422,14 +422,14 @@ class _ViewCardState extends State<ViewCard> {
       ),
       body: 
       Padding(
-    padding: const EdgeInsets.only(top: 12.0, bottom: 16.0), 
+    padding: const EdgeInsets.only(top: 5.0, bottom: 15.0), 
       child: Column(
         children: [
-          _buildCard('Title', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'),
-          _buildCard('Another Title', 'Another Lorem ipsum content goes here.'),
-          _buildCard('New Title', 'New Lorem ipsum content for the third card.'),
-          _buildCard('New Another Title', 'New Another Lorem ipsum content for the third card.'),
-          _buildCard('NextTitle', 'Next Lorem ipsum content for the third card.'),
+          _buildCard('Software', 'Collection of programs, procedure rules, and associated documentation and data.'),
+          _buildCard('Not Software', 'Not a collection of programs, procedure rules, and associated documentation and data.'),
+          _buildCard('Bug', 'sometimes insect, sometimes fault or flaw in a software, usually nilalagyan gamit'),
+          _buildCard('Softwaring', 'The act of doing a software'),
+          _buildCard('The Apartment', 'We wont share I wonder what sad wife lives there.'),
           // You can continue adding more cards here as needed
           Container(
             // color: Color(0xFFE6F0F2),
@@ -517,7 +517,7 @@ class _ViewCardState extends State<ViewCard> {
           ListTile(
             title: Text(title),
             subtitle: Text(subtitle),
-            contentPadding: EdgeInsets.symmetric(vertical: 12.0),
+            contentPadding: EdgeInsets.symmetric(vertical: 8.0),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
