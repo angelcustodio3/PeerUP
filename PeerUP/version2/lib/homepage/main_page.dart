@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-//import 'package:peerup_draft1/flashcard/flashcard_pages.dart';
-import 'package:peerup_draft1/homepage/history.dart';
-//import 'package:peerup_draft1/homepage/history.dart';
-import 'package:peerup_draft1/homepage/homepage.dart';
-import 'package:peerup_draft1/homepage/peer.dart';
-import 'package:peerup_draft1/homepage/settings.dart';
-import 'package:peerup_draft1/homepage/technique.dart';
-//import 'package:peerup_draft1/homepage/technique.dart';
-//import 'package:peerup_draft1/pomodoro/pomodoro_page1.dart';
+import 'package:peerup/homepage/history.dart';
+import 'package:peerup/homepage/homepage.dart';
+import 'package:peerup/homepage/peer.dart';
+import 'package:peerup/homepage/settings.dart';
+import 'package:peerup/homepage/technique.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

@@ -1,77 +1,14 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api png
 
 import 'package:flutter/material.dart';
+import 'package:peerup/main.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        // Other theme properties
-        iconTheme: customIconTheme, // Set the custom icon theme here
-      ),
-      home: FirstPage(),
-    );
-  }
-}
-
-IconThemeData customIconTheme = IconThemeData(
-  color: Colors.black,
-);
-
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('PeerUP'),
-        backgroundColor: const Color(0xFF6493A5),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('PeerUP HomePage'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SecondPage(),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: const Text('Flashcard Technique'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+class Flashcard extends StatelessWidget {
+  const Flashcard ({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -290,7 +227,7 @@ class AddCard extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SecondPage(),
+                    builder: (context) => const Flashcard (),
                   ),
                 );
               },
@@ -688,7 +625,7 @@ class Practice extends StatelessWidget {
                 Expanded(
                   child: Container(
                     child: Image.asset(
-                      'design1.png',
+                      'assets/graphics/design1.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -1332,7 +1269,7 @@ class ReviewCompletePage extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
-                      'welcome.png',
+                      'assets/graphics/welcome.png',
                       width: 155,
                       height: 185,
                       fit: BoxFit.cover,
@@ -1344,7 +1281,7 @@ class ReviewCompletePage extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
-                      'confetti.png',
+                      'assets/graphics/confetti.png',
                       width: 184,
                       height: 78,
                       fit: BoxFit.cover,
@@ -1356,7 +1293,7 @@ class ReviewCompletePage extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
-                      'confetti.png',
+                      'assets/graphics/confetti.png',
                       width: 184,
                       height: 78,
                       fit: BoxFit.cover,
@@ -1405,7 +1342,7 @@ class ReviewCompletePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SecondPage()),
+                            builder: (context) => const Flashcard ()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

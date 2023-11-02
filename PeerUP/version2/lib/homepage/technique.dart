@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:peerup_draft1/flashcard/flashcard_pages.dart';
-import 'package:peerup_draft1/pomodoro/pomodoro_page1.dart';
+import 'package:peerup/flashcard/flashcard_main.dart';
+import 'package:peerup/pomodoro/pomodoro_main.dart';
 
 class Techniques extends StatelessWidget {
   const Techniques({super.key});
