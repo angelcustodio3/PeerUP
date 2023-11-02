@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peerup/homepage/main_page.dart';
+import 'package:peerup/homepage/mainpage.dart';
 
 void main() {
   runApp(const MyApp());

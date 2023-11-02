@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class peer extends StatelessWidget {
-  const peer({super.key});
+class Peer extends StatelessWidget {
+  const Peer({super.key});
 
   @override
   Widget build(BuildContext context) {
