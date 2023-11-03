@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,6 +19,7 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor:Color(0xFF6493A5),
         title: Text('Timer and To-Do List'),
       ),
       body: Column(
@@ -44,7 +46,7 @@ class _TimerWidgetState extends State<TimerWidget> {
   @override
   void initState() {
     super.initState();
-    startTimer(); // Start the timer when the page is loaded
+    startTimer();
   }
 
   void startTimer() {
@@ -71,27 +73,45 @@ class _TimerWidgetState extends State<TimerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    final hours = (seconds ~/ 3600).toString().padLeft(2, '0');
+    final minutes = ((seconds ~/ 60) % 60).toString().padLeft(2, '0');
+    final remainingSeconds = (seconds % 60).toString().padLeft(2, '0');
+
+    return Padding(
+      padding: const EdgeInsets.only(top:16.0), // Add padding around the timer
+    child: Column(
       children: [
         Text(
-          'Timer: ${seconds}s',
+          '$hours:$minutes:$remainingSeconds',
           style: TextStyle(
-            fontSize: 24, // Font size
-            fontWeight: FontWeight.bold, // Font weight
-            color: Colors.blue, // Text color
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
         ),
-        ElevatedButton(
+        /*ElevatedButton(
           onPressed: isRunning ? stopTimer : startTimer,
           child: Text(
             isRunning ? 'Stop' : 'Start',
             style: TextStyle(
-              fontSize: 18, // Font size
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),*/
+        Padding(
+          padding: EdgeInsets.all(25.0), // Add padding around the text
+          child: Text(
+            'CMSC 128',
+            style: TextStyle(
+              fontSize: 26, // Font size
+              color: Colors.black, // Text color
               fontWeight: FontWeight.bold, // Font weight
             ),
           ),
         ),
       ],
+    ),
     );
   }
 }
@@ -146,8 +166,8 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                 title: Text(
                   todoItems[index].text,
                   style: TextStyle(
-                    fontSize: 18, // Font size
-                    fontWeight: FontWeight.bold, // Font weight
+                    fontSize: 15, // Font size
+                    fontWeight: FontWeight.normal, // Font weight
                     decoration: todoItems[index].isDone
                         ? TextDecoration.lineThrough
                         : TextDecoration.none,
@@ -168,18 +188,24 @@ Padding(
   padding: EdgeInsets.all(16.0),
   child: Container(
     decoration: BoxDecoration(
-      border: Border.all(color: Colors.black, width: 1),
+      color: Color(0x706493A5), // Set the background color
+      // border: Border.all(color: Colors.blue, width: 2),
       borderRadius: BorderRadius.circular(12),
     ),
     child: Row(
       children: [
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: addTodoItem,
+          color: Colors.black,
+        ),
         Expanded(
-          child: Container( // Wrap the text with a Container
-            padding: EdgeInsets.symmetric(vertical: 10.0), // Add vertical padding
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 8.0),
             child: TextField(
               controller: controller,
               decoration: InputDecoration(
-                hintText: 'Add a new item...',
+                hintText: 'Add a new task',
                 border: InputBorder.none,
               ),
               style: TextStyle(
@@ -191,11 +217,6 @@ Padding(
               },
             ),
           ),
-        ),
-        IconButton(
-          icon: Icon(Icons.check_circle),
-          onPressed: addTodoItem,
-          color: Colors.blue,
         ),
       ],
     ),
