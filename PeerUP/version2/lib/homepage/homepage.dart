@@ -28,7 +28,9 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         'Welcome,',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins',
+                            fontSize: 18),
                       ),
                       SizedBox(
                         height: 4,
@@ -36,7 +38,9 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         'Username!',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins',
+                            fontSize: 24),
                       )
                     ],
                   ),
