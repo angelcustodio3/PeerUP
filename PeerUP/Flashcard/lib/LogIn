@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 0),
             Center(
               child: Image.asset(
-                'assets/wws.png',
+                'assets/graphics/wws.png',
                 width: 290,
                 height: 200,
               ),
