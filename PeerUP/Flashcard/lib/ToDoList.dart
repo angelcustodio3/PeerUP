@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api, unused_import, file_names
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';  //dependency: intl: ^0.17.0
 
 void main() {
   runApp(const MyApp());
