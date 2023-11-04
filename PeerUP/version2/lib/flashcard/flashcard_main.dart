@@ -1,5 +1,4 @@
 // ignore_for_file: library_private_types_in_public_api png, library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:peerup/main.dart';
 
@@ -71,7 +70,7 @@ class Flashcard extends StatelessWidget {
                             child: const Text(
                               'PRACTICE',
                               style: TextStyle(
-                                fontFamily: 'Inter',
+                                fontFamily: 'Poppins',
                                 color: Color.fromARGB(255, 0, 0, 0),
                               ),
                             ),
@@ -321,7 +320,7 @@ class AddCard extends StatelessWidget {
                                 child: Text('Add Card',
                                     style: TextStyle(
                                       fontSize: 16,
-                                      fontFamily: "Poppins SemiBold Regular",
+                                      fontFamily: "'Poppins' SemiBold Regular",
                                     )),
                               ),
                             ),
@@ -558,7 +557,7 @@ class Practice extends StatelessWidget {
       backgroundColor: const Color(0xAD060606),
       appBar: AppBar(
         title: const Text('Practice',
-            style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600)),
+            style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
         backgroundColor: const Color(0xFF6493A5),
         actions: [
           IconButton(
@@ -588,7 +587,7 @@ class Practice extends StatelessWidget {
                       'Practice', // Add your text inside the Text widget
                       style: TextStyle(
                         fontSize: 24,
-                        fontFamily: "Poppins Medium Regular",
+                        fontFamily: "'Poppins' Medium Regular",
                       ),
                     ),
                   ),
@@ -655,10 +654,10 @@ class PracticeCard extends StatelessWidget {
         child: ListTile(
           title: Text(title,
               style: const TextStyle(
-                  fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+                  fontFamily: 'Poppins', fontWeight: FontWeight.w500)),
           subtitle: Text(subtitle,
               style: const TextStyle(
-                  fontFamily: 'Inter', fontWeight: FontWeight.w400)),
+                  fontFamily: 'Poppins', fontWeight: FontWeight.w400)),
         ),
       ),
     );
@@ -693,7 +692,7 @@ class PracticePageAndCard extends StatelessWidget {
       backgroundColor: const Color(0xAD060606),
       appBar: AppBar(
         title: const Text('Practice',
-            style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600)),
+            style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
@@ -715,7 +714,7 @@ class PracticePageAndCard extends StatelessWidget {
                     title: Text(
                       'Practice',
                       style: TextStyle(
-                          fontFamily: 'Inter', fontWeight: FontWeight.w600),
+                          fontFamily: 'Poppins', fontWeight: FontWeight.w600),
                     ),
                   ),
                   PracticeCard(
@@ -773,10 +772,10 @@ class PracticeCards extends StatelessWidget {
       child: ListTile(
         title: Text(title,
             style: const TextStyle(
-                fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+                fontFamily: 'Poppins', fontWeight: FontWeight.w500)),
         subtitle: Text(subtitle,
             style: const TextStyle(
-                fontFamily: 'Inter', fontWeight: FontWeight.w400)),
+                fontFamily: 'Poppins', fontWeight: FontWeight.w400)),
         onTap: onTap,
       ),
     );
@@ -889,7 +888,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
                 height: 0,
               ),
@@ -907,7 +906,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 14,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400,
                 height: 0,
               ),
@@ -925,7 +924,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 14,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400,
                 height: 0,
               ),
@@ -956,7 +955,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600,
                 height: 0,
               ),
@@ -973,7 +972,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
                 height: 0,
               ),
@@ -1059,7 +1058,7 @@ class ViewFlashcard extends StatelessWidget {
                       'Lorem Ipsum',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontFamily: 'Inter',
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
                       ),
@@ -1080,123 +1079,136 @@ class Page2Widget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color(0xFF6493A5),
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 30,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF6493A5),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
           ),
-          actions: const [],
-          centerTitle: true,
-          elevation: 2,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: SafeArea(
-            top: true,
-            child: Stack(children: [
-              Align(
-                alignment: const Alignment(0.0, -0.40),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ViewFlashcard()));
-                  },
-                  child: Container(
-                    width: 314,
-                    height: 420,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFE6F0F2),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 4,
-                          color: Color(0x40000000),
-                          offset: Offset(0, 4),
-                          spreadRadius: 0,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
+        actions: const [],
+        centerTitle: true,
+        elevation: 2,
+      ),
+      body: SafeArea(
+        top: true,
+        child: Stack(
+          children: [
+            Align(
+              alignment: const Alignment(0.0, -0.40),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ViewFlashcard(),
                     ),
-                    child: Align(
-                      alignment: const Alignment(0.00, 0.00),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Page2Widget()));
-                        },
-                        child: const Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci ac auctor augue mauris augue neque gravida in fermentum.',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
+                  );
+                },
+                child: Container(
+                  width: screenWidth * 0.9, // 90% of screen width
+                  height: screenHeight * 0.6, // 60% of screen height
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE6F0F2),
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 4,
+                        color: Color(0x40000000),
+                        offset: Offset(0, 4),
+                        spreadRadius: 0,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Align(
+                    alignment: const Alignment(0.00, 0.00),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Page2Widget(),
                           ),
+                        );
+                      },
+                      child: Text(
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci ac auctor augue mauris augue neque gravida in fermentum.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: screenWidth * 0.04, // Adjust the font size
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-              const Align(
-                alignment: Alignment(-0.70, 0.70),
-                child: Text(
-                  'Did you get it?',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
+            ),
+            Align(
+              alignment: const Alignment(-0.70, 0.70),
+              child: Text(
+                'Did you get it?',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: screenWidth * 0.04, // Adjust the font size
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              Align(
-                alignment: const Alignment(-0.30, 0.90),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ReviewCompletePage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+            ),
+            Align(
+              alignment: const Alignment(-0.30, 0.90),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ReviewCompletePage(),
                     ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Text('Wrong'),
                 ),
+                child: const Text('Wrong'),
               ),
-              Align(
-                alignment: const Alignment(0.30, 0.90),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ReviewCompletePage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+            ),
+            Align(
+              alignment: const Alignment(0.30, 0.90),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ReviewCompletePage(),
                     ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Text('Correct'),
                 ),
-              )
-            ])));
+                child: const Text('Correct'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -1205,6 +1217,9 @@ class ReviewCompletePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF6493A5),
@@ -1225,8 +1240,8 @@ class ReviewCompletePage extends StatelessWidget {
       body: Center(
         child: InkWell(
           child: Container(
-            width: 314,
-            height: 420,
+            width: screenWidth * 0.9, // 90% of screen width
+            height: screenHeight * 0.75, // 75% of screen height
             decoration: BoxDecoration(
               color: const Color(0xFFE6F0F2),
               boxShadow: const [
@@ -1252,7 +1267,7 @@ class ReviewCompletePage extends StatelessWidget {
                       'Review\nCompleted!',
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontFamily: 'Inter',
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
@@ -1260,13 +1275,13 @@ class ReviewCompletePage extends StatelessWidget {
                   ),
                 ),
                 Align(
-                  alignment: const Alignment(1.20, -1.00),
+                  alignment: const Alignment(0.90, -1.00),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
                       'assets/graphics/welcome.png',
-                      width: 155,
-                      height: 185,
+                      width: screenWidth * 0.25, // Adjust the width
+                      height: screenHeight * 0.3, // Adjust the height
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -1277,8 +1292,8 @@ class ReviewCompletePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
                       'assets/graphics/confetti.png',
-                      width: 184,
-                      height: 78,
+                      width: screenWidth * 0.3, // Adjust the width
+                      height: screenHeight * 0.12, // Adjust the height
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -1289,66 +1304,68 @@ class ReviewCompletePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
                       'assets/graphics/confetti.png',
-                      width: 184,
-                      height: 78,
+                      width: screenWidth * 0.3, // Adjust the width
+                      height: screenHeight * 0.12, // Adjust the height
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                const Align(
-                  alignment: Alignment(0.00, 0.23),
+                Align(
+                  alignment: const Alignment(0.00, 0.23),
                   child: Text(
                     'Score Summary',
                     style: TextStyle(
                       fontFamily: 'Readex Pro',
-                      fontSize: 25,
+                      fontSize: screenWidth * 0.08, // Adjust the font size
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
-                const Align(
-                  alignment: Alignment(0.04, 0.44),
+                Align(
+                  alignment: const Alignment(0.04, 0.44),
                   child: Text(
                     'CORRECT: 2',
                     style: TextStyle(
-                      fontFamily: 'Inter',
-                      color: Color(0xFF0CDF4C),
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const Align(
-                  alignment: Alignment(0.05, 0.62),
-                  child: Text(
-                    'WRONG: 1',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      color: Color.fromARGB(255, 255, 89, 100),
-                      fontSize: 25,
+                      fontFamily: 'Poppins',
+                      color: const Color(0xFF0CDF4C),
+                      fontSize: screenWidth * 0.06, // Adjust the font size
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const Alignment(0.049, 1.25),
+                  alignment: const Alignment(0.05, 0.62),
+                  child: Text(
+                    'WRONG: 1',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: const Color(0xFFFF5964),
+                      fontSize: screenWidth * 0.06, // Adjust the font size
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: const Alignment(0, 0.90),
                   child: ElevatedButton(
                     onPressed: () {
+                      //Navigator.pop(context); // Pop the current page
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const Flashcard ()),
-                      );
+                         MaterialPageRoute(
+                           builder: (context) => const Flashcard(),
+                         ),
+                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
+                      backgroundColor: const Color(0xFF6493A5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
                     child: const Text('Done'),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -1357,3 +1374,4 @@ class ReviewCompletePage extends StatelessWidget {
     );
   }
 }
+

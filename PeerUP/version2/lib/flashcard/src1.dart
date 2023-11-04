@@ -16,7 +16,7 @@ class HomeRoute extends StatelessWidget {
         title: const Text("PeerUP"),
         titleTextStyle: const TextStyle(
           fontSize: 25,
-          fontFamily: 'Inter',
+          fontFamily: 'Poppins',
           fontWeight: FontWeight.w600,
         ),
         backgroundColor: const Color.fromRGBO(100, 147, 165, 1),
@@ -58,7 +58,7 @@ class SecondRoute extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 25,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   height: 0,
                 ),
@@ -78,7 +78,7 @@ class SecondRoute extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   height: 0,
                 ),
@@ -88,7 +88,7 @@ class SecondRoute extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 12,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
                   height: 0,
                 ),
@@ -109,7 +109,7 @@ class SecondRoute extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   height: 0,
                 ),
@@ -119,7 +119,7 @@ class SecondRoute extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 12,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
                   height: 0,
                 ),
@@ -140,7 +140,7 @@ class SecondRoute extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   height: 0,
                 ),
@@ -150,7 +150,7 @@ class SecondRoute extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 12,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
                   height: 0,
                 ),

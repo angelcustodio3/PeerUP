@@ -59,7 +59,7 @@ class ViewFlashcard extends StatelessWidget {
                       'Lorem Ipsum',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontFamily: 'Inter',
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
                       ),
@@ -132,7 +132,7 @@ class Page2Widget extends StatelessWidget {
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci ac auctor augue mauris augue neque gravida in fermentum.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Poppins',
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
@@ -147,7 +147,7 @@ class Page2Widget extends StatelessWidget {
               child: Text(
                 'Did you get it?',
                 style: TextStyle(
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),
@@ -248,7 +248,7 @@ class ReviewCompletePage extends StatelessWidget {
                       'Review\nCompleted!',
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontFamily: 'Inter',
+                        fontFamily: 'Poppins',
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
@@ -307,7 +307,7 @@ class ReviewCompletePage extends StatelessWidget {
                   child: Text(
                     'CORRECT: 2',
                     style: TextStyle(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       color: Color(0xFF0CDF4C),
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
@@ -319,7 +319,7 @@ class ReviewCompletePage extends StatelessWidget {
                   child: Text(
                     'WRONG: 1',
                     style: TextStyle(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       color: Color.fromARGB(255, 255, 89, 100),
                       fontSize: 25,
                       fontWeight: FontWeight.bold,

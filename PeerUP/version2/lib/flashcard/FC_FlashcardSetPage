@@ -69,7 +69,7 @@ class SecondPage extends StatelessWidget {
                          child: const Text(
                     'PRACTICE',
                     style: TextStyle(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),

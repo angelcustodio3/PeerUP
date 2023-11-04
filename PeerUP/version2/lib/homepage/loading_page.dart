@@ -45,7 +45,7 @@ class MyHomePage extends StatelessWidget {
                   'PEERUP',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Inter',
+                    fontFamily: 'Poppins',
                     fontSize: 48,
                     color: Colors.white,
                     shadows: [

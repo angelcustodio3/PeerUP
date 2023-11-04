@@ -51,7 +51,7 @@ class Techniques extends StatelessWidget {
               child: Text(
                 'CHOOSE YOUR FOCUS',
                 style: TextStyle(
-                  fontFamily: 'Inter',
+                  fontFamily: 'Poppins',
                   color: const Color(0xFF0D1238),
                   fontSize: screenWidth * 0.06,
                   fontWeight: FontWeight.w600,
@@ -157,7 +157,7 @@ void showPomodoroDialog(BuildContext context) {
                 const Text(
                   'POMODORO',
                   style: TextStyle(
-                    fontFamily: 'Inter',
+                    fontFamily: 'Poppins',
                     color: Color(0xFF0D1238),
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
@@ -211,7 +211,7 @@ void showFlashcardDialog(BuildContext context) {
                 const Text(
                   'FLASHCARD',
                   style: TextStyle(
-                    fontFamily: 'Inter',
+                    fontFamily: 'Poppins',
                     color: Color(0xFF0D1238),
                     fontSize: 15,
                     fontWeight: FontWeight.w600,

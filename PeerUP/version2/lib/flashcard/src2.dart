@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             title: const Text("PeerUP"),
             titleTextStyle: const TextStyle(
               fontSize: 25,
-              fontFamily: 'Inter',
+              fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
             ),
             backgroundColor: const Color.fromRGBO(100, 147, 165, 1),
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
               'PEERUP: acads now lakads later',
               style: TextStyle(
                 color: Colors.black,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontSize: 40.0,
               ),
             ),

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         // title: const Text("PeerUP"),
         // titleTextStyle: TextStyle(
         // fontSize: 25,
-        // fontFamily: 'Inter',
+        // fontFamily: 'Poppins',
         // fontWeight: FontWeight.w600,
         // ),
         // backgroundColor: Color.fromRGBO(100, 147, 165, 1),
@@ -102,7 +102,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 25,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                       height: 0,
                     ),
@@ -186,7 +186,7 @@ class MyApp extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 12,
-                            fontFamily: 'Inter',
+                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -196,7 +196,7 @@ class MyApp extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
-                            fontFamily: 'Inter',
+                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -220,7 +220,7 @@ class MyApp extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 12,
-                            fontFamily: 'Inter',
+                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -230,7 +230,7 @@ class MyApp extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
-                            fontFamily: 'Inter',
+                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -253,7 +253,7 @@ class MyApp extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 12,
-                            fontFamily: 'Inter',
+                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -263,7 +263,7 @@ class MyApp extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
-                            fontFamily: 'Inter',
+                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -284,7 +284,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 12,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
                       height: 0,
                     ),
@@ -302,7 +302,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 12,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
                       height: 0,
                     ),
@@ -320,7 +320,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 12,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
                       height: 0,
                     ),
@@ -356,7 +356,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 12,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
                       height: 0,
                     ),
@@ -459,7 +459,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 12,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
                       height: 0,
                     ),
@@ -495,7 +495,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 12,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
                       height: 0,
                     ),

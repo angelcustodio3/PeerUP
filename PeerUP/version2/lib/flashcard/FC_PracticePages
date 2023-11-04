@@ -14,7 +14,7 @@ class Practice extends StatelessWidget {
       backgroundColor: const Color(0xAD060606),
       appBar: AppBar(
         title: const Text('Practice',
-            style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600)),
+            style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
             backgroundColor: const Color(0xFF6493A5),
         actions: [
           IconButton(
@@ -87,10 +87,10 @@ class PracticeCard extends StatelessWidget {
         child: ListTile(
           title: Text(title,
               style:
-                  const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+                  const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w500)),
           subtitle: Text(subtitle,
               style:
-                  const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w400)),
+                  const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w400)),
         ),
       ),
     );
@@ -125,7 +125,7 @@ class PracticePageAndCard extends StatelessWidget {
       backgroundColor: const Color(0xAD060606),
       appBar: AppBar(
         title: const Text('Practice',
-            style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600)),
+            style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
@@ -147,7 +147,7 @@ class PracticePageAndCard extends StatelessWidget {
                     title: Text(
                       'Practice',
                       style: TextStyle(
-                          fontFamily: 'Inter', fontWeight: FontWeight.w600),
+                          fontFamily: 'Poppins', fontWeight: FontWeight.w600),
                     ),
                   ),
                   PracticeCard(
@@ -203,9 +203,9 @@ class PracticeCards extends StatelessWidget {
       color: const Color(0xFF6493A5),
       child: ListTile(
         title: Text(title,
-            style: const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+            style: const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w500)),
         subtitle: Text(subtitle,
-            style: const TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w400)),
+            style: const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w400)),
         onTap: onTap,
       ),
     );
@@ -318,7 +318,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
                 height: 0,
               ),
@@ -336,7 +336,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 14,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400,
                 height: 0,
               ),
@@ -354,7 +354,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 14,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400,
                 height: 0,
               ),
@@ -385,7 +385,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600,
                 height: 0,
               ),
@@ -402,7 +402,7 @@ Widget build(BuildContext context) {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20,
-                fontFamily: 'Inter',
+                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
                 height: 0,
               ),
