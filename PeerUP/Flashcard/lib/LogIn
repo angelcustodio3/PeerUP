@@ -135,7 +135,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   icon: Icon(
-                    Icons.check,
+                    Icons.account_circle,
                     color: Colors.black, // Change the check icon color
                   ),
                 ),
