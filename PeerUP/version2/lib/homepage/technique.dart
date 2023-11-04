@@ -38,8 +38,8 @@ class Techniques extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
                   'assets/graphics/GirlStudy.png',
-                  width: screenWidth * 0.8, // Adjust the image width
-                  height: screenHeight * 0.3, // Adjust the image height
+                  width: screenWidth * 0.6, // Adjust the image width
+                  height: screenHeight * 0.225, // Adjust the image height
                   fit: BoxFit.cover,
                 ),
               ),
@@ -71,8 +71,8 @@ class Techniques extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
                     'assets/graphics/Rectangle28.png', // Fix asset path
-                    width: screenWidth * 0.4, // Adjust the image width
-                    height: screenHeight * 0.2, // Adjust the image height
+                    width: screenWidth * 0.3, // Adjust the image width
+                    height: screenHeight * 0.15, // Adjust the image height
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -93,8 +93,8 @@ class Techniques extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
                     'assets/graphics/Rectangle28.png', // Fix asset path
-                    width: screenWidth * 0.4, // Adjust the image width
-                    height: screenHeight * 0.2, // Adjust the image height
+                    width: screenWidth * 0.3, // Adjust the image width
+                    height: screenHeight * 0.15, // Adjust the image height
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -106,8 +106,8 @@ class Techniques extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
                   'assets/graphics/Clock.png',
-                  width: screenWidth * 0.3, // Adjust the image width
-                  height: screenHeight * 0.15, // Adjust the image height
+                  width: screenWidth * 0.225, // Adjust the image width
+                  height: screenHeight * 0.1125, // Adjust the image height
                   fit: BoxFit.cover,
                 ),
               ),
@@ -118,8 +118,8 @@ class Techniques extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
                   'assets/graphics/RedCard.png', // Fix asset path
-                  width: screenWidth * 0.3, // Adjust the image width
-                  height: screenHeight * 0.15, // Adjust the image height
+                  width: screenWidth * 0.225, // Adjust the image width
+                  height: screenHeight * 0.1125, // Adjust the image height
                   fit: BoxFit.cover,
                 ),
               ),
