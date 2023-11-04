@@ -7,6 +7,10 @@ class Techniques extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF6493A5),
@@ -33,27 +37,27 @@ class Techniques extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
-                  'assets/graphics/Girl_study.png',
-                  width: 300,
-                  height: 200,
+                  'assets/graphics/GirlStudy.png',
+                  width: screenWidth * 0.8, // Adjust the image width
+                  height: screenHeight * 0.3, // Adjust the image height
                   fit: BoxFit.cover,
                 ),
               ),
             ),
-            const Align(
-              alignment: Alignment(0.00, -0.15),
+            Align(
+              alignment: const Alignment(0, -0.15),
               child: Text(
                 'CHOOSE YOUR FOCUS',
                 style: TextStyle(
                   fontFamily: 'Inter',
-                  color: Color(0xFF0D1238),
-                  fontSize: 20,
+                  color: const Color(0xFF0D1238),
+                  fontSize: screenWidth * 0.06, // Adjust the font size
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
             Align(
-              alignment: const Alignment(-0.50, 0.25),
+              alignment: const Alignment(-0.5, 0.25),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -66,16 +70,16 @@ class Techniques extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
-                    'assets/graphics/Rectangle_28.png',
-                    width: 115,
-                    height: 110,
+                    'assets/graphics/Rectangle28.png', // Fix asset path
+                    width: screenWidth * 0.4, // Adjust the image width
+                    height: screenHeight * 0.2, // Adjust the image height
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
             ),
             Align(
-              alignment: const Alignment(0.50, 0.25),
+              alignment: const Alignment(0.5, 0.25),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -88,9 +92,9 @@ class Techniques extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
-                    'assets/graphics/Rectangle_28.png',
-                    width: 115,
-                    height: 110,
+                    'assets/graphics/Rectangle28.png', // Fix asset path
+                    width: screenWidth * 0.4, // Adjust the image width
+                    height: screenHeight * 0.2, // Adjust the image height
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -102,8 +106,8 @@ class Techniques extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
                   'assets/graphics/Clock.png',
-                  width: 90,
-                  height: 91,
+                  width: screenWidth * 0.3, // Adjust the image width
+                  height: screenHeight * 0.15, // Adjust the image height
                   fit: BoxFit.cover,
                 ),
               ),
@@ -113,33 +117,10 @@ class Techniques extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
-                  'assets/graphics/Red_Card.png',
-                  width: 88,
-                  height: 90,
+                  'assets/graphics/RedCard.png', // Fix asset path
+                  width: screenWidth * 0.3, // Adjust the image width
+                  height: screenHeight * 0.15, // Adjust the image height
                   fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Align(
-              alignment: const Alignment(0.00, 0.00),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle the button press.
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF6493A5),
-                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-                  minimumSize: const Size(88, 40),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                  ),
-                ),
-                child: const Text(
-                  'Button',
-                  style: TextStyle(
-                    fontFamily: 'Readex Pro',
-                    color: Colors.white,
-                  ),
                 ),
               ),
             ),
