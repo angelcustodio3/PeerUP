@@ -175,6 +175,8 @@ class SecondRoute extends StatelessWidget {
 
 // Page for Viewing the
 class FourthPage extends StatelessWidget {
+  const FourthPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

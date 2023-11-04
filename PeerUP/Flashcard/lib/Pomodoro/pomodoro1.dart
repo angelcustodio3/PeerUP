@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'dart:async';
 
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
@@ -12,14 +14,14 @@ class Pomodoro extends StatefulWidget {
 
 class _PomodoroState extends State<Pomodoro> {
 
-  CountDownController _controller = CountDownController();
+  final CountDownController _controller = CountDownController();
   bool _isPause = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'POMODORO',
           style: TextStyle(
             color: Colors.black,
@@ -32,30 +34,30 @@ class _PomodoroState extends State<Pomodoro> {
         elevation: 0.0,
         centerTitle: true,
         leading: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           alignment: Alignment.center,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+          ),
           child: SvgPicture.asset(
             'assets/icons/left-arrow-svgrepo-com.svg',
             height: 20,
             width: 20,
           ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-          ),
         ),
 
         actions: [
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             alignment: Alignment.center,
             width: 37,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+            ),
             child: SvgPicture.asset(
               'assets/icons/settings-04-svgrepo-com.svg',
               height: 20,
               width: 20,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white,
             ),
           ),
         ],
@@ -66,7 +68,7 @@ class _PomodoroState extends State<Pomodoro> {
           width: MediaQuery.of(context).size.width / 2,
           height: MediaQuery.of(context).size.height / 2,
           duration: 150,
-          fillColor: Color.fromARGB(255, 100, 147, 165),
+          fillColor: const Color.fromARGB(255, 100, 147, 165),
           ringColor: Colors.white,
           controller: _controller,
           backgroundColor: Colors.white,
@@ -76,14 +78,14 @@ class _PomodoroState extends State<Pomodoro> {
           isReverseAnimation: true,
           isReverse: true,
           textFormat: CountdownTextFormat.MM_SS,
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontFamily: 'Poppins',
             fontSize: 50.0,
             color: Colors.black),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Color.fromARGB(255, 100, 147, 165),
+        backgroundColor: const Color.fromARGB(255, 100, 147, 165),
         onPressed: (){
           setState(() {
             if(_isPause){

@@ -21,12 +21,12 @@ class _MyAppState extends State<MyApp> {
         // Other theme properties
         iconTheme: customIconTheme, // Set the custom icon theme here
       ),
-      home: FirstPage(),
+      home: const FirstPage(),
     );
   }
 }
 
-IconThemeData customIconTheme = IconThemeData(
+IconThemeData customIconTheme = const IconThemeData(
   color: Colors.black,
 );
 
@@ -94,7 +94,7 @@ class SecondPage extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  color: Color(0xFFE6F0F2),
+                  color: const Color(0xFFE6F0F2),
                   child: Card(
                     margin: EdgeInsets.zero,
                     child: Column(
@@ -301,7 +301,7 @@ class AddCard extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
               'Create FlashCard',
@@ -312,7 +312,7 @@ class AddCard extends StatelessWidget {
             ),
           ),
           Center(
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.7,
               child: Card(
                 color: Colors.grey[350],
@@ -359,7 +359,7 @@ class AddCard extends StatelessWidget {
                                   // add flashcards to backend; FOR FUTURE IMPLEMENTATION
 
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
+                                    const SnackBar(
                                       content: Text("Flashcard Added",
                                           style: TextStyle(
                                               fontFamily: 'Poppins Regular')),
@@ -368,7 +368,7 @@ class AddCard extends StatelessWidget {
                                   );
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
+                                    const SnackBar(
                                       content: Text("Invalid Input",
                                           style: TextStyle(
                                               fontFamily: 'Poppins Regular')),
@@ -417,7 +417,7 @@ class _ViewCardState extends State<ViewCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(51, 50, 50, 1),
+        backgroundColor: const Color.fromRGBO(51, 50, 50, 1),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 5.0, bottom: 15.0),
@@ -433,77 +433,74 @@ class _ViewCardState extends State<ViewCard> {
             _buildCard('The Apartment',
                 'We wont share I wonder what sad wife lives there.'),
             // You can continue adding more cards here as needed
-            Container(
-              // color: Color(0xFFE6F0F2),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AddCard(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(247, 160, 114, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AddCard(),
                       ),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.add,
-                          color: Colors.black,
-                        ),
-                        Text(
-                          'Add Card',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Poppins',
-                            fontSize: 12.0,
-                          ),
-                        ),
-                      ],
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(247, 160, 114, 1),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Practice(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(247, 160, 114, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
+                  child: const Row(
+                    children: [
+                      Icon(
+                        Icons.add,
+                        color: Colors.black,
                       ),
-                    ),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Practice',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Poppins',
-                            fontSize: 12.0,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
+                      Text(
+                        'Add Card',
+                        style: TextStyle(
                           color: Colors.black,
+                          fontFamily: 'Poppins',
+                          fontSize: 12.0,
                         ),
-                      ],
+                      ),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Practice(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(247, 160, 114, 1),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
                     ),
                   ),
-                ],
-              ),
+                  child: const Row(
+                    children: [
+                      Text(
+                        'Practice',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Poppins',
+                          fontSize: 12.0,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -513,14 +510,14 @@ class _ViewCardState extends State<ViewCard> {
 
   Widget _buildCard(String title, String subtitle) {
     return Card(
-      color: Color.fromRGBO(237, 222, 164, 1),
+      color: const Color.fromRGBO(237, 222, 164, 1),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       child: Column(
         children: [
           ListTile(
             title: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'Poppins',
                 // fontSize: 20, // Set the desired font family
                 fontWeight: FontWeight.bold, // Set the desired font weight
@@ -529,14 +526,14 @@ class _ViewCardState extends State<ViewCard> {
             ),
             subtitle: Text(
               subtitle,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'Poppins', // Set the desired font family
                 // fontSize: 15,
                 fontWeight: FontWeight.normal, // Set the desired font weight
                 color: Colors.black, // Set the desired font color
               ),
             ),
-            contentPadding: EdgeInsets.all(8.0),
+            contentPadding: const EdgeInsets.all(8.0),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -636,7 +633,7 @@ class Practice extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.4,
           child: Card(
@@ -646,8 +643,8 @@ class Practice extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                   child: Align(
                     alignment: Alignment.centerLeft, // Align text to the left
                     child: Text(
@@ -686,11 +683,9 @@ class Practice extends StatelessWidget {
                   },
                 ),
                 Expanded(
-                  child: Container(
-                    child: Image.asset(
-                      'design1.png',
-                      fit: BoxFit.contain,
-                    ),
+                  child: Image.asset(
+                    'design1.png',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],
@@ -880,7 +875,7 @@ Widget build(BuildContext context) {
             ),
             clipBehavior: Clip.antiAlias,
             decoration: const BoxDecoration(),
-            child: Row(
+            child: const Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -904,7 +899,7 @@ Widget build(BuildContext context) {
             ),
             clipBehavior: Clip.antiAlias,
             decoration: const BoxDecoration(),
-            child: Row(
+            child: const Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

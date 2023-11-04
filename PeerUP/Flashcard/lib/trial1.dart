@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
                     bottom: 63.88,
                   ),
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
                     bottom: 127.88,
                   ),
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -119,8 +119,8 @@ class MyApp extends StatelessWidget {
                     color: const Color(0xFFE6F0F2),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
-                    shadows: [
-                      const BoxShadow(
+                    shadows: const [
+                      BoxShadow(
                         color: Color(0x3F000000),
                         blurRadius: 4,
                         offset: Offset(0, 4),
@@ -137,11 +137,11 @@ class MyApp extends StatelessWidget {
                   width: 325,
                   height: 114,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFE6F0F2),
+                    color: const Color(0xFFE6F0F2),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
-                    shadows: [
-                      const BoxShadow(
+                    shadows: const [
+                      BoxShadow(
                         color: Color(0x3F000000),
                         blurRadius: 4,
                         offset: Offset(0, 4),
@@ -158,10 +158,10 @@ class MyApp extends StatelessWidget {
                   width: 325,
                   height: 114,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFE6F0F2),
+                    color: const Color(0xFFE6F0F2),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
-                    shadows: [
+                    shadows: const [
                       BoxShadow(
                         color: Color(0x3F000000),
                         blurRadius: 4,
@@ -206,7 +206,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 30,
                 top: 328,
                 child: SizedBox(
@@ -240,7 +240,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 30,
                 top: 466,
                 child: SizedBox(
@@ -273,7 +273,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 30,
                 top: 234,
                 child: SizedBox(
@@ -291,7 +291,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 30,
                 top: 372,
                 child: SizedBox(
@@ -309,7 +309,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 30,
                 top: 510,
                 child: SizedBox(
@@ -333,7 +333,7 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   width: 98,
                   height: 27,
-                  decoration: ShapeDecoration(
+                  decoration: const ShapeDecoration(
                     color: Color(0xFFFBAD2F),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
@@ -345,7 +345,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 30,
                 top: 270,
                 child: SizedBox(
@@ -363,10 +363,10 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 236,
                 top: 95,
-                child: Container(
+                child: SizedBox(
                   width: 106.77,
                   height: 95.23,
                   // child: Stack(children: [
@@ -380,7 +380,7 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   width: 29,
                   height: 22,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage("https://via.placeholder.com/29x22"),
                       fit: BoxFit.contain,
@@ -394,7 +394,7 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   width: 29,
                   height: 22,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage("https://via.placeholder.com/29x22"),
                       fit: BoxFit.contain,
@@ -408,7 +408,7 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   width: 29,
                   height: 22,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage("https://via.placeholder.com/29x22"),
                       fit: BoxFit.contain,
@@ -422,7 +422,7 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   width: 53,
                   height: 52,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage("https://via.placeholder.com/53x52"),
                       fit: BoxFit.contain,
@@ -436,7 +436,7 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   width: 98,
                   height: 27,
-                  decoration: ShapeDecoration(
+                  decoration: const ShapeDecoration(
                     color: Color(0xFFFBAD2F),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
@@ -448,7 +448,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 30,
                 top: 408,
                 child: SizedBox(
@@ -472,7 +472,7 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   width: 98,
                   height: 27,
-                  decoration: ShapeDecoration(
+                  decoration: const ShapeDecoration(
                     color: Color(0xFFFBAD2F),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
@@ -484,7 +484,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 30,
                 top: 543,
                 child: SizedBox(

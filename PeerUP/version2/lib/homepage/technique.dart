@@ -23,7 +23,7 @@ class Techniques extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Flashcard(),
+                    builder: (context) => const Flashcard(),
                   ),
                 );
               },
@@ -35,7 +35,7 @@ class Techniques extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Pomodoro(),
+                    builder: (context) => const Pomodoro(),
                   ),
                 );
               },

@@ -5,10 +5,8 @@ class Peer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('My Peers'),
-      ),
+    return const Center(
+      child: Text('My Peers'),
     );
   }
 }

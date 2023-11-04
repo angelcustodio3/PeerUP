@@ -22,7 +22,7 @@ class _HomepageState extends State<Homepage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   //welcome
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -47,12 +47,12 @@ class _HomepageState extends State<Homepage> {
 
                   //profile
                   Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: const Color.fromRGBO(255, 230, 211, 1),
+                    padding: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      color: Color.fromRGBO(255, 230, 211, 1),
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.person,
                       size: 35,
                     ),
@@ -61,13 +61,13 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
 
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
 
             //quote
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12)),
@@ -78,10 +78,10 @@ class _HomepageState extends State<Homepage> {
                       height: 100,
                       width: 100,
                       color: Colors.cyan[700],
-                      child: Text('Quote of the day'),
+                      child: const Text('Quote of the day'),
                     ),
                     //quotes
-                    Column(
+                    const Column(
                       children: [
                         Text('“Lorem ipsum dolor sit amet,'),
                         Text('consectetur adipiscing elit,'),
@@ -89,9 +89,7 @@ class _HomepageState extends State<Homepage> {
                           'sed do eiusmod tempor incididunt ut',
                         ),
                         Text('labore et dolore magna aliqua.”'),
-                        Container(
-                          child: Center(child: Text('-Anonymous')),
-                        ),
+                        Center(child: Text('-Anonymous')),
 
                         //subject 1
                       ],
@@ -104,10 +102,10 @@ class _HomepageState extends State<Homepage> {
             Container(
               height: 50,
               width: 300,
-              margin: EdgeInsets.fromLTRB(20, 2, 20, 2),
-              padding: EdgeInsets.only(bottom: 25),
+              margin: const EdgeInsets.fromLTRB(20, 2, 20, 2),
+              padding: const EdgeInsets.only(bottom: 25),
               color: const Color.fromRGBO(255, 230, 211, 1),
-              child: Text(
+              child: const Text(
                 'Subject 1',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),

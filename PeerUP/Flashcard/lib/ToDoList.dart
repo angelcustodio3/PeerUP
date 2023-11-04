@@ -1,28 +1,34 @@
+// ignore_for_file: library_private_types_in_public_api, unused_import, file_names
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyPage(),
     );
   }
 }
 
 class MyPage extends StatelessWidget {
+  const MyPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Color(0xFF6493A5),
-        title: Text('Timer and To-Do List'),
+        backgroundColor:const Color(0xFF6493A5),
+        title: const Text('Timer and To-Do List'),
       ),
-      body: Column(
+      body: const Column(
         children: [
           TimerWidget(),
           Expanded(
@@ -35,6 +41,8 @@ class MyPage extends StatelessWidget {
 }
 
 class TimerWidget extends StatefulWidget {
+  const TimerWidget({super.key});
+
   @override
   _TimerWidgetState createState() => _TimerWidgetState();
 }
@@ -57,7 +65,7 @@ class _TimerWidgetState extends State<TimerWidget> {
       if (!isRunning) {
         return false;
       }
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       setState(() {
         seconds++;
       });
@@ -83,7 +91,7 @@ class _TimerWidgetState extends State<TimerWidget> {
       children: [
         Text(
           '$hours:$minutes:$remainingSeconds',
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.black,
@@ -99,7 +107,7 @@ class _TimerWidgetState extends State<TimerWidget> {
             ),
           ),
         ),*/
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(25.0), // Add padding around the text
           child: Text(
             'CMSC 128',
@@ -117,6 +125,8 @@ class _TimerWidgetState extends State<TimerWidget> {
 }
 
 class TodoListWidget extends StatefulWidget {
+  const TodoListWidget({super.key});
+
   @override
   _TodoListWidgetState createState() => _TodoListWidgetState();
 }
@@ -185,30 +195,30 @@ class _TodoListWidgetState extends State<TodoListWidget> {
           ),
         ),
 Padding(
-  padding: EdgeInsets.all(16.0),
+  padding: const EdgeInsets.all(16.0),
   child: Container(
     decoration: BoxDecoration(
-      color: Color(0x706493A5), // Set the background color
+      color: const Color(0x706493A5), // Set the background color
       // border: Border.all(color: Colors.blue, width: 2),
       borderRadius: BorderRadius.circular(12),
     ),
     child: Row(
       children: [
         IconButton(
-          icon: Icon(Icons.add),
+          icon: const Icon(Icons.add),
           onPressed: addTodoItem,
           color: Colors.black,
         ),
         Expanded(
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: TextField(
               controller: controller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Add a new task',
                 border: InputBorder.none,
               ),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
               ),

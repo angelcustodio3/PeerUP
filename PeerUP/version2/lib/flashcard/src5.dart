@@ -1,12 +1,16 @@
 //ETC
 //contains: expansion tile card
 
+// ignore_for_file: library_private_types_in_public_api, overridden_fields
+
 import 'package:flutter/material.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,6 +24,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  @override
   final Key? key;
   final String title;
 
@@ -33,8 +38,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final GlobalKey<ExpansionTileCardState> cardA = new GlobalKey();
-  final GlobalKey<ExpansionTileCardState> cardB = new GlobalKey();
+  final GlobalKey<ExpansionTileCardState> cardA = GlobalKey();
+  final GlobalKey<ExpansionTileCardState> cardB = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: ExpansionTileCard(
             key: cardB,
-            leading: CircleAvatar(child: Text('A')),
-            title: Text('Tap to Expand!'),
-            subtitle: Text('It has the GFG Logo.'),
+            leading: const CircleAvatar(child: Text('A')),
+            title: const Text('Tap to Expand!'),
+            subtitle: const Text('It has the GFG Logo.'),
             children: <Widget>[
-              Divider(
+              const Divider(
                 thickness: 1.0,
                 height: 1.0,
               ),

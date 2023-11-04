@@ -27,12 +27,12 @@ class MyApp extends StatelessWidget {
               ],
             ),
             title: const Text("PeerUP"),
-            titleTextStyle: TextStyle(
+            titleTextStyle: const TextStyle(
               fontSize: 25,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w600,
             ),
-            backgroundColor: Color.fromRGBO(100, 147, 165, 1),
+            backgroundColor: const Color.fromRGBO(100, 147, 165, 1),
           ),
           drawer: Drawer(
             child: ListView(
@@ -70,14 +70,14 @@ class MyApp extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             elevation: 10.0,
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
             onPressed: () {
               // actions here
             },
           ),
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: 0,
-              fixedColor: Color.fromRGBO(100, 147, 165, 1),
+              fixedColor: const Color.fromRGBO(100, 147, 165, 1),
               items: const [
                 BottomNavigationBarItem(
                   label: "Home",
