@@ -1,6 +1,9 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:peerup/homepage/history.dart';
 import 'package:peerup/homepage/homepage.dart';
+import 'package:peerup/homepage/loading_page.dart';
 import 'package:peerup/homepage/peer.dart';
 import 'package:peerup/homepage/settings.dart';
 import 'package:peerup/homepage/technique.dart';
@@ -13,7 +16,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List pages = [const Homepage(), const Techniques(), const History(), const Peer(), const Settings()];
+  List pages = [const HomePage(), const Techniques(), const History(), const Peer(), const Settings()];
 
   int currentIndex = 0;
   void onTap(int index) {
