@@ -1,7 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:peerup/homepage/mainpage.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     // Delay navigation to the MainPage
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 7), () {
       // Navigate to the MainPage
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
@@ -30,44 +29,42 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color.fromRGBO(20, 108, 148, 1),
-                Color.fromRGBO(38, 98, 169, 0.27),
-              ],
-            ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromRGBO(20, 108, 148, 100), // Top color
+              Color.fromRGBO(20, 108, 148, 69.27), // Middle color
+              Color.fromRGBO(20, 108, 148, 27), // Bottom color
+            ],
           ),
-          child: const Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'PEERUP',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Inter',
-                    fontSize: 48,
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 10.0,
-                        color: Color.fromRGBO(100, 147, 165, 100),
-                        offset: Offset(5.0, 5.0),
-                      ),
-                    ],
-                  ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'PEERUP',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 45,
+                  fontWeight: FontWeight.bold,
                 ),
-                SpinKitCircle(
-                  color: Colors.black,
-                  size: 75.0,
+              ),
+              const SizedBox(height: 100),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  'assets/graphics/book.gif',
+                  width: 300,
+                  height: 200,
+                  fit: BoxFit.cover,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
