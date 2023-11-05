@@ -1,9 +1,6 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
 import 'package:peerup/homepage/history.dart';
 import 'package:peerup/homepage/homepage.dart';
-import 'package:peerup/homepage/loading_page.dart';
 import 'package:peerup/homepage/peer.dart';
 import 'package:peerup/homepage/settings.dart';
 import 'package:peerup/homepage/technique.dart';

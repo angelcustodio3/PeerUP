@@ -1,4 +1,7 @@
+// ignore_for_file: unused_import
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:peerup/homepage/loading_page.dart';
 import 'package:peerup/homepage/mainpage.dart';
 
 void main() {
@@ -13,7 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(  
       debugShowCheckedModeBanner: false,
       title: 'PeerUP',
-      home: MainPage(),
+      home: MyHomePage(),
     );
   }
 }
