@@ -7,7 +7,7 @@ void main() {
 }
 
 class HomeRoute extends StatelessWidget {
-  const HomeRoute({Key? key}) : super(key: key);
+  const HomeRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class HomeRoute extends StatelessWidget {
 }
 
 class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key? key}) : super(key: key);
+  const SecondRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

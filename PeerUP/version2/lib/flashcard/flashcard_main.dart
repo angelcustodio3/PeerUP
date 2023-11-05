@@ -999,7 +999,7 @@ Widget build(BuildContext context) {
 }
 
 class ViewFlashcard extends StatelessWidget {
-  const ViewFlashcard({Key? key}) : super(key: key);
+  const ViewFlashcard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -1075,7 +1075,7 @@ class ViewFlashcard extends StatelessWidget {
 }
 
 class Page2Widget extends StatelessWidget {
-  const Page2Widget({Key? key}) : super(key: key);
+  const Page2Widget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -1213,7 +1213,7 @@ class Page2Widget extends StatelessWidget {
 }
 
 class ReviewCompletePage extends StatelessWidget {
-  const ReviewCompletePage({Key? key}) : super(key: key);
+  const ReviewCompletePage({super.key});
 
   @override
   Widget build(BuildContext context) {

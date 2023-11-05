@@ -13,6 +13,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+<<<<<<< HEAD
   List pages = [
     const Homepage(),
     const Techniques(),
@@ -20,6 +21,9 @@ class _MainPageState extends State<MainPage> {
     const Peer(),
     const Settings()
   ];
+=======
+  List pages = [const Homepage(title: '',), const Techniques(), const History(), const Peer(), const Settings()];
+>>>>>>> 3ce3af51322a11a253c6f72f08bed9615ec77967
 
   int currentIndex = 0;
   void onTap(int index) {

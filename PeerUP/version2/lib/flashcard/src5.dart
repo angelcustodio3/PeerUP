@@ -28,10 +28,9 @@ class MyHomePage extends StatefulWidget {
   final Key? key;
   final String title;
 
-  MyHomePage({Key? key, String? title})
+  MyHomePage({super.key, String? title})
       : key = key ?? GlobalKey(),
-        title = title ?? 'Default Title',
-        super(key: key);
+        title = title ?? 'Default Title';
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
