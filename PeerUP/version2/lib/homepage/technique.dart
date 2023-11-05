@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:peerup/flashcard/flashcard_main.dart';
+import 'package:peerup/homepage/homepage.dart';
+import 'package:peerup/homepage/mainpage.dart';
 import 'package:peerup/pomodoro/pomodoro_main.dart';
 
 class Techniques extends StatelessWidget {
@@ -25,7 +27,10 @@ class Techniques extends StatelessWidget {
             size: 30,
           ),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MainPage()),
+            );
           },
         ),
         actions: const [],
