@@ -13,7 +13,13 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List pages = [const Homepage(), const Techniques(), const History(), const Peer(), const Settings()];
+  List pages = [
+    const Homepage(),
+    const Techniques(),
+    const History(),
+    const Peer(),
+    const Settings()
+  ];
 
   int currentIndex = 0;
   void onTap(int index) {
@@ -44,8 +50,8 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
               label: 'History', icon: Icon(Icons.calendar_month)),
           BottomNavigationBarItem(label: 'My Peers', icon: Icon(Icons.groups)),
-          BottomNavigationBarItem(
-              label: 'Settings', icon: Icon(Icons.menu_outlined)),
+          //BottomNavigationBarItem(
+          //label: 'Settings', icon: Icon(Icons.menu_outlined)),
         ],
       ),
     );

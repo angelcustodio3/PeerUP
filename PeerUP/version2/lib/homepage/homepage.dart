@@ -98,18 +98,6 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
             ),
-
-            Container(
-              height: 50,
-              width: 300,
-              margin: const EdgeInsets.fromLTRB(20, 2, 20, 2),
-              padding: const EdgeInsets.only(bottom: 25),
-              color: const Color.fromRGBO(255, 230, 211, 1),
-              child: const Text(
-                'Subject 1',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            ),
           ],
         ),
       ),
