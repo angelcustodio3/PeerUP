@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     // Delay navigation to the MainPage
-    Future.delayed(const Duration(milliseconds: 1500), () {
+    Future.delayed(const Duration(seconds: 5), () {
       // Navigate to the MainPage
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
