@@ -13,7 +13,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List pages = [const Homepage(), const Techniques(), const History(), const Peer(), const Settings()];
+  List pages = [const Homepage(title: '',), const Techniques(), const History(), const Peer(), const Settings()];
 
   int currentIndex = 0;
   void onTap(int index) {

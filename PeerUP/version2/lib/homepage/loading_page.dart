@@ -1,10 +1,31 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:peerup/homepage/mainpage.dart';
 
-void main() => runApp(const MyApp());
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    // Delay navigation to the MainPage
+    Future.delayed(const Duration(milliseconds: 1500), () {
+      // Navigate to the MainPage
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const MainPage(),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +50,7 @@ class MyHomePage extends StatelessWidget {
                   'PEERUP',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Inter',
                     fontSize: 48,
                     color: Colors.white,
                     shadows: [
