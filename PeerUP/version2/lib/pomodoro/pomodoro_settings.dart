@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PomodoroSettings extends StatelessWidget {
-  const PomodoroSettings({Key? key}) : super(key: key);
+  const PomodoroSettings({super.key});
 
   @override
   Widget build(BuildContext context) {
