@@ -14,12 +14,12 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List pages = [
-    Homepage(
+    const Homepage(
       title: '',
     ),
-    Techniques(),
-    History(),
-    Peer(),
+    const Techniques(),
+    const History(),
+    const Peer(),
     //Settings()
   ];
 

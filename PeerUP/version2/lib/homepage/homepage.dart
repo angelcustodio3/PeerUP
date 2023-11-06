@@ -11,95 +11,113 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(238, 247, 255, 1),
+      backgroundColor: const Color(0xFF6493A5),
       body: SafeArea(
-        child: ListView(
+        top: true,
+        child: Stack(
           children: [
-            //app bar
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  //welcome
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Welcome,',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
-                            fontSize: 18),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        'Username!',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
-                            fontSize: 24),
-                      )
-                    ],
-                  ),
-
-                  //profile
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: Color.fromRGBO(255, 230, 211, 1),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.person,
-                      size: 35,
-                    ),
-                  ),
-                ],
+            const Align(
+              alignment: Alignment(-0.80, -0.98),
+              child: Text(
+                'Welcome,\nUsername!',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 30,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-
-            const SizedBox(height: 25),
-
-            //quote
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            Align(
+              alignment: const Alignment(0.00, -0.59),
               child: Container(
-                padding: const EdgeInsets.all(10),
+                width: 331,
+                height: 176,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12)),
-                child: Row(
-                  children: [
-                    //quoute of the day
-                    Container(
-                      height: 100,
-                      width: 100,
-                      color: Colors.cyan[700],
-                      child: const Text('Quote of the day'),
+                  color: const Color(0xFF6493A5),
+                  boxShadow: const [
+                    BoxShadow(
+                      blurRadius: 10,
+                      color: Color(0x40000000),
+                      offset: Offset(0, 0),
                     ),
-                    //quotes
-                    const Column(
-                      children: [
-                        Text('“Lorem ipsum dolor sit amet,'),
-                        Text('consectetur adipiscing elit,'),
-                        Text(
-                          'sed do eiusmod tempor incididunt ut',
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment(0.00, -0.80),
+                      child: Text(
+                        'QUOTE OF THE DAY',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
                         ),
-                        Text('labore et dolore magna aliqua.”'),
-                        Center(child: Text('-Anonymous')),
-
-                        //subject 1
-                      ],
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.00, -0.10),
+                      child: Text(
+                        '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Color(0xFF6493A5),
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.00, 0.86),
+                      child: Text(
+                        '- Anonymous',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
+            Align(
+              alignment: const Alignment(0.00, -0.10),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                child: Container(
+                  width: 350,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF333232),
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 4,
+                        color: Color(0x34090F13),
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.account_circle,
+              color: Color(0xFF6493A5),
+              size: 40,
+            ),
+            onPressed: () {},
+          ),
+        ],
       ),
     );
   }
