@@ -355,6 +355,34 @@ class _HomepageState extends State<Homepage> {
           ),
         ),
       ),
+/*<<<<<<< HEAD
+      body: ListView(
+        children: [
+          Container(
+            // child: TextField(
+            //   decoration: InputDecoration(
+            //     focusedBorder:
+            //   ),
+            // ),
+            margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+            padding: EdgeInsets.all(10.0),
+            color: Color.fromRGBO(15, 163, 177, 1),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+            padding: EdgeInsets.all(10.0),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+            padding: EdgeInsets.all(10.0),
+            color: Colors.blue,
+          )
+        ],
+      ),
+=======
+>>>>>>> e49f1156967c22ddc3c120a9ba0601645a69e832 */
     );
   }
 }
+
+
