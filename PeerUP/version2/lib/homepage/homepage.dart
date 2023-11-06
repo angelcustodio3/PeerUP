@@ -35,17 +35,7 @@ class _HomepageState extends State<Homepage> {
             fontWeight: FontWeight.w500,
           ),
         ),
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {
-        //       Scaffold.of(context).openDrawer();
-        //     },
-        //      icon: Icon(Icons.person),
-        //     padding: EdgeInsets.all(2),
-        //      color: Colors.black,
       ),
-      //CircleAvatar(backgroundImage: NetworkImage())
-      //  ],
     );
   }
 }
