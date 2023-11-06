@@ -14,7 +14,7 @@ class Flashcard extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flashcard Sets'),
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
       ),
       body: Column(
         children: [
@@ -212,7 +212,7 @@ class AddCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
         actions: [
           SizedBox(
             // FOR FUTURE IMPLEMENTATION OF SAVING CARDS
@@ -558,7 +558,7 @@ class Practice extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Practice',
             style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
@@ -650,7 +650,7 @@ class PracticeCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        color: const Color(0xFF6493A5),
+        color: const Color(0xFF0FA3B1),
         child: ListTile(
           title: Text(title,
               style: const TextStyle(
@@ -672,7 +672,7 @@ class AnotherPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Premium Feature'),
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
       ),
       body: const Center(
         child: Text(
@@ -768,7 +768,7 @@ class PracticeCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: const Color(0xFF6493A5),
+      color: const Color(0xFF0FA3B1),
       child: ListTile(
         title: Text(title,
             style: const TextStyle(
@@ -866,7 +866,7 @@ Widget build(BuildContext context) {
           child: Container(
             width: 305,
             height: 66,
-            decoration: const BoxDecoration(color: Color(0xFF6493A5)),
+            decoration: const BoxDecoration(color: Color(0xFF0FA3B1)),
           ),
         ),
         Positioned(
@@ -875,7 +875,7 @@ Widget build(BuildContext context) {
           child: Container(
             width: 305,
             height: 66,
-            decoration: const BoxDecoration(color: Color(0xFF6493A5)),
+            decoration: const BoxDecoration(color: Color(0xFF0FA3B1)),
           ),
         ),
         const Positioned(
@@ -1005,7 +1005,7 @@ class ViewFlashcard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_rounded,
@@ -1084,7 +1084,7 @@ class Page2Widget extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_rounded,
@@ -1222,7 +1222,7 @@ class ReviewCompletePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_rounded,
@@ -1358,7 +1358,7 @@ class ReviewCompletePage extends StatelessWidget {
                        );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF6493A5),
+                      backgroundColor: const Color(0xFF0FA3B1),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

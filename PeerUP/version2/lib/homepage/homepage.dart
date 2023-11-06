@@ -3,8 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:peerup/homepage/subject.dart';
-import 'package:peerup/homepage/technique.dart';
+import 'package:peerup/homepage/subject1.dart';
+import 'package:peerup/homepage/subject2.dart';
+
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key, required String title});
@@ -228,7 +229,7 @@ class _HomepageState extends State<Homepage> {
                           onTap: () {
                              Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const SubjectPage()),
+                              MaterialPageRoute(builder: (context) => const Subject1()),
                           );},
                           child: Stack(
                           children: [
@@ -249,7 +250,7 @@ class _HomepageState extends State<Homepage> {
                                 fontFamily: 'Poppins',
                                 color: Color(0xFF333232),
                                 fontSize: 18,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             )
@@ -266,7 +267,7 @@ class _HomepageState extends State<Homepage> {
                           onTap: () {
                              Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const SubjectPage()),
+                              MaterialPageRoute(builder: (context) => const Subject2()),
                           );},
                           child: Stack(
                           children: [
