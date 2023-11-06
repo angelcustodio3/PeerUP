@@ -34,14 +34,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(238, 247, 255, 1),
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color.fromRGBO(238, 247, 255, 1),
+        backgroundColor: Color.fromRGBO(249, 247, 243, 1),
         onTap: onTap,
         currentIndex: currentIndex,
-        selectedItemColor: Colors.teal,
+        selectedItemColor: Color.fromRGBO(15, 163, 177, 1),
         unselectedItemColor: Colors.blueGrey.withOpacity(0.5),
         showSelectedLabels: false,
         showUnselectedLabels: false,
