@@ -36,6 +36,30 @@ class _HomepageState extends State<Homepage> {
           ),
         ),
       ),
+      body: ListView(
+        children: [ 
+          Container(
+            // child: TextField(
+            //   decoration: InputDecoration(
+            //     focusedBorder: 
+            //   ),
+            // ),
+            margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+            padding: EdgeInsets.all(10.0),
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+            padding: EdgeInsets.all(10.0),
+            color: Colors.black,
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+            padding: EdgeInsets.all(10.0),
+            color: Colors.blue,
+          ),
+        ],
+      ),
     );
   }
 }
