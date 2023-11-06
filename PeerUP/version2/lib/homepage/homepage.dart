@@ -355,7 +355,7 @@ class _HomepageState extends State<Homepage> {
           ),
         ),
       ),
-<<<<<<< HEAD
+/*<<<<<<< HEAD
       body: ListView(
         children: [ 
           Container(
@@ -381,7 +381,7 @@ class _HomepageState extends State<Homepage> {
         ],
       ),
 =======
->>>>>>> e49f1156967c22ddc3c120a9ba0601645a69e832
+>>>>>>> e49f1156967c22ddc3c120a9ba0601645a69e832 */
     );
   }
 }
