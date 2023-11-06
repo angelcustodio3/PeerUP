@@ -13,6 +13,7 @@ class Pomodoro extends StatefulWidget {
 class _PomodoroState extends State<Pomodoro> {
 
   final CountDownController _controller = CountDownController();
+  bool _isStarted = false;
   bool _isPause = false;
 
   @override
@@ -109,7 +110,7 @@ class _PomodoroState extends State<Pomodoro> {
       
       floatingActionButton: Container(
         margin: const EdgeInsets.only(bottom: 70.0),
-        child: FloatingActionButton.extended(
+        child: FloatingActionButton(
           backgroundColor: const Color(0xFF0FA3B1),
           onPressed: (){
             setState(() {
@@ -123,9 +124,7 @@ class _PomodoroState extends State<Pomodoro> {
               }
             });
           }, 
-          icon: Icon(_isPause ? Icons.play_arrow : Icons.pause),
-          label: Text(_isPause ? 'Resume' : 'Pause' ),
-          
+          child: Icon(_isPause ? Icons.play_arrow_rounded : Icons.pause_rounded, size: 40.0, color: const Color(0xFFF9F7F3)),
         ),
       ),
       
