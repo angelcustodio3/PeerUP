@@ -23,7 +23,7 @@ class Techniques extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_rounded,
-            color: Colors.white,
+            color: Color(0xFF333232),
             size: 30,
           ),
           onPressed: () {
@@ -57,7 +57,7 @@ class Techniques extends StatelessWidget {
                 'CHOOSE YOUR FOCUS',
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  color: const Color(0xFF0D1238),
+                  color: const Color(0xFF333232),
                   fontSize: screenWidth * 0.06,
                   fontWeight: FontWeight.w600,
                 ),
