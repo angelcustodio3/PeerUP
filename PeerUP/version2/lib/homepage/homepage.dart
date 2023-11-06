@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:peerup/homepage/subject.dart';
+import 'package:peerup/homepage/technique.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key, required String title});
@@ -212,30 +214,26 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
 
-                  // 
+                  // Subjects sections
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        
                         margin: EdgeInsets.only(top: 350.0),
                         padding: EdgeInsets.zero,
                         height: 140,
-                        color: const Color(0xFFEDDEA4),
-                        child: Stack(
+                        color: const Color(0xFFFFEDCE),
+                        child: GestureDetector(
+                          onTap: () {
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SubjectPage()),
+                          );},
+                          child: Stack(
                           children: [
-                            // Container(
-                            //   child: SvgPicture.asset(
-                            //     'assets/icons/menu.svg',
-                            //     width: 20,
-                            //     height: 20,
-                            //     fit: BoxFit.cover,
-                            //     alignment: Alignment.bottomCenter,
-                            //   ) ,
-                            // ),
                             Container(
-                              width: 185, // Adjust as needed
+                              width: 200, // Adjust as needed
                               height: 100,
                               decoration: BoxDecoration(
                                 color: const Color(0xFF81B29A),
@@ -250,24 +248,30 @@ class _HomepageState extends State<Homepage> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 color: Color(0xFF333232),
-                                fontSize: 19,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             )
                           ],
-                          
                         ),
+                        )
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 350.0),
                         padding: EdgeInsets.zero,
                         height: 140,
-                        color: const Color(0xFFEDDEA4),
-                        child: Stack(
+                        color: const Color(0xFFFFEDCE),
+                        child: GestureDetector(
+                          onTap: () {
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SubjectPage()),
+                          );},
+                          child: Stack(
                           children: [
                             Container(
-                              width: 185, // Adjust as needed
+                              width: 200, // Adjust as needed
                               height: 100,
                               decoration: BoxDecoration(
                                 color: const Color(0xFFF7A072),
@@ -282,14 +286,17 @@ class _HomepageState extends State<Homepage> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 color: Color(0xFF333232),
-                                fontSize: 19,
-                                fontWeight: FontWeight.w500,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             )
                           ],
                           
                         ),
+
+                        )
+                        
                       ),
                     ],
                   ),
@@ -297,17 +304,17 @@ class _HomepageState extends State<Homepage> {
                   
                   
                   const Align(
-                    alignment: Alignment(0.81, 0.82),
+                    alignment: Alignment(0.81, 0.80),
                     child: Icon(
                       Icons.add_circle,
                       color: Color(0xFF6493A5),
-                      size: 60,
+                      size: 58,
                     ),
                   ),
                   Align(
                     alignment: const Alignment(-0.17, 0.12),
                     child: SvgPicture.asset(
-                      'assets/icons/menu.svg',
+                      'assets/icons/menu2.svg',
                       width: 20,
                       height: 20,
                       fit: BoxFit.cover,
@@ -317,7 +324,7 @@ class _HomepageState extends State<Homepage> {
                   Align(
                     alignment: const Alignment(0.80, 0.12),
                     child: SvgPicture.asset(
-                      'assets/icons/menu.svg',
+                      'assets/icons/menu2.svg',
                       width: 20,
                       height: 20,
                       fit: BoxFit.cover,
