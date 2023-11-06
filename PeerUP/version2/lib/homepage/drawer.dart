@@ -5,7 +5,7 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
+    return const Drawer(
       backgroundColor: Color.fromRGBO(15, 163, 177, 1),
     );
   }
