@@ -17,31 +17,25 @@ class PomodoroSettings extends StatelessWidget {
             fontWeight: FontWeight.bold
           ),
         ),
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
         elevation: 0.0,
         centerTitle: true,
-        
         leading: GestureDetector(
           onTap: () {
             Navigator.of(context).pop();
           },
           child: Container(
-            margin: const EdgeInsets.all(10),
+            width: 25.5,
+            height: 25.5,
             alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              color: Color(0xFF6493A5),
-            ),
-            child: 
-              SvgPicture.asset('assets/icons/arrow-left.svg',
-              height: 25,
-              width: 25,
-            ),
-        ),
+            margin: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(color: Color(0xFF0FA3B1)),
+            child: const Icon(Icons.arrow_back_rounded, color: Color(0xFF333232), size: 30.0,)
+          ),
         ),
       ),
-
       body: const Center(
-        child: Text('Settings Page'),
+        child: Text('Pomodoro Settings Page'),
       ),
     );
   }

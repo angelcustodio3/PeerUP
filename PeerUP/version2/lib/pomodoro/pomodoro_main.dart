@@ -47,13 +47,10 @@ class _PomodoroState extends State<Pomodoro> {
             decoration: const BoxDecoration(
               color: Color(0xFF0FA3B1),
             ),
-            child: 
-              SvgPicture.asset('assets/icons/arrow-left.svg',
-              height: 25.5,
-              width: 25.5,
-            ),
+            child:  const Icon(Icons.arrow_back_rounded, color: Color(0xFF333232), size: 30.0,)
           ),
         ),
+
         actions: [
           GestureDetector(
             onTap: () {
@@ -78,7 +75,6 @@ class _PomodoroState extends State<Pomodoro> {
           )
         ],
       ),
-
       body: Container(
         padding: const EdgeInsets.only(bottom: 200.0),
         margin: const EdgeInsets.all(50.0),
