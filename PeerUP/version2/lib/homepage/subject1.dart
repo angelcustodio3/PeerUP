@@ -3,22 +3,38 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class SubjectPage extends StatelessWidget {
-  const SubjectPage({super.key});
+class Subject1 extends StatelessWidget {
+  const Subject1({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:const Color(0xFF6493A5),
-        title: const Text('Timer and To-Do List'),
+        backgroundColor:const Color(0xFF0FA3B1),
+        title: const Text('CMSC 128',
+          style: TextStyle(
+            color: Color(0xFF333232),
+            fontFamily: 'Poppins',
+            fontSize: 15,
+            fontWeight: FontWeight.bold
+          )
+        ),
       ),
-      body: const Column(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          TimerWidget(),
-          Expanded(
-            child: TodoListWidget(),
+          Container(
+            margin: EdgeInsets.zero,
+            padding: EdgeInsets.all(20.0),
+            height: 150,
+            color: Color(0xFF81B29A),
+            child: TimerWidget(),
           ),
+          Container(
+            child: Expanded(
+              child: TodoListWidget(),
+            ),
+          )
         ],
       ),
     );
@@ -77,7 +93,7 @@ class _TimerWidgetState extends State<TimerWidget> {
         Text(
           '$hours:$minutes:$remainingSeconds',
           style: const TextStyle(
-            fontSize: 24,
+            fontSize: 45,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
@@ -92,17 +108,7 @@ class _TimerWidgetState extends State<TimerWidget> {
             ),
           ),
         ),*/
-        const Padding(
-          padding: EdgeInsets.all(25.0), // Add padding around the text
-          child: Text(
-            'CMSC 128',
-            style: TextStyle(
-              fontSize: 26, // Font size
-              color: Colors.black, // Text color
-              fontWeight: FontWeight.bold, // Font weight
-            ),
-          ),
-        ),
+        
       ],
     ),
     );
