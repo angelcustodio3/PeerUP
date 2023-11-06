@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:peerup/flashcard/flashcard_main.dart';
 import 'package:peerup/homepage/homepage.dart';
 import 'package:peerup/homepage/mainpage.dart';
@@ -17,7 +18,7 @@ class Techniques extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF6493A5),
+        backgroundColor: const Color(0xFF0FA3B1),
         centerTitle: true,
         elevation: 2,
         leading: IconButton(
@@ -39,7 +40,8 @@ class Techniques extends StatelessWidget {
         top: true,
         child: Stack(
           children: [
-            Align(
+            // Study girl illustration
+            Container(
               alignment: const Alignment(-0.04, -0.80),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
@@ -51,19 +53,23 @@ class Techniques extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+
+            // Choose your focus text space
+            Container(
               alignment: const Alignment(0, -0.15),
               child: Text(
                 'CHOOSE YOUR FOCUS',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   color: const Color(0xFF333232),
-                  fontSize: screenWidth * 0.06,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            Align(
+
+            // Pomodoro button section
+            Container(
               alignment: const Alignment(-0.5, 0.25),
               child: GestureDetector(
                 onTap: () {
@@ -80,7 +86,9 @@ class Techniques extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+
+            // Flashcard button section
+            Container(
               alignment: const Alignment(0.5, 0.25),
               child: GestureDetector(
                 onTap: () {
@@ -97,7 +105,8 @@ class Techniques extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+
+            Container(
               alignment: const Alignment(-0.45, 0.24),
               child: GestureDetector(
                 onTap: () {
@@ -105,8 +114,8 @@ class Techniques extends StatelessWidget {
                 },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    'assets/graphics/Clock.png',
+                  child: SvgPicture.asset(
+                    'assets/icons/timer.svg',
                     width: screenWidth * 0.225,
                     height: screenHeight * 0.1125,
                     fit: BoxFit.cover,
@@ -114,7 +123,8 @@ class Techniques extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+            
+            Container(
               alignment: const Alignment(0.46, 0.24),
               child: GestureDetector(
                 onTap: () {
@@ -122,8 +132,8 @@ class Techniques extends StatelessWidget {
                 },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    'assets/graphics/RedCard.png',
+                  child: SvgPicture.asset(
+                    'assets/icons/cards.svg',
                     width: screenWidth * 0.225,
                     height: screenHeight * 0.1125,
                     fit: BoxFit.cover,
@@ -163,7 +173,7 @@ void showPomodoroDialog(BuildContext context) {
                   'POMODORO',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: Color(0xFF0D1238),
+                    color: Color(0xFF333232),
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
                   ),
@@ -217,7 +227,7 @@ void showFlashcardDialog(BuildContext context) {
                   'FLASHCARD',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: Color(0xFF0D1238),
+                    color: Color(0xFF333232),
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
                   ),
@@ -258,11 +268,11 @@ class PopUpPageWidget extends StatelessWidget {
       child: Scaffold(
         backgroundColor: const Color(0xFFE1E1E1), // Change to your desired background color
         appBar: AppBar(
-          backgroundColor: const Color(0xFF6493A5),
+          backgroundColor: const Color(0xFF0FA3B1),
           leading: IconButton(
             icon: const Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: Color(0xFFF9F7F3),
               size: 30,
             ),
             onPressed: () {
@@ -273,7 +283,7 @@ class PopUpPageWidget extends StatelessWidget {
             'Page Title',
             style: TextStyle(
               fontFamily: 'Outfit',
-              color: Colors.white,
+              color: Color(0xFFF9F7F3),
               fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
@@ -298,7 +308,7 @@ class PopUpPageWidget extends StatelessWidget {
                     width: 230,
                     height: 287,
                     decoration: BoxDecoration(
-                      color: Colors.white, // Change to your desired color
+                      color: const Color(0xFFF9F7F3), // Change to your desired color
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: const Padding(
@@ -335,7 +345,7 @@ class PopUpPageWidget extends StatelessWidget {
               'POMODORO',
               style: TextStyle(
                 fontFamily: 'Poppins',
-                color: Color(0xFF0D1238),
+                color: Color(0xFF333232),
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
