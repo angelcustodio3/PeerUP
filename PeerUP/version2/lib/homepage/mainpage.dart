@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peerup/homepage/history.dart';
 import 'package:peerup/homepage/homepage.dart';
 import 'package:peerup/homepage/peer.dart';
-import 'package:peerup/homepage/settings.dart';
+//import 'package:peerup/homepage/settings.dart';
 import 'package:peerup/homepage/technique.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,17 +13,15 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-<<<<<<< HEAD
   List pages = [
-    const Homepage(),
-    const Techniques(),
-    const History(),
-    const Peer(),
-    const Settings()
+    Homepage(
+      title: '',
+    ),
+    Techniques(),
+    History(),
+    Peer(),
+    //Settings()
   ];
-=======
-  List pages = [const Homepage(title: '',), const Techniques(), const History(), const Peer(), const Settings()];
->>>>>>> 3ce3af51322a11a253c6f72f08bed9615ec77967
 
   int currentIndex = 0;
   void onTap(int index) {
