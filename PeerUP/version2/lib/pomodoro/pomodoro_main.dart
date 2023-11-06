@@ -82,11 +82,12 @@ class _PomodoroState extends State<Pomodoro> {
         child: Center(
           child: CircularCountDownTimer(
             
-            width: MediaQuery.of(context).size.width / 2.5,
-            height: MediaQuery.of(context).size.height / 2.5,
+            width: MediaQuery.of(context).size.width / 2.0,
+            height: MediaQuery.of(context).size.height / 2.0,
             duration: 150,
             fillColor: const Color(0xFF0FA3B1),
-            ringColor: const Color(0xFFF9F7F3),
+            ringColor: Color(_isStarted ? 0xFFF4F1DE : 0xFF0FA3B1),
+            //ringColor: const Color(0xFFF9F7F3),
             controller: _controller,
             backgroundColor: const Color(0xFFF9F7F3),
             strokeWidth: 15.0,

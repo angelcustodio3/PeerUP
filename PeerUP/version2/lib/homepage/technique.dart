@@ -62,7 +62,7 @@ class Techniques extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   color: const Color(0xFF333232),
-                  fontSize: 30.0,
+                  fontSize: 25.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -181,7 +181,7 @@ void showPomodoroDialog(BuildContext context) {
               ],
             ),
             const Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Iaculis at erat pellentesque adipiscing commodo elit at. Ac orci phasellus egestas tellus rutrum tellus.',
+              'Pomodoro is a time management study method based on 25-minute stretches of focused work broken by 5-minute breaks with 15-minute long breaks after consecutive Pomodoro sessions.',
             ),
             const SizedBox(width: 16), // Add some spacing between the image and text
             ElevatedButton(
@@ -235,7 +235,7 @@ void showFlashcardDialog(BuildContext context) {
               ],
             ),
             const Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Iaculis at erat pellentesque adipiscing commodo elit at. Ac orci phasellus egestas tellus rutrum tellus.',
+              'The Flashcard study technique helps engage learners in an active learning exercises that simulates the memories.',
             ),
             const SizedBox(width: 16), // Add some spacing between the image and text
             ElevatedButton(

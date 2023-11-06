@@ -92,29 +92,34 @@ class _HomepageState extends State<Homepage> {
                               'QUOTE OF THE DAY',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 12,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500
                               ),
                             ),
                           ),
                           Align(
+                            
                             alignment: Alignment(0.00, -0.10),
                             child: Text(
-                              '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”',
+                              ' ❝ It is during our darkest moments \nthat we must focus to see the light ❞ ',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                color: const Color(0xFFF9F7F3),
-                                fontSize: 15,
+                                color: Color(0xFFF9F7F3),
+                                fontSize: 16,
+                                fontStyle: FontStyle.italic,
+                                
                               ),
                             ),
                           ),
                           Align(
                             alignment: Alignment(0.00, 0.86),
                             child: Text(
-                              '- Anonymous',
+                              '- Aristotle',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 12,
+                                fontWeight: FontWeight.w200
                               ),
                             ),
                           ),
@@ -187,7 +192,7 @@ class _HomepageState extends State<Homepage> {
                               ),
                               prefixIcon: const Icon(
                                 Icons.search,
-                                color: Color(0xFF6493A5),
+                                color: Color(0xFF0FA3B1),
                               ),
                             ),
                             style: const TextStyle(
@@ -202,11 +207,11 @@ class _HomepageState extends State<Homepage> {
 
                   // Profile button container
                   Align(
-                    alignment: const Alignment(0.70, -0.92),
+                    alignment: const Alignment(0.75, -1.0),
                     child: IconButton(
                       icon: const Icon(
                         Icons.account_circle,
-                        color: Color(0xFF6493A5),
+                        color: Color(0xFF0FA3B1),
                         size: 60,
                       ),
                       onPressed: () {
@@ -308,7 +313,7 @@ class _HomepageState extends State<Homepage> {
                     alignment: Alignment(0.81, 0.80),
                     child: Icon(
                       Icons.add_circle,
-                      color: Color(0xFF6493A5),
+                      color: Color(0xFF0FA3B1),
                       size: 58,
                     ),
                   ),
