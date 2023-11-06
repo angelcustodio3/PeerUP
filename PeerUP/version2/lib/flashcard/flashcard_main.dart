@@ -1315,7 +1315,7 @@ class ReviewCompletePage extends StatelessWidget {
                   child: Text(
                     'Score Summary',
                     style: TextStyle(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: 'Poppins',
                       fontSize: screenWidth * 0.08, // Adjust the font size
                       fontWeight: FontWeight.w600,
                     ),
