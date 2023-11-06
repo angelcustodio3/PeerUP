@@ -14,7 +14,7 @@ class _PomodoroState extends State<Pomodoro> {
 
   final CountDownController _controller = CountDownController();
   bool _isStarted = false;
-  bool _isPause = false;
+  bool _isPause = true;
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +85,7 @@ class _PomodoroState extends State<Pomodoro> {
         //color: Colors.black,
         child: Center(
           child: CircularCountDownTimer(
+            
             width: MediaQuery.of(context).size.width / 2.5,
             height: MediaQuery.of(context).size.height / 2.5,
             duration: 150,
@@ -97,7 +98,7 @@ class _PomodoroState extends State<Pomodoro> {
             isTimerTextShown: true,
             isReverseAnimation: true,
             isReverse: true,
-            autoStart: true,
+            autoStart: false,
             textFormat: CountdownTextFormat.MM_SS,
             textStyle: const TextStyle(
               fontFamily: 'Poppins',
@@ -114,13 +115,16 @@ class _PomodoroState extends State<Pomodoro> {
           backgroundColor: const Color(0xFF0FA3B1),
           onPressed: (){
             setState(() {
-              if(_isPause){
+              if(_isStarted == false && _isPause == true){
+                _isStarted = true;
                 _isPause = false;
-                _controller.resume();
-              }
-              else{
+                _controller.restart();
+              }else if (_isStarted == true && _isPause == false){
                 _isPause = true;
                 _controller.pause();
+              }else if (_isStarted && _isPause){
+                _isPause = false;
+                _controller.resume();
               }
             });
           }, 
