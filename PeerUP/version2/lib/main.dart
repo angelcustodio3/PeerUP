@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // Use your SplashScreen as the home page
-      home: const SplashScreen(),
+      home: const MainPage(),
     );
   }
 }
