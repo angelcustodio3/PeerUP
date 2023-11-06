@@ -42,25 +42,29 @@ class _HomepageState extends State<Homepage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF9F7F3),
         body: SafeArea(
           top: true,
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Stack(
                 children: [
+
+                  // Welcome Peer message at top
                   const Align(
                     alignment: Alignment(-0.80, -0.93),
                     child: Text(
-                      'Welcome,\nUsername!',
+                      'Welcome, Peer001!',
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 30,
+                        fontSize: 25.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
+
+                  // Quote of the day container
                   Align(
                     alignment: const Alignment(0.00, -0.59),
                     child: Container(
@@ -96,7 +100,7 @@ class _HomepageState extends State<Homepage> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                color: Colors.white,
+                                color: const Color(0xFFF9F7F3),
                                 fontSize: 15,
                               ),
                             ),
@@ -115,6 +119,8 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                   ),
+
+                  // Search bar container
                   Align(
                     alignment: const Alignment(0.00, -0.10),
                     child: Padding(
@@ -123,7 +129,7 @@ class _HomepageState extends State<Homepage> {
                         width: constraints.maxWidth * 0.9, // Adjust as needed
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.white, // Change the color as needed
+                          color: const Color(0xFFF9F7F3), // Change the color as needed
                           boxShadow: const [
                             BoxShadow(
                               blurRadius: 4,
@@ -190,6 +196,8 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                   ),
+
+                  // Profile button container
                   Align(
                     alignment: const Alignment(0.70, -0.92),
                     child: IconButton(
@@ -203,129 +211,101 @@ class _HomepageState extends State<Homepage> {
                       },
                     ),
                   ),
-                  Align(
-                    alignment: const Alignment(-0.70, 0.23),
-                    child: Container(
-                      width: constraints.maxWidth * 0.25, // Adjust as needed
-                      height: 95,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFFFADD),
-                        borderRadius: BorderRadius.circular(5),
+
+                  // 
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        
+                        margin: EdgeInsets.only(top: 350.0),
+                        padding: EdgeInsets.zero,
+                        height: 140,
+                        color: const Color(0xFFEDDEA4),
+                        child: Stack(
+                          children: [
+                            // Container(
+                            //   child: SvgPicture.asset(
+                            //     'assets/icons/menu.svg',
+                            //     width: 20,
+                            //     height: 20,
+                            //     fit: BoxFit.cover,
+                            //     alignment: Alignment.bottomCenter,
+                            //   ) ,
+                            // ),
+                            Container(
+                              width: 185, // Adjust as needed
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF81B29A),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.fromLTRB(10, 105, 10, 10),
+                              child: const Text(
+                              'CMSC 128',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xFF333232),
+                                fontSize: 19,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            )
+                          ],
+                          
+                        ),
                       ),
-                    ),
-                  ),
-                  Align(
-                    alignment: const Alignment(-2.58, 0.86),
-                    child: Container(
-                      width: constraints.maxWidth * 0.25, // Adjust as needed
-                      height: 95,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFFFADD),
-                        borderRadius: BorderRadius.circular(5),
+                      Container(
+                        margin: EdgeInsets.only(top: 350.0),
+                        padding: EdgeInsets.zero,
+                        height: 140,
+                        color: const Color(0xFFEDDEA4),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: 185, // Adjust as needed
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFF7A072),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.fromLTRB(10, 105, 10, 10),
+                              child: const Text(
+                              'CMSC 134',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xFF333232),
+                                fontSize: 19,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            )
+                          ],
+                          
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                  Align(
-                    alignment: const Alignment(-0.70, 0.17),
-                    child: Container(
-                      width: constraints.maxWidth * 0.25, // Adjust as needed
-                      height: 57,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF5CCEC),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: const Alignment(0.59, 0.23),
-                    child: Container(
-                      width: constraints.maxWidth * 0.25, // Adjust as needed
-                      height: 95,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFFFADD),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: const Alignment(0.60, 0.17),
-                    child: Container(
-                      width: constraints.maxWidth * 0.25, // Adjust as needed
-                      height: 57,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFE2DDFF),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: const Alignment(-0.70, 0.57),
-                    child: Container(
-                      width: constraints.maxWidth * 0.25, // Adjust as needed
-                      height: 95,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFFFADD),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: const Alignment(-0.70, 0.49),
-                    child: Container(
-                      width: constraints.maxWidth * 0.25, // Adjust as needed
-                      height: 57,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFFDDDD),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
-                  const Align(
-                    alignment: Alignment(-0.71, 0.29),
-                    child: Text(
-                      'CMSC 128',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Color(0xFF6493A5),
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                  const Align(
-                    alignment: Alignment(-0.71, 0.59),
-                    child: Text(
-                      'CMSC 131',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Color(0xFF6493A5),
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                  const Align(
-                    alignment: Alignment(0.28, 0.29),
-                    child: Text(
-                      'CMSC 134',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Color(0xFF6493A5),
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
+
+                  
+                  
                   const Align(
                     alignment: Alignment(0.81, 0.82),
                     child: Icon(
                       Icons.add_circle,
                       color: Color(0xFF6493A5),
-                      size: 50,
+                      size: 60,
                     ),
                   ),
                   Align(
-                    alignment: const Alignment(-0.17, 0.13),
+                    alignment: const Alignment(-0.17, 0.12),
                     child: SvgPicture.asset(
                       'assets/icons/menu.svg',
                       width: 20,
@@ -333,17 +313,9 @@ class _HomepageState extends State<Homepage> {
                       fit: BoxFit.cover,
                     ),
                   ),
+                  
                   Align(
-                    alignment: const Alignment(-0.17, 0.44),
-                    child: SvgPicture.asset(
-                      'assets/icons/menu.svg',
-                      width: 20,
-                      height: 20,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Align(
-                    alignment: const Alignment(0.72, 0.13),
+                    alignment: const Alignment(0.80, 0.12),
                     child: SvgPicture.asset(
                       'assets/icons/menu.svg',
                       width: 20,
