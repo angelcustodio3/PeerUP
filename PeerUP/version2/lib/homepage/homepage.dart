@@ -49,7 +49,7 @@ class _HomepageState extends State<Homepage> {
           child: Stack(
             children: [
               const Align(
-                alignment: Alignment(-0.80, -0.98),
+                alignment: Alignment(-0.80, -0.93),
                 child: Text(
                   'Welcome,\nUsername!',
                   textAlign: TextAlign.start,
@@ -190,12 +190,12 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
               Align(
-                alignment: const Alignment(0.83, -0.93),
+                alignment: const Alignment(0.70, -0.92),
                 child: IconButton(
                   icon: const Icon(
                     Icons.account_circle,
                     color: Color(0xFF6493A5),
-                    size: 40,
+                    size: 60,
                   ),
                   onPressed: () {
                   },
@@ -323,7 +323,7 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
               Align(
-                alignment: const Alignment(-0.14, 0.12),
+                alignment: const Alignment(-0.17, 0.13),
                 child: SvgPicture.asset(
                   'assets/icons/menu.svg',
                   width: 20,
@@ -333,7 +333,7 @@ class _HomepageState extends State<Homepage> {
               ),
 
               Align(
-                alignment: const Alignment(-0.14, 0.43),
+                alignment: const Alignment(-0.17, 0.44),
                 child: SvgPicture.asset(
                   'assets/icons/menu.svg',
                   width: 20,
@@ -343,7 +343,7 @@ class _HomepageState extends State<Homepage> {
               ),
 
               Align(
-                alignment: const Alignment(0.73, 0.12),
+                alignment: const Alignment(0.72, 0.13),
                 child: SvgPicture.asset(
                   'assets/icons/menu.svg',
                   width: 20,
