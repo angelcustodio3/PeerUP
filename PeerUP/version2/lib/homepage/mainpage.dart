@@ -37,10 +37,10 @@ class _MainPageState extends State<MainPage> {
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color.fromRGBO(249, 247, 243, 1),
+        backgroundColor: const Color.fromRGBO(249, 247, 243, 1),
         onTap: onTap,
         currentIndex: currentIndex,
-        selectedItemColor: Color.fromRGBO(15, 163, 177, 1),
+        selectedItemColor: const Color.fromRGBO(15, 163, 177, 1),
         unselectedItemColor: Colors.blueGrey.withOpacity(0.5),
         showSelectedLabels: false,
         showUnselectedLabels: false,
