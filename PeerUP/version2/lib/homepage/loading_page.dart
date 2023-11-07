@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     fontWeight: FontWeight.bold,
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
-                      ..strokeWidth = 1
+                      ..strokeWidth = 2
                       ..color = const Color(0x9C6493A5),
                   ),
                 ),
