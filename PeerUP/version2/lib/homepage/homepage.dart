@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:peerup/homepage/subject1.dart';
 import 'package:peerup/homepage/subject2.dart';
+import 'package:peerup/homepage/LogIn.dart';
 
 
 class Homepage extends StatefulWidget {
@@ -215,7 +216,10 @@ class _HomepageState extends State<Homepage> {
                         size: 60,
                       ),
                       onPressed: () {
-                        // Handle button press
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
                       },
                     ),
                   ),
