@@ -5,8 +5,8 @@ import 'FC_AddCardPage.dart';
 import 'FC_ViewCardSetPages.dart';
 import 'FC_PracticePages.dart';
 
-class Practice extends StatelessWidget {
-  const Practice({super.key});
+class Quiz extends StatelessWidget {
+  const Quiz({super.key});
 
   @override
   Widget build(BuildContext context) {

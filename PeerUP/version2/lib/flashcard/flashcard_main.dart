@@ -83,6 +83,71 @@ class Flashcard extends StatelessWidget {
               ),
             ],
           ),
+          Stack(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ViewCard(),
+                    ),
+                  );
+                },
+                child: Container(
+                  color: const Color(0xFFE6F0F2),
+                  child: Card(
+                    margin: EdgeInsets.zero,
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: const Text('CMSC 128'),
+                          subtitle: const Text('Flashcard set for 1st LE'),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  _showOptionsDialog(context);
+                                },
+                                child: const Icon(Icons.more_vert),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Align(
+                          alignment: const FractionalOffset(0.035, 0.90),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Practice(),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFFBAD2F),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                            ),
+                            child: const Text(
+                              'PRACTICE',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
