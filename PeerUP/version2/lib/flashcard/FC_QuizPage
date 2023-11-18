@@ -4,6 +4,7 @@ import 'FC_FlashcardSetPage.dart';
 import 'FC_AddCardPage.dart';
 import 'FC_ViewCardSetPages.dart';
 import 'FC_PracticePages.dart';
+import 'FC_QuizPage.dart';
 
 class Quiz extends StatelessWidget {
   const Quiz({super.key});
