@@ -101,8 +101,8 @@ class Flashcard extends StatelessWidget {
                     child: Column(
                       children: [
                         ListTile(
-                          title: const Text('CMSC 128'),
-                          subtitle: const Text('Flashcard set for 1st LE'),
+                          title: const Text('Get To Know Quiz'),
+                          subtitle: const Text('How much do you know about her?'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -133,7 +133,7 @@ class Flashcard extends StatelessWidget {
                               ),
                             ),
                             child: const Text(
-                              'PRACTICE',
+                              'ANSWER QUIZ',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 color: Color.fromARGB(255, 0, 0, 0),
