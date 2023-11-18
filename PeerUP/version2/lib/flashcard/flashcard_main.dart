@@ -122,7 +122,7 @@ class Flashcard extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Practice(),
+                                  builder: (context) => const Quiz(),
                                 ),
                               );
                             },
