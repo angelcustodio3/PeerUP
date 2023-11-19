@@ -1,6 +1,7 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:peerup/flashcard/flashcard_main.dart';
 //import 'main.dart';
 //import 'FC_FlashcardSetPage.dart';
 //import 'FC_AddCardPage.dart';
@@ -15,14 +16,14 @@ class QuizQuestion {
   QuizQuestion({required this.statement, required this.correctAnswer});
 }
 
-class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+class Quiz extends StatefulWidget {
+  const Quiz({super.key});
 
   @override
   _QuizScreenState createState() => _QuizScreenState();
 }
 
-class _QuizScreenState extends State<QuizScreen> {
+class _QuizScreenState extends State<Quiz> {
   int currentQuestionIndex = 0;
 
   List<QuizQuestion> quizQuestions = [
@@ -34,15 +35,77 @@ class _QuizScreenState extends State<QuizScreen> {
       statement: 'The capital of France is London.',
       correctAnswer: false,
     ),
-    // Add more questions...
+    QuizQuestion(
+      statement: 'Sharks are mammals.',
+      correctAnswer: false,
+    ),
+    QuizQuestion(
+      statement: 'Sea otters have a favorite rock they use to break open food.',
+      correctAnswer: true,
+    ),
+    QuizQuestion(
+      statement: 'Pigs roll in the mud because they dont like being clean.',
+      correctAnswer: false,
+    ),
+    QuizQuestion(
+      statement: 'It takes a sloth two weeks to digest a meal.',
+      correctAnswer: true,
+    ),
+    QuizQuestion(
+      statement: 'Galapagos tortoises sleep up to 16 hours a day.',
+      correctAnswer: true,
+    ),
+    QuizQuestion(
+      statement: 'Herbivores are animal eaters.',
+      correctAnswer: false,
+    ),
+    QuizQuestion(
+      statement: 'A monkey was the first non-human to go into space.',
+      correctAnswer: false,
+    ),
+    QuizQuestion(
+      statement: 'New York City is composed of between 36 and 42 islands.',
+      correctAnswer: true,
+    ),    // Add more questions...
   ];
 
   List<bool?> userAnswers = List.filled(10, null);
+
+    void moveToNextQuestion() {
+    setState(() {
+
+      // Check if it's not the last question, then move to the next question
+      if (currentQuestionIndex < quizQuestions.length - 1) {
+        currentQuestionIndex++;
+      } else {
+        // When all questions are answered, navigate to the QuizCompletePage
+        int correctCount = userAnswers.where((answer) => answer == true).length;
+        int wrongCount = 10 - correctCount;
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => QuizComplete(
+              correctCount: correctCount,
+              wrongCount: wrongCount,
+            ),
+          ),
+        );
+        return;
+      }
+    });
+    }
+
+  void onAnswerSelected(bool answer) {
+    userAnswers[currentQuestionIndex] = answer;
+    moveToNextQuestion();
+  }  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xFF0FA3B1),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -52,29 +115,7 @@ class _QuizScreenState extends State<QuizScreen> {
             QuizCard(
               quizQuestion: quizQuestions[currentQuestionIndex],
               questionNumber: currentQuestionIndex + 1,
-              onAnswerSelected: (bool answer) {
-                setState(() {
-                  userAnswers[currentQuestionIndex] = answer;
-                  if (currentQuestionIndex < quizQuestions.length - 1) {
-                    currentQuestionIndex++;
-                  } else {
-                    // When quiz ends, calculate correct and wrong counts
-                    int correctCount = userAnswers.where((answer) => answer == true).length;
-                    int wrongCount = userAnswers.length - correctCount;
-
-                    // Navigate to QuizCompletePage and pass counts
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => QuizComplete(
-                          correctCount: correctCount,
-                          wrongCount: wrongCount,
-                        ),
-                      ),
-                    );
-                  }
-                });
-              },
+              onAnswerSelected: onAnswerSelected,
             ),
             const SizedBox(height: 20),
             // Removed the Finish Quiz button as it will navigate automatically
@@ -85,75 +126,151 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 }
 
-class QuizCard extends StatelessWidget {
+class QuizCard extends StatefulWidget {
   final QuizQuestion quizQuestion;
   final int questionNumber;
   final ValueChanged<bool> onAnswerSelected;
+  //final Function(bool) moveToNextQuestion; // Function to move to the next question
 
-  const QuizCard({super.key, 
+  const QuizCard({
+    super.key,
     required this.quizQuestion,
     required this.questionNumber,
     required this.onAnswerSelected,
+    //required this.moveToNextQuestion,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // Do something when the card is tapped
-      },
+  _QuizCardState createState() => _QuizCardState();
+}
+
+class _QuizCardState extends State<QuizCard> {
+  bool answerRevealed = false;
+  bool userAnswer = false;
+@override
+Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    
+    return Center(
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
-        width: 300,
-        height: 200,
+        width: screenWidth * 0.9, // 90% of screen width
+        height: screenHeight * 0.4,
         decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(10),
+          color: const Color(0xFFE6F0F2),
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 4,
+              color: Color(0x40000000),
+              offset: Offset(0, 4),
+              spreadRadius: 0,
+            ),
+          ],
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: _buildFrontCard(),
-      ),
-    );
-  }
-
-  Widget _buildFrontCard() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Question #$questionNumber\n\n${quizQuestion.statement}',
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  onAnswerSelected(true);
-                },
-                child: const Text('True'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Question #${widget.questionNumber}\n\n${widget.quizQuestion.statement}',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w400,
               ),
+            ),
+            const SizedBox(height: 40),
+            if (answerRevealed) ...[
+              Text(
+                'Correct Answer: ${widget.quizQuestion.correctAnswer ? 'True' : 'False'}',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  onAnswerSelected(false);
+                  setState(() {
+                    answerRevealed = false;
+                    widget.onAnswerSelected(userAnswer);
+                  });
                 },
-                child: const Text('False'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF0FA3B1),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text('Next Question'),
+              ),
+            ] else ...[
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    answerRevealed = true;
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF0FA3B1),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text('Reveal Answer'),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        userAnswer = true;
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF0FA3B1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: const Text('True'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        userAnswer = false;
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF0FA3B1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: const Text('False'),
+                  ),
+                ],
               ),
             ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
+  
 
 class QuizComplete extends StatelessWidget {
   final int correctCount;
   final int wrongCount;
 
-  const QuizComplete({super.key, 
+  const QuizComplete({
+    super.key,
     required this.correctCount,
     required this.wrongCount,
   });
