@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: LoginPage(),
     );
   }
 }
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF2925F),
+      backgroundColor: const Color(0xFFF2925F),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 30, left: 10),
+            const Padding(
+              padding: EdgeInsets.only(top: 30, left: 10),
               child: Text(
                 'Welcome \nBack',
                 style: TextStyle(
@@ -36,7 +40,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 0),
+            const SizedBox(height: 0),
             Center(
               child: Image.asset(
                 'assets/graphics/wws.png',
@@ -44,9 +48,9 @@ class LoginPage extends StatelessWidget {
                 height: 200,
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 270,
                 height: 50,
                 child: TextFormWidget(
@@ -59,9 +63,9 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 270,
                 height: 50,
                 child: PasswordTextFormWidget(
@@ -74,9 +78,9 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 134,
                 height: 33,
                 child: ElevatedButton(
@@ -84,10 +88,10 @@ class LoginPage extends StatelessWidget {
                     // Add login functionality here
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color(0xFF146C94)),
+                    backgroundColor: MaterialStateProperty.all(const Color(0xFF146C94)),
                     
                   ),
-                  child: Text(
+                  child: const Text(
                     'Log In',
                     style: TextStyle(
                       color: Colors.white,
@@ -99,8 +103,8 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Center(
+            const SizedBox(height: 20),
+            const Center(
               child: Text(
                 'OR',
                 style: TextStyle(
@@ -112,9 +116,9 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 190,
                 height: 33,
                 child: ElevatedButton.icon(
@@ -124,7 +128,7 @@ class LoginPage extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
                   ),
-                  label: Text(
+                  label: const Text(
                     'Connect with Google',
                     style: TextStyle(
                       color: Colors.black,
@@ -134,7 +138,7 @@ class LoginPage extends StatelessWidget {
                       height: 0,
                     ),
                   ),
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.account_circle,
                     color: Colors.black, // Change the check icon color
                   ),
@@ -156,7 +160,7 @@ class TextFormWidget extends StatefulWidget {
   final Color? focusColor;
   final bool removeBorder;
 
-  TextFormWidget({
+  TextFormWidget({super.key, 
     required this.hintText,
     required this.obscureText,
     this.marginBottom = 0,
@@ -210,7 +214,7 @@ class PasswordTextFormWidget extends StatefulWidget {
   final Color? focusColor;
   final bool removeBorder;
 
-  PasswordTextFormWidget({
+  PasswordTextFormWidget({super.key, 
     required this.hintText,
     required this.obscureText,
     this.marginBottom = 0,

@@ -218,7 +218,7 @@ class _HomepageState extends State<Homepage> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
+                          MaterialPageRoute(builder: (context) => const LoginPage()),
                         );
                       },
                     ),
@@ -230,7 +230,7 @@ class _HomepageState extends State<Homepage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 350.0),
+                        margin: const EdgeInsets.only(top: 350.0),
                         padding: EdgeInsets.zero,
                         height: 140,
                         color: const Color(0xFFFFEDCE),
@@ -251,7 +251,7 @@ class _HomepageState extends State<Homepage> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(10, 105, 10, 10),
+                              margin: const EdgeInsets.fromLTRB(10, 105, 10, 10),
                               child: const Text(
                               'CMSC 128',
                               textAlign: TextAlign.center,
@@ -268,7 +268,7 @@ class _HomepageState extends State<Homepage> {
                         )
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 350.0),
+                        margin: const EdgeInsets.only(top: 350.0),
                         padding: EdgeInsets.zero,
                         height: 140,
                         color: const Color(0xFFFFEDCE),
@@ -289,7 +289,7 @@ class _HomepageState extends State<Homepage> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(10, 105, 10, 10),
+                              margin: const EdgeInsets.fromLTRB(10, 105, 10, 10),
                               child: const Text(
                               'CMSC 134',
                               textAlign: TextAlign.center,
