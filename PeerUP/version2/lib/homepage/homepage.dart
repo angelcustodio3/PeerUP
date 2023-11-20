@@ -7,7 +7,6 @@ import 'package:peerup/homepage/subject1.dart';
 import 'package:peerup/homepage/subject2.dart';
 import 'package:peerup/homepage/LogIn.dart';
 
-
 class Homepage extends StatefulWidget {
   const Homepage({super.key, required String title});
 
@@ -18,6 +17,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   TextEditingController textController = TextEditingController();
   FocusNode textFieldFocusNode = FocusNode();
+  String selectedBackground = 'Default';
 
   @override
   void dispose() {
@@ -53,17 +53,40 @@ class _HomepageState extends State<Homepage> {
             builder: (context, constraints) {
               return Stack(
                 children: [
+                  // Background image
+                  Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: _getImage(selectedBackground),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
 
                   // Welcome Peer message at top
-                  const Align(
+                  Align(
                     alignment: Alignment(-0.80, -0.93),
-                    child: Text(
-                      'Welcome, Peer001!',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.w600,
+                    child: Builder(
+                      builder: (context) => Row(
+                        children: [
+                          Text(
+                            'Welcome, Peer001!',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.edit),
+                            onPressed: () {
+                              _showBackgroundMenu(context);
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -92,14 +115,12 @@ class _HomepageState extends State<Homepage> {
                             child: Text(
                               'QUOTE OF THE DAY',
                               style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500
-                              ),
+                                  fontFamily: 'Poppins',
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ),
                           Align(
-                            
                             alignment: Alignment(0.00, -0.10),
                             child: Text(
                               ' ❝ It is during our darkest moments \nthat we must focus to see the light ❞ ',
@@ -109,7 +130,6 @@ class _HomepageState extends State<Homepage> {
                                 color: Color(0xFFF9F7F3),
                                 fontSize: 16,
                                 fontStyle: FontStyle.italic,
-                                
                               ),
                             ),
                           ),
@@ -118,10 +138,9 @@ class _HomepageState extends State<Homepage> {
                             child: Text(
                               '- Aristotle',
                               style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 12,
-                                fontWeight: FontWeight.w200
-                              ),
+                                  fontFamily: 'Poppins',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w200),
                             ),
                           ),
                         ],
@@ -138,7 +157,8 @@ class _HomepageState extends State<Homepage> {
                         width: constraints.maxWidth * 0.9, // Adjust as needed
                         height: 50,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF9F7F3), // Change the color as needed
+                          color: const Color(
+                              0xFFF9F7F3), // Change the color as needed
                           boxShadow: const [
                             BoxShadow(
                               blurRadius: 4,
@@ -161,8 +181,8 @@ class _HomepageState extends State<Homepage> {
                                 fontFamily: 'Poppins',
                               ),
                               hintStyle: const TextStyle(
-                                // Define hint text style
-                              ),
+                                  // Define hint text style
+                                  ),
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Colors.grey,
@@ -218,7 +238,8 @@ class _HomepageState extends State<Homepage> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const LoginPage()),
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()),
                         );
                       },
                     ),
@@ -230,89 +251,92 @@ class _HomepageState extends State<Homepage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(top: 350.0),
-                        padding: EdgeInsets.zero,
-                        height: 140,
-                        color: const Color(0xFFFFEDCE),
-                        child: GestureDetector(
-                          onTap: () {
-                             Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const Subject1()),
-                          );},
-                          child: Stack(
-                          children: [
-                            Container(
-                              width: 200, // Adjust as needed
-                              height: 100,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF81B29A),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
+                          margin: const EdgeInsets.only(top: 350.0),
+                          padding: EdgeInsets.zero,
+                          height: 140,
+                          color: const Color(0xFFFFEDCE),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Subject1()),
+                              );
+                            },
+                            child: Stack(
+                              children: [
+                                Container(
+                                  width: 200, // Adjust as needed
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFF81B29A),
+                                    borderRadius: BorderRadius.circular(5),
+                                    // image: DecorationImage(
+                                    // image: _getImage(selectedBackground),
+                                    // fit: BoxFit.cover,
+                                    // ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.fromLTRB(
+                                      10, 105, 10, 10),
+                                  child: const Text(
+                                    'CMSC 128',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF333232),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(10, 105, 10, 10),
-                              child: const Text(
-                              'CMSC 128',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: Color(0xFF333232),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            )
-                          ],
-                        ),
-                        )
-                      ),
+                          )),
                       Container(
-                        margin: const EdgeInsets.only(top: 350.0),
-                        padding: EdgeInsets.zero,
-                        height: 140,
-                        color: const Color(0xFFFFEDCE),
-                        child: GestureDetector(
-                          onTap: () {
-                             Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const Subject2()),
-                          );},
-                          child: Stack(
-                          children: [
-                            Container(
-                              width: 200, // Adjust as needed
-                              height: 100,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFF7A072),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
+                          margin: const EdgeInsets.only(top: 350.0),
+                          padding: EdgeInsets.zero,
+                          height: 140,
+                          color: const Color(0xFFFFEDCE),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Subject2()),
+                              );
+                            },
+                            child: Stack(
+                              children: [
+                                Container(
+                                  width: 200, // Adjust as needed
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFF7A072),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.fromLTRB(
+                                      10, 105, 10, 10),
+                                  child: const Text(
+                                    'CMSC 134',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF333232),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(10, 105, 10, 10),
-                              child: const Text(
-                              'CMSC 134',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: Color(0xFF333232),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            )
-                          ],
-                          
-                        ),
-
-                        )
-                        
-                      ),
+                          )),
                     ],
                   ),
 
-                  
-                  
                   const Align(
                     alignment: Alignment(0.81, 0.80),
                     child: Icon(
@@ -330,7 +354,7 @@ class _HomepageState extends State<Homepage> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  
+
                   Align(
                     alignment: const Alignment(0.80, 0.12),
                     child: SvgPicture.asset(
@@ -347,5 +371,55 @@ class _HomepageState extends State<Homepage> {
         ),
       ),
     );
+  }
+
+  void _showBackgroundMenu(BuildContext context) {
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(10, 50, 0, 0),
+      items: [
+        PopupMenuItem<String>(
+          value: 'Sunset',
+          child: Text('Sunset'),
+        ),
+        PopupMenuItem<String>(
+          value: 'Road',
+          child: Text('Road'),
+        ),
+        PopupMenuItem<String>(
+          value: 'Lofi',
+          child: Text('Lofi'),
+        ),
+        PopupMenuItem<String>(
+          value: 'Town',
+          child: Text('Town'),
+        ),
+        PopupMenuItem<String>(
+          value: 'Default',
+          child: Text('Default'),
+        ),
+      ],
+    ).then((value) {
+      if (value != null) {
+        setState(() {
+          selectedBackground = value;
+        });
+      }
+    });
+  }
+
+  AssetImage _getImage(String imageName) {
+    switch (imageName) {
+      case 'Sunset':
+        return AssetImage('assets/graphics/sunset.jpg');
+      case 'Road':
+        return AssetImage('assets/graphics/road.jpg');
+      case 'Lofi':
+        return AssetImage('assets/graphics/lofi.jpeg');
+      case 'Town':
+        return AssetImage('assets/graphics/town.jpg');
+      default:
+        return AssetImage('assets/graphics/white.jpeg');
+    }
   }
 }
