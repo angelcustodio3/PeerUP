@@ -7,6 +7,17 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Drawer(
       backgroundColor: Color.fromRGBO(15, 163, 177, 1),
+      child: Column(
+        children: [
+          //header
+
+          //account
+
+          //faq
+
+          //logout
+        ],
+      ),
     );
   }
 }

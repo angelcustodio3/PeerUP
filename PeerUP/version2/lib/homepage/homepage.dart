@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,16 +6,22 @@ import 'package:peerup/homepage/subject2.dart';
 import 'package:peerup/homepage/LogIn.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({super.key, required String title});
+  const Homepage({Key? key, required String title}) : super(key: key);
 
   @override
-  _HomepageState createState() => _HomepageState();
+  State<Homepage> createState() => _HomepageState();
 }
 
 class _HomepageState extends State<Homepage> {
   TextEditingController textController = TextEditingController();
   FocusNode textFieldFocusNode = FocusNode();
-  String selectedBackground = 'Default';
+  String selectedBackground = 'default';
+
+  @override
+  void initState() {
+    super.initState();
+    // _generateSubjectColors();
+  }
 
   @override
   void dispose() {
@@ -25,6 +29,20 @@ class _HomepageState extends State<Homepage> {
     textFieldFocusNode.dispose();
     super.dispose();
   }
+
+  // void _generateSubjectColors() {
+  // Generate colors for each subject and store them in the map
+  // final random = Random();
+  // for (String subject in subjects) {
+  // final color = Color.fromRGBO(
+  // random.nextInt(156),
+  // random.nextInt(156),
+  // random.nextInt(256),
+  // 1.0,
+  // );
+  // subjectColors[subject] = color;
+  // }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -66,27 +84,15 @@ class _HomepageState extends State<Homepage> {
                   ),
 
                   // Welcome Peer message at top
-                  Align(
+                  const Align(
                     alignment: Alignment(-0.80, -0.93),
-                    child: Builder(
-                      builder: (context) => Row(
-                        children: [
-                          Text(
-                            'Welcome, Peer001!',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 25.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(Icons.edit),
-                            onPressed: () {
-                              _showBackgroundMenu(context);
-                            },
-                          ),
-                        ],
+                    child: Text(
+                      'Welcome, Peer001!',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -271,10 +277,6 @@ class _HomepageState extends State<Homepage> {
                                   decoration: BoxDecoration(
                                     color: const Color(0xFF81B29A),
                                     borderRadius: BorderRadius.circular(5),
-                                    // image: DecorationImage(
-                                    // image: _getImage(selectedBackground),
-                                    // fit: BoxFit.cover,
-                                    // ),
                                   ),
                                 ),
                                 Container(
