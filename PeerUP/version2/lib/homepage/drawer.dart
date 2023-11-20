@@ -10,8 +10,24 @@ class MyDrawer extends StatelessWidget {
       child: Column(
         children: [
           //header
-
+          DrawerHeader(
+            child: Icon(
+              Icons.person,
+              color: Colors.white,
+              size: 60,
+            ),
+          ),
           //account
+          ListTile(
+            leading: Icon(
+              Icons.person_2,
+              color: Colors.white,
+            ),
+            title: Text(
+              'P R O F I L E',
+              style: TextStyle(fontFamily: 'Poppins', color: Colors.white),
+            ),
+          )
 
           //faq
 
