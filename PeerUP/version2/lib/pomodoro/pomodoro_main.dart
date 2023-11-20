@@ -14,26 +14,33 @@ class _PomodoroState extends State<Pomodoro> {
 
   final CountDownController _controller = CountDownController();
   bool _isStarted = false;
-  bool _isPause = true;
+  int _focusTimer = 150;
+  int _shortBreak = 30;
+  int _longBreak = 60;
+  
 
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F3),
+      // Header of Pomodoro Page
       appBar: AppBar(
+        
+        toolbarHeight: 70.0,
         title: const Text(
           'POMODORO',
           style: TextStyle(
             color: Color(0xFF333232),
             fontFamily: 'Poppins',
-            fontSize: 15,
+            fontSize: 17,
             fontWeight: FontWeight.bold
           ),
         ),
-        backgroundColor: const Color(0xFF0FA3B1),
+        backgroundColor: const Color(0xFFF9F7F3),
         centerTitle: true,
-        elevation: 0.0,
+        elevation: 1.5,
+        // Arrow back icon
         leading: GestureDetector(
           onTap: () {
             Navigator.push(
@@ -42,15 +49,15 @@ class _PomodoroState extends State<Pomodoro> {
             );
           },
           child: Container(
-            margin: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(15),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
-              color: Color(0xFF0FA3B1),
+              color: Color(0xFFF9F7F3),
             ),
-            child:  const Icon(Icons.arrow_back_rounded, color: Color(0xFF333232), size: 30.0,)
+            child:  const Icon(Icons.arrow_back_rounded, color: Color(0xFF333232), size: 32.0,)
           ),
         ),
-
+        // Pomodoro settings icon
         actions: [
           GestureDetector(
             onTap: () {
@@ -60,16 +67,17 @@ class _PomodoroState extends State<Pomodoro> {
               );
             },
             child: Container(
-              margin: const EdgeInsets.all(10),
+              margin: const EdgeInsets.all(15),
               alignment: Alignment.center,
               width: 37,
               decoration: const BoxDecoration(
-                color: Color(0xFF0FA3B1),
+                color: Color(0xFFF9F7F3),
+                
               ),
               child: 
                 SvgPicture.asset('assets/icons/settings-2.svg',
-                height: 25.5,
-                width: 25.5,
+                height: 27.0,
+                width: 27.0,
               ),
             ),
           )
@@ -81,13 +89,11 @@ class _PomodoroState extends State<Pomodoro> {
         //color: Colors.black,
         child: Center(
           child: CircularCountDownTimer(
-            
-            width: MediaQuery.of(context).size.width / 2.0,
-            height: MediaQuery.of(context).size.height / 2.0,
-            duration: 150,
+            width: MediaQuery.of(context).size.width / 1.75,
+            height: MediaQuery.of(context).size.height / 1.75,
+            duration: _focusTimer,
             fillColor: const Color(0xFF0FA3B1),
             ringColor: Color(_isStarted ? 0xFFF4F1DE : 0xFF0FA3B1),
-            //ringColor: const Color(0xFFF9F7F3),
             controller: _controller,
             backgroundColor: const Color(0xFFF9F7F3),
             strokeWidth: 15.0,
@@ -97,10 +103,11 @@ class _PomodoroState extends State<Pomodoro> {
             isReverse: true,
             autoStart: false,
             textFormat: CountdownTextFormat.MM_SS,
+            //onComplete: () => ,
             textStyle: const TextStyle(
               fontFamily: 'Poppins',
               fontSize: 50.0,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.bold,
               color: Color(0xFF333232)),
           ),
         ),
@@ -108,24 +115,30 @@ class _PomodoroState extends State<Pomodoro> {
       
       floatingActionButton: Container(
         margin: const EdgeInsets.only(bottom: 70.0),
-        child: FloatingActionButton(
+        height: 50.0,
+        width: 120.0,
+        child: FloatingActionButton.extended(
           backgroundColor: const Color(0xFF0FA3B1),
           onPressed: (){
             setState(() {
-              if(_isStarted == false && _isPause == true){
+              if(_isStarted == false){
                 _isStarted = true;
-                _isPause = false;
                 _controller.restart();
-              }else if (_isStarted == true && _isPause == false){
-                _isPause = true;
-                _controller.pause();
-              }else if (_isStarted && _isPause){
-                _isPause = false;
-                _controller.resume();
-              }
-            });
+              }else if (_isStarted == true){
+                _isStarted = false;
+                _controller.reset();
+            }});
           }, 
-          child: Icon(_isPause ? Icons.play_arrow_rounded : Icons.pause_rounded, size: 40.0, color: const Color(0xFFF9F7F3)),
+          label: 
+            //extStyle(),
+            Text(_isStarted ? 'RESET' : 'START',
+              style: const TextStyle(
+                color: Color(0xFFF7F9F3),
+                fontFamily: 'Poppins',
+                fontSize: 19.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
         ),
       ),
       

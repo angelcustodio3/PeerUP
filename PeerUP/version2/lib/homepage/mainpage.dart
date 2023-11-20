@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:peerup/homepage/history.dart';
 import 'package:peerup/homepage/homepage.dart';
 import 'package:peerup/homepage/peer.dart';
+//import 'package:peerup/homepage/subject1.dart';
 //import 'package:peerup/homepage/settings.dart';
 import 'package:peerup/homepage/technique.dart';
 
@@ -22,6 +23,7 @@ class _MainPageState extends State<MainPage> {
     const Techniques(),
     const History(),
     const Peer(),
+    //const Subject1(),
     //Settings()
   ];
 
