@@ -74,6 +74,7 @@ class _HomepageState extends State<Homepage> {
         actions: [
           IconButton(
             icon: Icon(Icons.insert_photo),
+            color: Colors.black,
             onPressed: () => _showBackgroundMenu(context),
           ),
         ],
