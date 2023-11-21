@@ -31,7 +31,7 @@ class _PomodoroState extends State<Pomodoro> {
   bool _isOnging = false;
   bool _focus = true;
   bool _short = false;
-  int _focusTimer = 10;
+  int _focusTimer = 15;
   final int _shortBreak = 5;
   final int _longBreak = 7;
   final int _session = 4;
@@ -147,7 +147,7 @@ class _PomodoroState extends State<Pomodoro> {
                     shadowColor: Color(0xFF333232),
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: Text("Congrats!",
+                      child: Text("Congrats! You finished your session!",
                         style: TextStyle( fontFamily: 'Poppins', fontSize: 15.0),
                       ),
                     ),
