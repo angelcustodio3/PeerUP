@@ -104,7 +104,7 @@ class Flashcard extends StatelessWidget {
                       children: [
                         ListTile(
                           title: const Text('Get To Know Quiz'),
-                          subtitle: const Text('How much do you know about her?'),
+                          subtitle: const Text('How much do you know about Sheryl?'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
