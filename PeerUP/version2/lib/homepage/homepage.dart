@@ -21,6 +21,7 @@ class _HomepageState extends State<Homepage> {
 
   List<String> filteredSubjects = [];
   Map<String, Color> subjectColors = {};
+  String selectedBackground = 'default'; // For default background
 
   @override
   void initState() {
@@ -70,86 +71,153 @@ class _HomepageState extends State<Homepage> {
             fontWeight: FontWeight.w500,
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          // Quote
-          Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Color(0xFF6493A5),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            margin: const EdgeInsets.symmetric(horizontal: 25),
-            padding: const EdgeInsets.all(25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    Text('QUOTE OF THE DAY'),
-                    Text(
-                      '❝ It is during our darkest moments \nthat we must focus to see the light ❞',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 16,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
-
-          // Search Bar
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              onChanged: (query) {
-                setState(() {
-                  filteredSubjects = subjects
-                      .where((subject) =>
-                          subject.toLowerCase().contains(query.toLowerCase()))
-                      .toList();
-                });
-              },
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Search',
-                prefixIcon: Icon(Icons.search),
-              ),
-            ),
-          ),
-
-          // Subject Grid View
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.all(30.0),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
-              ),
-              itemCount: filteredSubjects.isEmpty
-                  ? subjects.length
-                  : filteredSubjects.length,
-              itemBuilder: (BuildContext context, int index) {
-                final subject = filteredSubjects.isEmpty
-                    ? subjects[index]
-                    : filteredSubjects[index];
-
-                // Retrieve color from the map
-                final color = subjectColors[subject] ?? Colors.blue;
-
-                return SubjectCard(subject: subject, color: color);
-              },
-            ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.insert_photo),
+            onPressed: () => _showBackgroundMenu(context),
           ),
         ],
       ),
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: _getImage(selectedBackground),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Column(
+            children: [
+              // Quote
+              Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Color(0xFF6493A5),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                margin: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.all(25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        Text('QUOTE OF THE DAY'),
+                        Text(
+                          '❝ It is during our darkest moments \nthat we must focus to see the light ❞',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              // Search Bar
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  onChanged: (query) {
+                    setState(() {
+                      filteredSubjects = subjects
+                          .where((subject) => subject
+                              .toLowerCase()
+                              .contains(query.toLowerCase()))
+                          .toList();
+                    });
+                  },
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Search',
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                ),
+              ),
+
+              // Subject Grid View
+              GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(30.0),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+                ),
+                itemCount: filteredSubjects.isEmpty
+                    ? subjects.length
+                    : filteredSubjects.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final subject = filteredSubjects.isEmpty
+                      ? subjects[index]
+                      : filteredSubjects[index];
+
+                  // Retrieve color from the map
+                  final color = subjectColors[subject] ?? Colors.blue;
+
+                  return SubjectCard(subject: subject, color: color);
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
     );
+  }
+
+  AssetImage _getImage(String imageName) {
+    switch (imageName) {
+      case 'Sunset':
+        return AssetImage('assets/graphics/sunset.jpg');
+      case 'Road':
+        return AssetImage('assets/graphics/road.jpg');
+      case 'Lofi':
+        return AssetImage('assets/graphics/lofi.jpeg');
+      case 'Town':
+        return AssetImage('assets/graphics/town.jpg');
+      default:
+        return AssetImage('assets/graphics/white.jpeg');
+    }
+  }
+
+  void _showBackgroundMenu(BuildContext context) {
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(10, 50, 0, 0),
+      items: [
+        PopupMenuItem<String>(
+          value: 'Sunset',
+          child: Text('Sunset'),
+        ),
+        PopupMenuItem<String>(
+          value: 'Road',
+          child: Text('Road'),
+        ),
+        PopupMenuItem<String>(
+          value: 'Lofi',
+          child: Text('Lofi'),
+        ),
+        PopupMenuItem<String>(
+          value: 'Town',
+          child: Text('Town'),
+        ),
+        PopupMenuItem<String>(
+          value: 'Default',
+          child: Text('Default'),
+        ),
+      ],
+    ).then((value) {
+      if (value != null) {
+        setState(() {
+          selectedBackground = value;
+        });
+      }
+    });
   }
 }
 
