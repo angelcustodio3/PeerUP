@@ -28,43 +28,43 @@ class _QuizScreenState extends State<Quiz> {
 
   List<QuizQuestion> quizQuestions = [
     QuizQuestion(
-      statement: 'The sky is blue.',
+      statement: 'Sheryl is 22 years old',
+      correctAnswer: false,
+    ),
+    QuizQuestion(
+      statement: "Sheryl's zodiac sign is Pisces.",
+      correctAnswer: false,
+    ),
+    QuizQuestion(
+      statement: 'Her favorite color is purple.',
+      correctAnswer: false,
+    ),
+    QuizQuestion(
+      statement: 'Her favorite subject is math.',
+      correctAnswer: false,
+    ),
+    QuizQuestion(
+      statement: 'She is a kpop fan.',
       correctAnswer: true,
     ),
     QuizQuestion(
-      statement: 'The capital of France is London.',
-      correctAnswer: false,
-    ),
-    QuizQuestion(
-      statement: 'Sharks are mammals.',
-      correctAnswer: false,
-    ),
-    QuizQuestion(
-      statement: 'Sea otters have a favorite rock they use to break open food.',
+      statement: 'Her favorite kpop group is SNSD.',
       correctAnswer: true,
     ),
     QuizQuestion(
-      statement: 'Pigs roll in the mud because they dont like being clean.',
+      statement: 'She lives in Iloilo City.',
       correctAnswer: false,
     ),
     QuizQuestion(
-      statement: 'It takes a sloth two weeks to digest a meal.',
+      statement: 'Her degree program is Computer Science.',
       correctAnswer: true,
     ),
     QuizQuestion(
-      statement: 'Galapagos tortoises sleep up to 16 hours a day.',
+      statement: 'She likes matcha.',
       correctAnswer: true,
     ),
     QuizQuestion(
-      statement: 'Herbivores are animal eaters.',
-      correctAnswer: false,
-    ),
-    QuizQuestion(
-      statement: 'A monkey was the first non-human to go into space.',
-      correctAnswer: false,
-    ),
-    QuizQuestion(
-      statement: 'New York City is composed of between 36 and 42 islands.',
+      statement: 'She is currently 20 years old.',
       correctAnswer: true,
     ),    // Add more questions...
   ];
@@ -186,7 +186,7 @@ Widget build(BuildContext context) {
             if (answerRevealed) ...[
               Text(
                 'Correct Answer: ${widget.quizQuestion.correctAnswer ? 'True' : 'False'}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
                 ),
@@ -208,20 +208,6 @@ Widget build(BuildContext context) {
                 child: const Text('Next Question'),
               ),
             ] else ...[
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    answerRevealed = true;
-                  });
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF0FA3B1),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: const Text('Reveal Answer'),
-              ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -230,6 +216,7 @@ Widget build(BuildContext context) {
                     onPressed: () {
                       setState(() {
                         userAnswer = true;
+                        answerRevealed = true;
                       });
                     },
                     style: ElevatedButton.styleFrom(
@@ -244,6 +231,7 @@ Widget build(BuildContext context) {
                     onPressed: () {
                       setState(() {
                         userAnswer = false;
+                        answerRevealed = true;
                       });
                     },
                     style: ElevatedButton.styleFrom(
