@@ -123,12 +123,12 @@ class Techniques extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             Container(
               alignment: const Alignment(0.46, 0.24),
               child: GestureDetector(
                 onTap: () {
-                    showFlashcardDialog(context);
+                  showFlashcardDialog(context);
                 },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
@@ -168,7 +168,8 @@ void showPomodoroDialog(BuildContext context) {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(width: 16), // Add some spacing between the image and text
+                const SizedBox(
+                    width: 16), // Add some spacing between the image and text
                 const Text(
                   'POMODORO',
                   style: TextStyle(
@@ -182,18 +183,27 @@ void showPomodoroDialog(BuildContext context) {
             ),
             const Text(
               'Pomodoro is a time management study method based on 25-minute stretches of focused work broken by 5-minute breaks with 15-minute long breaks after consecutive Pomodoro sessions.',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 15,
+              ),
             ),
-            const SizedBox(width: 16), // Add some spacing between the image and text
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
+            SizedBox(
+              width: 16,
+            ), // Add some spacing between the image and text
+            Container(
+              padding: EdgeInsets.only(top: 5.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const Pomodoro(),
                     ),
                   );
-              },
-              child: const Text('Use Technique'),
+                },
+                child: const Text('Use Technique'),
+              ),
             ),
           ],
         ),
@@ -222,7 +232,8 @@ void showFlashcardDialog(BuildContext context) {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(width: 16), // Add some spacing between the image and text
+                const SizedBox(
+                    width: 16), // Add some spacing between the image and text
                 const Text(
                   'FLASHCARD',
                   style: TextStyle(
@@ -237,15 +248,16 @@ void showFlashcardDialog(BuildContext context) {
             const Text(
               'The Flashcard study technique helps engage learners in an active learning exercises that simulates the memories.',
             ),
-            const SizedBox(width: 16), // Add some spacing between the image and text
+            const SizedBox(
+                width: 16), // Add some spacing between the image and text
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Flashcard(),
-                    ),
-                  );
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Flashcard(),
+                  ),
+                );
               },
               child: const Text('Use Technique'),
             ),
@@ -266,7 +278,8 @@ class PopUpPageWidget extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        backgroundColor: const Color(0xFFE1E1E1), // Change to your desired background color
+        backgroundColor:
+            const Color(0xFFE1E1E1), // Change to your desired background color
         appBar: AppBar(
           backgroundColor: const Color(0xFF0FA3B1),
           leading: IconButton(
@@ -308,7 +321,8 @@ class PopUpPageWidget extends StatelessWidget {
                     width: 230,
                     height: 287,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF9F7F3), // Change to your desired color
+                      color: const Color(
+                          0xFFF9F7F3), // Change to your desired color
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: const Padding(
@@ -324,8 +338,7 @@ class PopUpPageWidget extends StatelessWidget {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                     child: const Text('Use Technique'),
                   ),
                 ],

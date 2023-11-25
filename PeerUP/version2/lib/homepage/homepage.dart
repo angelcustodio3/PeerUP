@@ -96,7 +96,8 @@ class _HomepageState extends State<Homepage> {
                   color: Color(0xFF6493A5),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                margin: const EdgeInsets.symmetric(horizontal: 25),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                 padding: const EdgeInsets.all(25),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
