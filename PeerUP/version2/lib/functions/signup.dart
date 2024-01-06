@@ -1,11 +1,22 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:peerup/homepage/LogIn.dart';
+import 'package:peerup/homepage/homepage.dart';
 
-Future<UserCredential?> signUp(String email, String password) async {
+Future<UserCredential?> signUp(
+    String email, String password, BuildContext context) async {
   try {
     UserCredential userCredential =
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: email,
       password: password,
+    );
+
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+          builder: (context) => const Homepage(
+                title: '',
+              )),
     );
 
     return userCredential;
