@@ -1,22 +1,22 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:peerup/functions/signup.dart';
+import 'package:peerup/homepage/signUpPage.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Login());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: LoginPage(),
-    );
-  }
+  State<StatefulWidget> createState() => LoginPage();
 }
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPage extends State<Login> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +27,18 @@ class LoginPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 30, left: 10),
-              child: Text(
-                'Welcome \nBack',
-                style: TextStyle(
-                  color: Color(0xFF0D1238),
-                  fontSize: 40,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w900,
-                  height: 0,
+            const Center(
+              child: Padding(
+                padding: EdgeInsets.only(top: 30, left: 10),
+                child: Text(
+                  'Welcome Back!',
+                  style: TextStyle(
+                    color: Color(0xFF0D1238),
+                    fontSize: 40,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w900,
+                    height: 0,
+                  ),
                 ),
               ),
             ),
@@ -54,12 +56,13 @@ class LoginPage extends StatelessWidget {
                 width: 270,
                 height: 50,
                 child: TextFormWidget(
-                  hintText: 'Username',
+                  hintText: 'Email',
                   obscureText: false,
                   marginBottom: 10,
                   borderColor: Colors.white,
                   focusColor: Colors.red,
                   removeBorder: true,
+                  controller: emailController,
                 ),
               ),
             ),
@@ -75,6 +78,7 @@ class LoginPage extends StatelessWidget {
                   borderColor: Colors.white,
                   focusColor: Colors.red,
                   removeBorder: true,
+                  controller: passwordController,
                 ),
               ),
             ),
@@ -84,12 +88,10 @@ class LoginPage extends StatelessWidget {
                 width: 134,
                 height: 33,
                 child: ElevatedButton(
-                  onPressed: () {
-                    // Add login functionality here
-                  },
+                  onPressed: () async {},
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(const Color(0xFF146C94)),
-                    
+                    backgroundColor:
+                        MaterialStateProperty.all(const Color(0xFF146C94)),
                   ),
                   child: const Text(
                     'Log In',
@@ -103,44 +105,19 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            const Center(
-              child: Text(
-                'OR',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                  height: 0,
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Center(
-              child: SizedBox(
-                width: 190,
-                height: 33,
-                child: ElevatedButton.icon(
-                  onPressed: () {
-                    // Add Google login functionality here
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                  ),
-                  label: const Text(
-                    'Connect with Google',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0,
-                    ),
-                  ),
-                  icon: const Icon(
-                    Icons.account_circle,
-                    color: Colors.black, // Change the check icon color
+              child: TextButton(
+                onPressed: () {
+                  // add login functionality
+                },
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -159,14 +136,17 @@ class TextFormWidget extends StatefulWidget {
   final Color? borderColor;
   final Color? focusColor;
   final bool removeBorder;
+  final TextEditingController controller; // Add this line
 
-  TextFormWidget({super.key, 
+  TextFormWidget({
+    super.key,
     required this.hintText,
     required this.obscureText,
     this.marginBottom = 0,
     this.borderColor,
     this.focusColor,
     this.removeBorder = false,
+    required this.controller, // Initialize the controller
   });
 
   @override
@@ -179,6 +159,8 @@ class _TextFormWidgetState extends State<TextFormWidget> {
     return Container(
       margin: EdgeInsets.only(bottom: widget.marginBottom),
       child: TextFormField(
+        controller: widget.controller, // Assign the controller to TextFormField
+
         obscureText: widget.obscureText,
         decoration: InputDecoration(
           hintText: widget.hintText,
@@ -213,14 +195,17 @@ class PasswordTextFormWidget extends StatefulWidget {
   final Color? borderColor;
   final Color? focusColor;
   final bool removeBorder;
+  final TextEditingController controller; // Add this line
 
-  PasswordTextFormWidget({super.key, 
+  PasswordTextFormWidget({
+    super.key,
     required this.hintText,
     required this.obscureText,
     this.marginBottom = 0,
     this.borderColor,
     this.focusColor,
     this.removeBorder = false,
+    required this.controller, // Initialize the controller
   });
 
   @override
@@ -241,6 +226,7 @@ class _PasswordTextFormWidgetState extends State<PasswordTextFormWidget> {
     return Container(
       margin: EdgeInsets.only(bottom: widget.marginBottom),
       child: TextFormField(
+        controller: widget.controller,
         obscureText: isObscured,
         decoration: InputDecoration(
           hintText: widget.hintText,
