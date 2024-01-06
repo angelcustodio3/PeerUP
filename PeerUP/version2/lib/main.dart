@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -15,7 +13,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -28,8 +25,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // Use your SplashScreen as the home page
-      home: const SplashScreen(),
+      // Use your PeerUp as the landing page or starting page
+      home: const PeerUp(),
     );
   }
 }
