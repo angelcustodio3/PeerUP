@@ -1,19 +1,22 @@
+// dependencies:
+//   flutter:
+//     sdk: flutter
+//   intl: ^0.16.0
+//   table_calendar: ^2.3.3
+//   # simple_gesture_detect
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:async';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Your App Title',
-      home: ProgressPage(),
-    );
-  }
+  runApp(MaterialApp(
+    theme: ThemeData(
+      // Define the primary color for the app
+      primaryColor: Colors.black,
+    ),
+    home: ProgressPage(),
+  ));
 }
 
 class ProgressPage extends StatefulWidget {
@@ -24,6 +27,9 @@ class ProgressPage extends StatefulWidget {
 class _ProgressPageState extends State<ProgressPage> {
   late Timer _timer;
   DateTime? lastUsedDate;
+
+  // Customize timer font and color
+  final TextStyle timerStyle = TextStyle(fontSize: 36, color: Colors.black);
 
   @override
   void initState() {
@@ -58,36 +64,63 @@ class _ProgressPageState extends State<ProgressPage> {
       appBar: AppBar(
         title: Text('Progress Page'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // Timer Section
-            Padding(
+      body: Column(
+        children: [
+          // Spacer to push the timer to the upper-middle part
+          Spacer(),
+
+          // Timer Section in the upper-middle part
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 _formattedTime(),
-                style: TextStyle(fontSize: 24),
+                style: timerStyle,
               ),
             ),
+          ),
 
-            // Calendar Section
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                _markedDays(),
-                style: TextStyle(fontSize: 18),
-              ),
+          // Calendar Section
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              _markedDays(),
+              style: TextStyle(fontSize: 18),
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search, color: Colors.black),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications, color: Colors.black),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person, color: Colors.black),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: 0,
+        onTap: (index) {
+          // Handle navigation item taps here
+        },
       ),
     );
   }
 
   String _formattedTime() {
     if (lastUsedDate == null) {
-      return 'Time Spent: 0:00:00';
+      return '0:00:00';
     }
 
     Duration timeDifference = DateTime.now().difference(lastUsedDate!);
@@ -95,7 +128,7 @@ class _ProgressPageState extends State<ProgressPage> {
     int minutes = (timeDifference.inMinutes % 60);
     int seconds = (timeDifference.inSeconds % 60);
 
-    return 'Time Spent: $hours:$minutes:$seconds';
+    return '$hours:$minutes:$seconds';
   }
 
   String _markedDays() {
