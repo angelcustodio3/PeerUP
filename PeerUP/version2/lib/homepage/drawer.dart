@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:peerup/functions/logout.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Drawer(
+    return Drawer(
       backgroundColor: Color.fromRGBO(15, 163, 177, 1),
       child: Column(
         children: [
@@ -27,11 +28,24 @@ class MyDrawer extends StatelessWidget {
               'P R O F I L E',
               style: TextStyle(fontFamily: 'Poppins', color: Colors.white),
             ),
-          )
+          ),
 
           //faq
 
-          //logout
+          //logout //logout
+          ListTile(
+            leading: Icon(
+              Icons.logout,
+              color: Colors.white,
+            ),
+            title: Text(
+              'L O G O U T',
+              style: TextStyle(fontFamily: 'Poppins', color: Colors.white),
+            ),
+            onTap: () {
+              logOut(context);
+            },
+          ),
         ],
       ),
     );

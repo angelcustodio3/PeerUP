@@ -1,27 +1,27 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:peerup/functions/login.dart';
-import 'package:peerup/homepage/signUpPage.dart';
+import 'package:peerup/functions/signup.dart';
+import 'package:peerup/homepage/LogIn.dart';
 
 void main() {
-  runApp(const Login());
+  runApp(const SignUp());
 }
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<StatefulWidget> createState() => LoginPage();
+  State<StatefulWidget> createState() => SignUpPage();
 }
 
-class LoginPage extends State<Login> {
+class SignUpPage extends State<SignUp> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2925F),
+      backgroundColor: const Color(0xFFB5E2FA),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -31,9 +31,9 @@ class LoginPage extends State<Login> {
               child: Padding(
                 padding: EdgeInsets.only(top: 30, left: 10),
                 child: Text(
-                  'Welcome Back!',
+                  'Hello, Peer!',
                   style: TextStyle(
-                    color: Color(0xFF0D1238),
+                    color: Color(0xFFF7A072),
                     fontSize: 40,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w900,
@@ -56,7 +56,7 @@ class LoginPage extends State<Login> {
                 width: 270,
                 height: 50,
                 child: TextFormWidget(
-                  hintText: 'Email',
+                  hintText: 'Enter Email',
                   obscureText: false,
                   marginBottom: 10,
                   borderColor: Colors.white,
@@ -72,7 +72,7 @@ class LoginPage extends State<Login> {
                 width: 270,
                 height: 50,
                 child: PasswordTextFormWidget(
-                  hintText: 'Password',
+                  hintText: 'Enter Password',
                   obscureText: true,
                   marginBottom: 10,
                   borderColor: Colors.white,
@@ -82,25 +82,39 @@ class LoginPage extends State<Login> {
                 ),
               ),
             ),
+            const SizedBox(height: 0),
+            Center(
+              child: SizedBox(
+                  width: 270,
+                  height: 40,
+                  child: Text(
+                    "Password must be at least 6 characters.",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 12,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )),
+            ),
             const SizedBox(height: 15),
             Center(
               child: SizedBox(
-                width: 134,
+                width: 184,
                 height: 33,
                 child: ElevatedButton(
                   onPressed: () async {
-                    UserCredential? userCredential =
-                        await signInWithEmailPassword(emailController.text,
-                            passwordController.text, context);
+                    UserCredential? userCredential = await signUp(
+                        emailController.text, passwordController.text, context);
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF146C94)),
+                        MaterialStateProperty.all(const Color(0xFFEDDEA4)),
                   ),
                   child: const Text(
-                    'Log In',
+                    'Create Account',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
@@ -114,13 +128,13 @@ class LoginPage extends State<Login> {
               child: TextButton(
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const SignUp()),
+                    MaterialPageRoute(builder: (context) => const Login()),
                   );
                 },
                 child: const Text(
-                  'Sign Up',
+                  'Log In',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black87,
                     fontSize: 15,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
@@ -234,6 +248,11 @@ class _PasswordTextFormWidgetState extends State<PasswordTextFormWidget> {
       child: TextFormField(
         controller: widget.controller,
         obscureText: isObscured,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return "Please enter your email";
+          }
+        },
         decoration: InputDecoration(
           hintText: widget.hintText,
           filled: true,
