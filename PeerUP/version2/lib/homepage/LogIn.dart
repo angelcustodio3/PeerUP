@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:peerup/functions/signup.dart';
+import 'package:peerup/functions/login.dart';
 import 'package:peerup/homepage/signUpPage.dart';
 
 void main() {
@@ -88,7 +88,11 @@ class LoginPage extends State<Login> {
                 width: 134,
                 height: 33,
                 child: ElevatedButton(
-                  onPressed: () async {},
+                  onPressed: () async {
+                    UserCredential? userCredential =
+                        await signInWithEmailPassword(emailController.text,
+                            passwordController.text, context);
+                  },
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(const Color(0xFF146C94)),
@@ -109,7 +113,9 @@ class LoginPage extends State<Login> {
             Center(
               child: TextButton(
                 onPressed: () {
-                  // add login functionality
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const SignUp()),
+                  );
                 },
                 child: const Text(
                   'Sign Up',
