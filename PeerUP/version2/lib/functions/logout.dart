@@ -6,7 +6,6 @@ import 'package:peerup/homepage/homepage.dart';
 
 Future<UserCredential?> logOut(context) async {
   await FirebaseAuth.instance.signOut();
-  print("testing");
 
   Navigator.of(context).pushReplacement(
     MaterialPageRoute(builder: (context) => const Login()),
