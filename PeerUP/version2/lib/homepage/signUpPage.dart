@@ -33,7 +33,7 @@ class SignUpPage extends State<SignUp> {
                 child: Text(
                   'Hello, Peer!',
                   style: TextStyle(
-                    color: Color(0xFF0D1238),
+                    color: Color(0xFFF7A072),
                     fontSize: 40,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w900,
@@ -109,12 +109,12 @@ class SignUpPage extends State<SignUp> {
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF146C94)),
+                        MaterialStateProperty.all(const Color(0xFFEDDEA4)),
                   ),
                   child: const Text(
                     'Create Account',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
@@ -134,7 +134,7 @@ class SignUpPage extends State<SignUp> {
                 child: const Text(
                   'Log In',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black87,
                     fontSize: 15,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
@@ -248,6 +248,11 @@ class _PasswordTextFormWidgetState extends State<PasswordTextFormWidget> {
       child: TextFormField(
         controller: widget.controller,
         obscureText: isObscured,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return "Please enter your email";
+          }
+        },
         decoration: InputDecoration(
           hintText: widget.hintText,
           filled: true,
