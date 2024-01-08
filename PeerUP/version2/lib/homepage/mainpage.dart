@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
     const Homepage(title: '',
     ),
     const Techniques(),
-    ProgressPage(),
+    const History(),
     const Peer(),
   ];
 

@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:peerup/homepage/LogIn.dart';
-import 'package:peerup/homepage/mainpage.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Delay navigation to the login screen after 2 seconds (for example)
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Login()),
+      );
+    });
     return Scaffold(
       backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
       body: Container(
