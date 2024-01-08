@@ -10,13 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MyPage(),
+      home: Tasks(),
     );
   }
 }
 
-class MyPage extends StatelessWidget {
-  const MyPage({Key? key}) : super(key: key);
+class Tasks extends StatelessWidget {
+  const Tasks({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

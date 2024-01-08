@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:peerup/progress/progress_page.dart';
 import 'package:peerup/homepage/homepage.dart';
 import 'package:peerup/homepage/peer.dart';
 import 'package:peerup/homepage/technique.dart';
+import 'package:peerup/progress/to-do-page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
   List<Widget> pages = [
     Homepage(),
     Techniques(),
-    ProgressPage(),
+    Tasks(),
     Peer(),
   ];
 
