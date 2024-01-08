@@ -6,26 +6,13 @@ import 'package:peerup/homepage/peer.dart';
 import 'package:peerup/homepage/technique.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({Key? key, required String title}) : super(key: key);
+  const Homepage({super.key, required String title});
 
   @override
   State<Homepage> createState() => _HomepageState();
 }
 
 class _HomepageState extends State<Homepage> {
-
-  List<Widget> pages = [
-    const Techniques(),
-    const History(),
-    const Peer(),
-  ];
-
-  int currentIndex = 0;
-  void onTap(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
 
   // SUBJECTS SECTION -----------------------------------------------------------------
   List<String> subjects = [
@@ -190,27 +177,7 @@ class _HomepageState extends State<Homepage> {
           ),
         ),
       ),
-          bottomNavigationBar: BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: const Color.fromRGBO(249, 247, 243, 1),
-      onTap: onTap,
-      currentIndex: currentIndex,
-      selectedItemColor: const Color.fromRGBO(15, 163, 177, 1),
-      unselectedItemColor: Colors.blueGrey.withOpacity(0.5),
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      elevation: 0,
-      items: const [
-        BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: 'Technique', icon: Icon(Icons.book)),
-        BottomNavigationBarItem(
-            label: 'History', icon: Icon(Icons.calendar_month)),
-        BottomNavigationBarItem(label: 'My Peers', icon: Icon(Icons.groups)),
-        //BottomNavigationBarItem(
-        //label: 'Settings', icon: Icon(Icons.menu_outlined)),
-      ],
-    ),
-  );
+    );
   }
 
   AssetImage _getImage(String imageName) {
@@ -262,6 +229,7 @@ class _HomepageState extends State<Homepage> {
       }
     });
   }
+}
 
 // SUBJECT CARD CLASS
 class SubjectCard extends StatelessWidget {
