@@ -12,20 +12,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List pages = [
-    const Homepage(title: '',
-    ),
-    const Techniques(),
-    const Peer(),
-    ProgressPage(),
-  ];
 
-  int currentIndex = 0;
-  void onTap(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
 
 // main page
   @override

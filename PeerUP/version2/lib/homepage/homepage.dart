@@ -7,7 +7,7 @@ import 'package:peerup/homepage/peer.dart';
 import 'package:peerup/homepage/technique.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({Key? key, required String title}) : super(key: key);
+  const Homepage({super.key, required String title});
 
   @override
   State<Homepage> createState() => _HomepageState();
