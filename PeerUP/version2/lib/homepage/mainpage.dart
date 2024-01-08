@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peerup/homepage/history.dart';
+import 'package:peerup/progress/progress_page.dart';
 import 'package:peerup/homepage/homepage.dart';
 import 'package:peerup/homepage/peer.dart';
 import 'package:peerup/homepage/technique.dart';
@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
     const Homepage(title: '',
     ),
     const Techniques(),
-    const History(),
+    ProgressPage(),
     const Peer(),
   ];
 
