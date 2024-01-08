@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:peerup/homepage/drawer.dart';
+import 'package:peerup/homepage/history.dart';
+import 'package:peerup/homepage/peer.dart';
+import 'package:peerup/homepage/technique.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key, required String title}) : super(key: key);
@@ -10,6 +13,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+
+  // SUBJECTS SECTION -----------------------------------------------------------------
   List<String> subjects = [
     'CMSC 128',
     'CMSC 129',
@@ -28,7 +33,6 @@ class _HomepageState extends State<Homepage> {
     super.initState();
     _generateSubjectColors();
   }
-
   void _generateSubjectColors() {
     // Generate colors for each subject and store them in the map
     final random = Random();
@@ -47,7 +51,9 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(249, 247, 243, 1),
-      drawer: MyDrawer(),
+
+      // APPBAR, PROFILE DRAWER, ----------------------------------------------------------
+      drawer: MyDrawer(), 
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(249, 247, 243, 1),
         elevation: 0,
@@ -87,6 +93,8 @@ class _HomepageState extends State<Homepage> {
               fit: BoxFit.cover,
             ),
           ),
+
+          // QUOTES SECTION ----------------------------------------------------
           child: Column(
             children: [
               // Quote
@@ -120,7 +128,7 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
 
-              // Search Bar
+              // SEARCH BAR SECTION ------------------------------------------------------------
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
@@ -223,6 +231,7 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
+// SUBJECT CARD CLASS
 class SubjectCard extends StatelessWidget {
   final String subject;
   final Color color;
@@ -246,3 +255,4 @@ class SubjectCard extends StatelessWidget {
     );
   }
 }
+
