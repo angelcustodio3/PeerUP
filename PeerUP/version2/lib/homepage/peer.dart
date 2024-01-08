@@ -1,14 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+class Peer extends StatefulWidget {
+  const Peer({Key? key}) : super(key: key);
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  _PeerState createState() => _PeerState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _PeerState extends State<Peer> {
   late TextEditingController _textController1;
   late TextEditingController _textController2;
   late TextEditingController _textController3;
@@ -107,7 +109,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       image: _pickedImage != null
                           ? DecorationImage(
                               image: FileImage(
-                                _pickedImage!.path,
+                                _pickedImage!.path as File,
                               ),
                               fit: BoxFit.cover,
                             )
