@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'dart:math';
 import 'package:peerup/homepage/drawer.dart';
 import 'package:peerup/homepage/history.dart';
@@ -50,37 +51,40 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(249, 247, 243, 1),
+      backgroundColor: Color(0xFFFAEBD2),
 
       // APPBAR, PROFILE DRAWER, ----------------------------------------------------------
       drawer: MyDrawer(), 
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(249, 247, 243, 1),
+        backgroundColor: Color(0xFFFAEBD2),
         elevation: 0,
         leading: Builder(
           builder: (context) {
             return IconButton(
               onPressed: () => Scaffold.of(context).openDrawer(),
-              icon: Icon(
-                Icons.person,
-                color: Colors.black,
+              icon: SvgPicture.asset(
+                'assets/icons/profile.svg',
+                height: 30.0,
+                width: 30.0,
+                color: const Color(0xFF3D405B),
               ),
             );
           },
         ),
+
         title: Text(
           'Welcome, Peer!',
           style: TextStyle(
             fontFamily: 'Poppins',
-            color: Colors.black,
+            color: Color(0xFF3D405B),
             fontSize: 32,
             fontWeight: FontWeight.w500,
           ),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.insert_photo),
-            color: Colors.black,
+            icon: SvgPicture.asset('assets/icons/photo.svg', height: 30.0, width: 30.0,),
+            color: Color(0xFF3D405B),
             onPressed: () => _showBackgroundMenu(context),
           ),
         ],
