@@ -13,6 +13,19 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
+  List<Widget> pages = [
+    Homepage(),
+    Techniques(),
+    ProgressPage(),
+    Peer(),
+  ];
+
+  int currentIndex = 0;
+  void onTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
 
 // main page
   @override
@@ -32,11 +45,8 @@ class _MainPageState extends State<MainPage> {
         items: const [
           BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
           BottomNavigationBarItem(label: 'Technique', icon: Icon(Icons.book)),
-          BottomNavigationBarItem(
-              label: 'History', icon: Icon(Icons.calendar_month)),
+          BottomNavigationBarItem(label: 'History', icon: Icon(Icons.calendar_month)),
           BottomNavigationBarItem(label: 'My Peers', icon: Icon(Icons.groups)),
-          //BottomNavigationBarItem(
-          //label: 'Settings', icon: Icon(Icons.menu_outlined)),
         ],
       ),
     );

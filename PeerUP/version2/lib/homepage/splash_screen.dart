@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peerup/homepage/LogIn.dart';
+import 'package:peerup/homepage/loading_page.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class SplashScreen extends StatelessWidget {
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const Login()),
+        MaterialPageRoute(builder: (context) => const PeerUp()),
       );
     });
     return Scaffold(
