@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api png, library_private_types_in_public_api
 import 'package:flutter/material.dart';
+import 'package:peerup/functions/fetchFlashcardSet.dart';
 import 'package:peerup/main.dart';
 import 'FC_QuizPage.dart';
 //import 'package:flip_card/flip_card.dart';
@@ -8,8 +9,20 @@ void main() {
   runApp(const MyApp());
 }
 
-class Flashcard extends StatelessWidget {
-  const Flashcard ({super.key});
+class Flashcard extends StatefulWidget {
+  const Flashcard({super.key});
+
+  @override
+  FlashcardState createState() => FlashcardState();
+}
+
+class FlashcardState extends State<Flashcard> {
+  @override
+  void initState() {
+    super.initState();
+
+    fetchDataFromFirestore();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +117,8 @@ class Flashcard extends StatelessWidget {
                       children: [
                         ListTile(
                           title: const Text('Get To Know Quiz'),
-                          subtitle: const Text('How much do you know about Sheryl?'),
+                          subtitle:
+                              const Text('How much do you know about Sheryl?'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -218,8 +232,6 @@ class Flashcard extends StatelessWidget {
   }
 }
 
-
-
 /*
 void _showPracticeOptionsDialog(BuildContext context) {
   showDialog(
@@ -295,7 +307,7 @@ class AddCard extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Flashcard (),
+                    builder: (context) => const Flashcard(),
                   ),
                 );
               },
@@ -626,7 +638,8 @@ class Practice extends StatelessWidget {
       backgroundColor: const Color(0xAD060606),
       appBar: AppBar(
         title: const Text('Practice',
-            style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
+            style:
+                TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
         backgroundColor: const Color(0xFF0FA3B1),
         actions: [
           IconButton(
@@ -761,7 +774,8 @@ class PracticePageAndCard extends StatelessWidget {
       backgroundColor: const Color(0xAD060606),
       appBar: AppBar(
         title: const Text('Practice',
-            style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
+            style:
+                TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
@@ -1421,10 +1435,10 @@ class ReviewCompletePage extends StatelessWidget {
                       //Navigator.pop(context); // Pop the current page
                       Navigator.push(
                         context,
-                         MaterialPageRoute(
-                           builder: (context) => const Flashcard(),
-                         ),
-                       );
+                        MaterialPageRoute(
+                          builder: (context) => const Flashcard(),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF0FA3B1),
