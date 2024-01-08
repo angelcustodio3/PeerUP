@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Peer extends StatefulWidget {
-  const Peer({Key? key}) : super(key: key);
+  const Peer({super.key});
 
   @override
   _PeerState createState() => _PeerState();
@@ -94,13 +94,15 @@ class _PeerState extends State<Peer> {
         ),
         body: SafeArea(
           top: true,
-          child: Stack(
-            children: [
-              Align(
-                alignment: const AlignmentDirectional(0, -0.73),
-                child: GestureDetector(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20), // Adjust the height as needed
+
+                GestureDetector(
                   onTap: () async {
-                    await _pickImage(ImageSource.gallery); // Change source as needed
+                    await _pickImage(ImageSource.gallery);
                   },
                   child: Container(
                     width: 120,
@@ -119,10 +121,9 @@ class _PeerState extends State<Peer> {
                         : null,
                   ),
                 ),
-              ),
-              const Align(
-                alignment: AlignmentDirectional(0, -0.9),
-                child: Text(
+                const SizedBox(height: 20), // Adjust the height as needed
+
+                const Text(
                   'Edit Profile',
                   style: TextStyle(
                     fontSize: 16,
@@ -130,16 +131,68 @@ class _PeerState extends State<Peer> {
                     color: Colors.black,
                   ),
                 ),
-              ),
-              // Other Align widgets for TextFormField fields
-              Align(
-                alignment: const AlignmentDirectional(0, 0.85),
-                child: ElevatedButton(
+                const SizedBox(height: 20), // Adjust the height as needed
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _textController1,
+                    focusNode: _textFieldFocusNode1,
+                    decoration: const InputDecoration(
+                      labelText: 'Username',
+                      // Add other input decoration properties as needed
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20), // Adjust the height as needed
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _textController2,
+                    focusNode: _textFieldFocusNode2,
+                    decoration: const InputDecoration(
+                      labelText: 'Description',
+                      // Add other input decoration properties as needed
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20), // Adjust the height as needed
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _textController3,
+                    focusNode: _textFieldFocusNode3,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      // Add other input decoration properties as needed
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20), // Adjust the height as needed
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: _textController4,
+                    focusNode: _textFieldFocusNode4,
+                    decoration: const InputDecoration(
+                      labelText: 'Password',
+                      // Add other input decoration properties as needed
+                    ),
+                  ),
+                ),
+
+                ElevatedButton(
                   onPressed: () {
                     print('Button pressed ...');
                   },
                   child: const Text('Save Changes'),
-                  style: ElevatedButton.styleFrom(
+                                    style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
                     onPrimary: Colors.white,
                     padding:
@@ -152,11 +205,14 @@ class _PeerState extends State<Peer> {
                     ),
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 20), // Adjust the height as needed
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+
+
