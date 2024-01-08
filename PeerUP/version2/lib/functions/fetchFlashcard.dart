@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-Stream<QuerySnapshot<Map<String, dynamic>>> fetchFlashcardSet() {
+Stream<QuerySnapshot<Map<String, dynamic>>> fetchFlashcards(flashcardSetId) {
   try {
     User? user = FirebaseAuth.instance.currentUser;
 
@@ -12,6 +12,8 @@ Stream<QuerySnapshot<Map<String, dynamic>>> fetchFlashcardSet() {
               .collection('users')
               .doc(user.uid)
               .collection('flashcardSets')
+              .doc(flashcardSetId)
+              .collection('flashcards')
               .snapshots();
 
       return querySnapshot;
