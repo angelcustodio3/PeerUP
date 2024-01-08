@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peerup/flashcard/flashcard_main.dart';
 import 'package:peerup/functions/logout.dart';
 
 class MyDrawer extends StatelessWidget {

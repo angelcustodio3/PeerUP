@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:peerup/progress/progress_page.dart';
 import 'package:peerup/homepage/homepage.dart';
 import 'package:peerup/homepage/peer.dart';
 import 'package:peerup/homepage/technique.dart';
+import 'package:peerup/progress/to-do-page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
   List<Widget> pages = [
     Homepage(),
     Techniques(),
-    ProgressPage(),
+    Tasks(),
     Peer(),
   ];
 
@@ -34,19 +34,19 @@ class _MainPageState extends State<MainPage> {
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color.fromRGBO(249, 247, 243, 1),
+        backgroundColor:Color(0xFFFDFCF8),
         onTap: onTap,
         currentIndex: currentIndex,
-        selectedItemColor: const Color.fromRGBO(15, 163, 177, 1),
-        unselectedItemColor: Colors.blueGrey.withOpacity(0.5),
+        selectedItemColor:Color(0xFF0FA3B1),
+        unselectedItemColor: Color(0xFFB1B3BD),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         elevation: 0,
         items: const [
-          BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
-          BottomNavigationBarItem(label: 'Technique', icon: Icon(Icons.book)),
-          BottomNavigationBarItem(label: 'History', icon: Icon(Icons.calendar_month)),
-          BottomNavigationBarItem(label: 'My Peers', icon: Icon(Icons.groups)),
+          BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home_rounded)),
+          BottomNavigationBarItem(label: 'Technique', icon: Icon(Icons.book_rounded)),
+          BottomNavigationBarItem(label: 'Tasks', icon: Icon(Icons.checklist_rounded)),
+          BottomNavigationBarItem(label: 'Profile', icon: Icon(Icons.person_rounded)),
         ],
       ),
     );

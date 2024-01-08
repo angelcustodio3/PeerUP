@@ -1,28 +1,31 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-Future<void> addFlashcardSet(
-  name,
-  description,
+Future<void> addFlashcard(
+  flashcardSetId,
+  question,
+  answer,
 ) async {
   try {
     String? uid = FirebaseAuth.instance.currentUser?.uid;
 
     if (uid != null) {
-      CollectionReference flashcardSetCollection = FirebaseFirestore.instance
+      CollectionReference flashcardsCollection = FirebaseFirestore.instance
           .collection('users')
           .doc(uid)
-          .collection('flashcardSets');
+          .collection('flashcardSets')
+          .doc(flashcardSetId)
+          .collection('flashcards');
 
       // Data to be added to the collection
       Map<String, dynamic> flashcardData = {
-        'name': name,
-        'desc': description,
+        'question': question,
+        'answer': answer,
         // Add other user data here
       };
 
       // Add the data to the collection
-      await flashcardSetCollection.add(flashcardData);
+      await flashcardsCollection.add(flashcardData);
 
       print('User data added to Firestore collection successfully!');
     } else {
