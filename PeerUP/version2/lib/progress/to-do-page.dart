@@ -21,8 +21,17 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            backgroundColor: const Color(0xFFFAEBD2), // Change background color here
       appBar: AppBar(
-        backgroundColor: const Color(0xFFFAEBD2),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment(0.00, -1.00),
+              end: Alignment(0, 1),
+              colors: [Color(0xFFD7B883), Color(0x00F7E0BA), Color(0xFFFAEBD2)],
+            ),
+          ),
+        ),
         title: const Center(
           child: Text(
             'Tasks',
@@ -42,7 +51,7 @@ class MyPage extends StatelessWidget {
             child: const Expanded(
               child: TodoListWidget(),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -110,13 +119,13 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                 title: Text(
                   todoItems[index].text,
                   style: TextStyle(
-                    fontSize: 14, // Modified font size
+                    fontSize: 14,
                     fontWeight: FontWeight.normal,
                     decoration: todoItems[index].isDone
                         ? TextDecoration.lineThrough
                         : TextDecoration.none,
                     color: todoItems[index].isDone ? Colors.grey : Colors.black,
-                    fontFamily: 'Poppins', // Added Poppins font
+                    fontFamily: 'Poppins',
                   ),
                 ),
                 leading: Checkbox(
@@ -124,7 +133,7 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                   onChanged: (value) {
                     toggleTodoItem(index);
                   },
-                  activeColor: Color(0xFF064147), // Modified checkbox color
+                  activeColor: Color(0xFF064147),
                 ),
               );
             },
@@ -144,10 +153,10 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                   onPressed: addTodoItem,
                   color: Colors.black,
                 ),
-                SizedBox(width: 8), // Increased space
+                SizedBox(width: 6),
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
                     child: TextField(
                       controller: controller,
                       decoration: const InputDecoration(
@@ -156,10 +165,12 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                       ),
                       style: const TextStyle(
                         fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        
                         color: Colors.black,
-                        fontFamily: 'Poppins', // Added Poppins font
+                        fontFamily: 'Poppins',
                       ),
-                      textAlign: TextAlign.left, // Centered text
+                      textAlign: TextAlign.left,
                       onSubmitted: (_) {
                         addTodoItem();
                       },
