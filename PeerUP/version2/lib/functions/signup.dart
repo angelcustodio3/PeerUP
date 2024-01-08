@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:peerup/homepage/LogIn.dart';
 import 'package:peerup/homepage/homepage.dart';
+import 'package:peerup/homepage/mainpage.dart';
 
 Future<UserCredential?> signUp(
     String email, String password, BuildContext context) async {
@@ -14,9 +15,7 @@ Future<UserCredential?> signUp(
 
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-          builder: (context) => const Homepage(
-                title: '',
-              )),
+          builder: (context) => const MainPage()),
     );
 
     return userCredential;

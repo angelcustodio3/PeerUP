@@ -58,7 +58,7 @@ class _PomodoroState extends State<Pomodoro> {
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F3),
       
-      // Header of Pomodoro Page
+      // Appbar Header of Pomodoro Page
       appBar: AppBar(
         toolbarHeight: 70.0,
         title: const Text(
