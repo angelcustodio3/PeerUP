@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -21,7 +20,7 @@ class _PeerState extends State<Peer> {
   late FocusNode _textFieldFocusNode3;
   late FocusNode _textFieldFocusNode4;
 
-  late XFile? _pickedImage;
+  File? _pickedImage;
 
   @override
   void initState() {
@@ -57,9 +56,11 @@ class _PeerState extends State<Peer> {
     final picker = ImagePicker();
     final pickedImage = await picker.pickImage(source: source);
 
-    setState(() {
-      _pickedImage = pickedImage;
-    });
+    if (pickedImage != null) {
+      setState(() {
+        _pickedImage = File(pickedImage.path);
+      });
+    }
   }
 
   @override
@@ -108,9 +109,7 @@ class _PeerState extends State<Peer> {
                       shape: BoxShape.circle,
                       image: _pickedImage != null
                           ? DecorationImage(
-                              image: FileImage(
-                                _pickedImage!.path as File,
-                              ),
+                              image: FileImage(_pickedImage!),
                               fit: BoxFit.cover,
                             )
                           : null,
@@ -121,8 +120,8 @@ class _PeerState extends State<Peer> {
                   ),
                 ),
               ),
-              Align(
-                alignment: const AlignmentDirectional(0, -0.9),
+              const Align(
+                alignment: AlignmentDirectional(0, -0.9),
                 child: Text(
                   'Edit Profile',
                   style: TextStyle(
