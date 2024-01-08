@@ -16,8 +16,8 @@ class _MainPageState extends State<MainPage> {
     const Homepage(title: '',
     ),
     const Techniques(),
-    const History(),
     const Peer(),
+    ProgressPage(),
   ];
 
   int currentIndex = 0;
