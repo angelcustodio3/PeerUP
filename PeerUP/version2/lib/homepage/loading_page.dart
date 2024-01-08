@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:peerup/homepage/LogIn.dart';
 import 'package:peerup/homepage/homepage.dart';
-import 'package:peerup/homepage/loading.dart';
+import 'package:peerup/homepage/splash_screen.dart';
 import 'package:peerup/homepage/mainpage.dart';
 import 'package:peerup/main.dart';
 
@@ -38,7 +38,7 @@ class PeerUpState extends State<PeerUp> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return SplashScreen();
           } else if (snapshot.hasData) {
-            return Homepage(title: '');
+            return MainPage();
           } else {
             return Login();
           }

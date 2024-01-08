@@ -4,6 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:peerup/firebase_options.dart';
 import 'package:peerup/homepage/loading_page.dart';
 import 'package:peerup/homepage/mainpage.dart';
+import 'package:peerup/homepage/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // Use your PeerUp as the landing page or starting page
-      home: const PeerUp(),
+      home: const SplashScreen(),
     );
   }
 }

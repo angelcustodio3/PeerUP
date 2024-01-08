@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'dart:math';
 import 'package:peerup/homepage/drawer.dart';
+import 'package:peerup/homepage/history.dart';
+import 'package:peerup/homepage/peer.dart';
+import 'package:peerup/homepage/technique.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key, required String title}) : super(key: key);
@@ -10,6 +14,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+
+  // SUBJECTS SECTION -----------------------------------------------------------------
   List<String> subjects = [
     'CMSC 128',
     'CMSC 129',
@@ -28,7 +34,6 @@ class _HomepageState extends State<Homepage> {
     super.initState();
     _generateSubjectColors();
   }
-
   void _generateSubjectColors() {
     // Generate colors for each subject and store them in the map
     final random = Random();
@@ -46,35 +51,40 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(249, 247, 243, 1),
-      drawer: MyDrawer(),
+      backgroundColor: Color(0xFFFAEBD2),
+
+      // APPBAR, PROFILE DRAWER, ----------------------------------------------------------
+      drawer: MyDrawer(), 
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(249, 247, 243, 1),
+        backgroundColor: Color(0xFFFAEBD2),
         elevation: 0,
         leading: Builder(
           builder: (context) {
             return IconButton(
               onPressed: () => Scaffold.of(context).openDrawer(),
-              icon: Icon(
-                Icons.person,
-                color: Colors.black,
+              icon: SvgPicture.asset(
+                'assets/icons/profile.svg',
+                height: 30.0,
+                width: 30.0,
+                color: const Color(0xFF3D405B),
               ),
             );
           },
         ),
+
         title: Text(
           'Welcome, Peer!',
           style: TextStyle(
             fontFamily: 'Poppins',
-            color: Colors.black,
+            color: Color(0xFF3D405B),
             fontSize: 32,
             fontWeight: FontWeight.w500,
           ),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.insert_photo),
-            color: Colors.black,
+            icon: SvgPicture.asset('assets/icons/photo.svg', height: 30.0, width: 30.0,),
+            color: Color(0xFF3D405B),
             onPressed: () => _showBackgroundMenu(context),
           ),
         ],
@@ -87,6 +97,8 @@ class _HomepageState extends State<Homepage> {
               fit: BoxFit.cover,
             ),
           ),
+
+          // QUOTES SECTION ----------------------------------------------------
           child: Column(
             children: [
               // Quote
@@ -120,7 +132,7 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
 
-              // Search Bar
+              // SEARCH BAR SECTION ------------------------------------------------------------
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
@@ -223,6 +235,7 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
+// SUBJECT CARD CLASS
 class SubjectCard extends StatelessWidget {
   final String subject;
   final Color color;
@@ -246,3 +259,4 @@ class SubjectCard extends StatelessWidget {
     );
   }
 }
+

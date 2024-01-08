@@ -1,11 +1,7 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
-import 'package:peerup/homepage/history.dart';
+import 'package:peerup/progress/progress_page.dart';
 import 'package:peerup/homepage/homepage.dart';
 import 'package:peerup/homepage/peer.dart';
-//import 'package:peerup/homepage/subject1.dart';
-//import 'package:peerup/homepage/settings.dart';
 import 'package:peerup/homepage/technique.dart';
 
 class MainPage extends StatefulWidget {
@@ -17,14 +13,11 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List pages = [
-    const Homepage(
-      title: '',
+    const Homepage(title: '',
     ),
     const Techniques(),
-    const History(),
     const Peer(),
-    //const Subject1(),
-    //Settings()
+    ProgressPage(),
   ];
 
   int currentIndex = 0;
