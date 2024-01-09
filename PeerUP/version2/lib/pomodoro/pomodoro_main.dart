@@ -56,7 +56,7 @@ class _PomodoroState extends State<Pomodoro> {
     // );
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F7F3),
+      backgroundColor: const Color(0xFFFAEBD2),
       
       // Appbar Header of Pomodoro Page
       appBar: AppBar(
@@ -64,13 +64,13 @@ class _PomodoroState extends State<Pomodoro> {
         title: const Text(
           'POMODORO',
           style: TextStyle(
-            color: Color(0xFF333232),
+            color: Color(0xFF3D405B),
             fontFamily: 'Poppins',
             fontSize: 17,
             fontWeight: FontWeight.bold
           ),
         ),
-        backgroundColor: const Color(0xFFF9F7F3),
+        backgroundColor: const Color(0xFFFAEBD2),
         centerTitle: true,
         elevation: 1.5,
         

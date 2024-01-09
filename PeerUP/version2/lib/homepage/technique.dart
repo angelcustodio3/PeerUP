@@ -17,38 +17,30 @@ class Techniques extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF0FA3B1),
-        centerTitle: true,
-        elevation: 2,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_rounded,
-            color: Color(0xFF333232),
-            size: 30,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF0FA3B1), // Top color with 50% transparency
+              Color(0x600FA3B1),  // Middle color fully opaque
+              Color(0x30F2CC8F), // Bottom color fully opaque
+            ],
           ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const MainPage()),
-            );
-          },
         ),
-        actions: const [],
-      ),
-      body: SafeArea(
-        top: true,
+        //top: true,
         child: Stack(
           children: [
             // Study girl illustration
             Container(
-              alignment: const Alignment(-0.04, -0.80),
+              alignment: const Alignment(-0.04, -0.70),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
-                  'assets/graphics/GirlStudy.png',
-                  width: screenWidth * 0.6,
-                  height: screenHeight * 0.225,
+                  'assets/graphics/girl-study.png',
+                  width: 215,
+                  height: 210,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -56,87 +48,116 @@ class Techniques extends StatelessWidget {
 
             // Choose your focus text space
             Container(
-              alignment: const Alignment(0, -0.15),
+              alignment: const Alignment(0, -0.10),
               child: Text(
                 'CHOOSE YOUR FOCUS',
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  color: const Color(0xFF333232),
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.w600,
+                  color: const Color(0xFF3D405B),
+                  fontSize: 28,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),
 
             // Pomodoro button section
+            // Container(
+            //   alignment: const Alignment(-0.5, 0.20),
+            //   child: GestureDetector(
+            //     onTap: () {
+            //       showPomodoroDialog(context);
+            //     },
+            //     child: ClipRRect(
+            //       borderRadius: BorderRadius.circular(10),
+            //       child: Image.asset(
+            //         'assets/graphics/Rectangle.png',
+            //         width: 100,
+            //         height: 100,
+            //         fit: BoxFit.cover,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+
             Container(
-              alignment: const Alignment(-0.5, 0.25),
+               alignment: Alignment.centerLeft,
+              margin: const EdgeInsets.only(left: 50, top: 385),
+              padding: const EdgeInsets.all(10),
+               child: Text(
+                    'POMODORO',
+                    //textAlign: TextAlign.left,
+                      style: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: Color(0xFF3D405B),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                )
+              ),
+            ),
+
+            Container(
+               alignment: Alignment.centerLeft,
+              margin: const EdgeInsets.only(left: 230, top: 385),
+              padding: const EdgeInsets.all(10),
+               child: Text(
+                    'FLASHCARDS',
+                    //textAlign: TextAlign.left,
+                      style: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: Color(0xFF3D405B),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                )
+              ),
+            ),
+
+            Container(
+              height: 145,
+              width: 145,
+              alignment: Alignment.centerLeft,
+              margin: const EdgeInsets.only(left: 45, top: 450),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Color(0xFFFDFCF8),
+                  borderRadius: BorderRadius.circular(10),
+                ),
               child: GestureDetector(
                 onTap: () {
                   showPomodoroDialog(context);
                 },
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  //borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
-                    'assets/graphics/Rectangle.png',
-                    width: screenWidth * 0.3,
-                    height: screenHeight * 0.15,
-                    fit: BoxFit.cover,
+                    'assets/graphics/pomodoro-icon.png',
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.scaleDown,
                   ),
                 ),
               ),
             ),
 
-            // Flashcard button section
             Container(
-              alignment: const Alignment(0.5, 0.25),
+              height: 145,
+              width: 145,
+              alignment: Alignment.centerRight,
+              margin: const EdgeInsets.only(left: 225, top: 450),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Color(0xFFFDFCF8),
+                  borderRadius: BorderRadius.circular(10),
+                ),
               child: GestureDetector(
                 onTap: () {
                   showFlashcardDialog(context);
                 },
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    'assets/graphics/Rectangle.png',
-                    width: screenWidth * 0.3,
-                    height: screenHeight * 0.15,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-
-            Container(
-              alignment: const Alignment(-0.45, 0.24),
-              child: GestureDetector(
-                onTap: () {
-                  showPomodoroDialog(context);
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: SvgPicture.asset(
-                    'assets/icons/timer.svg',
-                    width: screenWidth * 0.225,
-                    height: screenHeight * 0.1125,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-
-            Container(
-              alignment: const Alignment(0.46, 0.24),
-              child: GestureDetector(
-                onTap: () {
-                  showFlashcardDialog(context);
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: SvgPicture.asset(
-                    'assets/icons/cards.svg',
-                    width: screenWidth * 0.225,
-                    height: screenHeight * 0.1125,
-                    fit: BoxFit.cover,
+                    'assets/graphics/flashcard-icon.png',
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.scaleDown,
                   ),
                 ),
               ),
@@ -160,7 +181,7 @@ void showPomodoroDialog(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
                     'assets/graphics/Clock.png',
                     width: 85,
@@ -168,13 +189,12 @@ void showPomodoroDialog(BuildContext context) {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(
-                    width: 16), // Add some spacing between the image and text
+                const SizedBox(width: 25), // Add some spacing between the image and text
                 const Text(
                   'POMODORO',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: Color(0xFF333232),
+                    color: Color(0xFFFDFCF8),
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
                   ),
@@ -189,7 +209,7 @@ void showPomodoroDialog(BuildContext context) {
               ),
             ),
             SizedBox(
-              width: 16,
+              width: 25,
             ), // Add some spacing between the image and text
             Container(
               padding: EdgeInsets.only(top: 5.0),
@@ -202,7 +222,11 @@ void showPomodoroDialog(BuildContext context) {
                     ),
                   );
                 },
-                child: const Text('Use Technique'),
+                child: const Text('Use Pomodoro',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 15,
+                ),),
               ),
             ),
           ],
@@ -224,7 +248,7 @@ void showFlashcardDialog(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
                     'assets/graphics/RedCard.png',
                     width: 85,
@@ -238,7 +262,7 @@ void showFlashcardDialog(BuildContext context) {
                   'FLASHCARD',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: Color(0xFF333232),
+                    color: Color(0xFFFDFCF8),
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
                   ),
@@ -259,7 +283,7 @@ void showFlashcardDialog(BuildContext context) {
                   ),
                 );
               },
-              child: const Text('Use Technique'),
+              child: const Text('Use Flaschcard'),
             ),
           ],
         ),
@@ -279,10 +303,10 @@ class PopUpPageWidget extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor:
-            const Color(0xFFE1E1E1), // Change to your desired background color
+            const Color(0xFFFAEBD2), // Change to your desired background color
         appBar: AppBar(
           backgroundColor: const Color(0xFF0FA3B1),
-          leading: IconButton(
+          title: IconButton(
             icon: const Icon(
               Icons.arrow_back_rounded,
               color: Color(0xFFF9F7F3),
@@ -292,15 +316,15 @@ class PopUpPageWidget extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
-          title: const Text(
-            'Page Title',
-            style: TextStyle(
-              fontFamily: 'Outfit',
-              color: Color(0xFFF9F7F3),
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          // title: const Text(
+          //   'Page Title',
+          //   style: TextStyle(
+          //     fontFamily: 'Outfit',
+          //     color: Color(0xFFF9F7F3),
+          //     fontSize: 22,
+          //     fontWeight: FontWeight.bold,
+          //   ),
+          // ),
           actions: const [],
           centerTitle: true,
           elevation: 2,
@@ -311,8 +335,8 @@ class PopUpPageWidget extends StatelessWidget {
               width: double.infinity,
               height: 439,
               decoration: BoxDecoration(
-                color: const Color(0xFFE6F0F2), // Change to your desired color
-                borderRadius: BorderRadius.circular(5),
+                color: const Color(0xFFFAEBD2), // Change to your desired color
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
                 children: [
@@ -326,7 +350,7 @@ class PopUpPageWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: const Padding(
-                      padding: EdgeInsets.all(16.0),
+                      padding: EdgeInsets.all(20.0),
                       child: Text(
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Iaculis at erat pellentesque adipiscing commodo elit at. Ac orci phasellus egestas tellus rutrum tellus.',
                         textAlign: TextAlign.center,
