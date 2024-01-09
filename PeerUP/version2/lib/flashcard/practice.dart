@@ -24,6 +24,7 @@ class _PracticeReviewState extends State<PracticeReview> {
   final String flashcardSetId;
   late Stream<QuerySnapshot<Map<String, dynamic>>> flashcards;
   late QuerySnapshot<Map<String, dynamic>> flashcardSnapshot;
+  int score = 0;
 
   @override
   initState() {
@@ -53,8 +54,25 @@ class _PracticeReviewState extends State<PracticeReview> {
     });
   }
 
+  handleWrong() {
+    handleNextQuestion();
+  }
+
+  handleCorrect() {
+    handleNextQuestion();
+    score += 1;
+  }
+
   handleNextQuestion() async {
     print('handleNextQuestion');
+
+    if (flashcardSnapshot.docs.length == answeredQuestions.length) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+            builder: (context) => ReviewCompletePage(
+                score: score, totalItems: flashcardSnapshot.docs.length)),
+      );
+    }
 
     QueryDocumentSnapshot<Map<String, dynamic>> result = flashcardSnapshot.docs
         .firstWhere((element) => !answeredQuestions.contains(element.id));
@@ -118,7 +136,8 @@ class _PracticeReviewState extends State<PracticeReview> {
               return AnswerCard(
                 answer: flashcardData['answer'],
                 onPressed: handleAnswerPress,
-                onNext: handleNextQuestion,
+                onCorrect: handleCorrect,
+                onWrong: handleWrong,
               );
             }
           },

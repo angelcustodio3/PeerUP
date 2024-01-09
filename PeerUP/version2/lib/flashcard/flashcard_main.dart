@@ -1419,12 +1419,12 @@ class Page2Widget extends StatelessWidget {
               alignment: const Alignment(-0.30, 0.90),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ReviewCompletePage(),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => const ReviewCompletePage(),
+                  //   ),
+                  // );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
@@ -1439,12 +1439,12 @@ class Page2Widget extends StatelessWidget {
               alignment: const Alignment(0.30, 0.90),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ReviewCompletePage(),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => const ReviewCompletePage(),
+                  //   ),
+                  // );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
@@ -1463,7 +1463,10 @@ class Page2Widget extends StatelessWidget {
 }
 
 class ReviewCompletePage extends StatelessWidget {
-  const ReviewCompletePage({super.key});
+  const ReviewCompletePage(
+      {super.key, required this.score, required this.totalItems});
+  final int score;
+  final int totalItems;
 
   @override
   Widget build(BuildContext context) {
@@ -1574,7 +1577,7 @@ class ReviewCompletePage extends StatelessWidget {
                 Align(
                   alignment: const Alignment(0.04, 0.44),
                   child: Text(
-                    'CORRECT: 2',
+                    "Correct: ${score}",
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       color: const Color(0xFF0CDF4C),
@@ -1586,7 +1589,7 @@ class ReviewCompletePage extends StatelessWidget {
                 Align(
                   alignment: const Alignment(0.05, 0.62),
                   child: Text(
-                    'WRONG: 1',
+                    "Wrong: ${totalItems - score}",
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       color: const Color(0xFFFF5964),
@@ -1599,13 +1602,15 @@ class ReviewCompletePage extends StatelessWidget {
                   alignment: const Alignment(0, 0.90),
                   child: ElevatedButton(
                     onPressed: () {
-                      //Navigator.pop(context); // Pop the current page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Flashcard(),
-                        ),
-                      );
+                      Navigator.pop(context); // Pop the current page
+                      // Navigator.pop(context); // Pop the current page
+
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const Flashcard(),
+                      //   ),
+                      // );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF0FA3B1),

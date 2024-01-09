@@ -6,10 +6,12 @@ class AnswerCard extends StatelessWidget {
       {super.key,
       required this.answer,
       required this.onPressed,
-      required this.onNext});
+      required this.onCorrect,
+      required this.onWrong});
   final String answer;
   final Function() onPressed;
-  final Function() onNext;
+  final Function() onCorrect;
+  final Function() onWrong;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +82,7 @@ class AnswerCard extends StatelessWidget {
             alignment: const Alignment(-0.30, 0.90),
             child: ElevatedButton(
               onPressed: () {
-                onNext();
+                onWrong();
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
@@ -95,7 +97,7 @@ class AnswerCard extends StatelessWidget {
             alignment: const Alignment(0.30, 0.90),
             child: ElevatedButton(
               onPressed: () {
-                onNext();
+                onCorrect();
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
