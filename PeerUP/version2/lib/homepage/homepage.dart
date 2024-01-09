@@ -14,7 +14,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
   // SUBJECTS SECTION -----------------------------------------------------------------
   List<String> subjects = [
     'CMSC 128',
@@ -34,6 +33,7 @@ class _HomepageState extends State<Homepage> {
     super.initState();
     _generateSubjectColors();
   }
+
   void _generateSubjectColors() {
     // Generate colors for each subject and store them in the map
     final random = Random();
@@ -54,7 +54,7 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: Color(0xFFFAEBD2),
 
       // APPBAR, PROFILE DRAWER, ----------------------------------------------------------
-      drawer: MyDrawer(), 
+      drawer: MyDrawer(),
       appBar: AppBar(
         backgroundColor: Color(0xFFFAEBD2),
         elevation: 0,
@@ -71,7 +71,6 @@ class _HomepageState extends State<Homepage> {
             );
           },
         ),
-
         title: Text(
           'Welcome, Peer!',
           style: TextStyle(
@@ -83,7 +82,11 @@ class _HomepageState extends State<Homepage> {
         ),
         actions: [
           IconButton(
-            icon: SvgPicture.asset('assets/icons/photo.svg', height: 30.0, width: 30.0,),
+            icon: SvgPicture.asset(
+              'assets/icons/photo.svg',
+              height: 30.0,
+              width: 30.0,
+            ),
             color: Color(0xFF3D405B),
             onPressed: () => _showBackgroundMenu(context),
           ),
@@ -259,4 +262,3 @@ class SubjectCard extends StatelessWidget {
     );
   }
 }
-
