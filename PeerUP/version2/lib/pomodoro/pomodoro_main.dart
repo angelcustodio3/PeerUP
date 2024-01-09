@@ -47,10 +47,7 @@ class _PomodoroState extends State<Pomodoro> {
     //         dialogStyle: DialogStyle(titleDivider: true),
     //         title: Text("Timer Completed"),
     //         //content: Text("Time to break."),
-            
     //       ).show(context);
-          
-          
     //     });
     //   }, 
     // );
@@ -60,19 +57,19 @@ class _PomodoroState extends State<Pomodoro> {
       
       // Appbar Header of Pomodoro Page
       appBar: AppBar(
-        toolbarHeight: 70.0,
+        toolbarHeight: 75.0,
         title: const Text(
           'POMODORO',
           style: TextStyle(
             color: Color(0xFF3D405B),
             fontFamily: 'Poppins',
-            fontSize: 17,
+            fontSize: 18,
             fontWeight: FontWeight.bold
           ),
         ),
-        backgroundColor: const Color(0xFFFAEBD2),
+        backgroundColor: Color(0xFFFAEBD2),
         centerTitle: true,
-        elevation: 1.5,
+        //elevation: 1.5,
         
         // Arrow back icon in pomodoro header
         leading: GestureDetector(
@@ -84,8 +81,8 @@ class _PomodoroState extends State<Pomodoro> {
           child: Container(
             margin: const EdgeInsets.all(15),
             alignment: Alignment.center,
-            decoration: const BoxDecoration(color: Color(0xFFF9F7F3)),
-            child:  const Icon(Icons.arrow_back_rounded, color: Color(0xFF333232), size: 32.0,)
+            decoration: const BoxDecoration(color:  Color(0xFFFAEBD2),),
+            child:  SvgPicture.asset('assets/icons/back-arrow.svg', height: 27.0, width: 27.0,),
           ),
         ),
         
@@ -101,83 +98,88 @@ class _PomodoroState extends State<Pomodoro> {
               width: 37,
               alignment: Alignment.center,
               margin: const EdgeInsets.all(15),
-              decoration: const BoxDecoration(color: Color(0xFFF9F7F3),),
-              child: SvgPicture.asset('assets/icons/settings-2.svg', height: 27.0, width: 27.0,),
+              decoration: const BoxDecoration(color: Color(0xFFFAEBD2),),
+              child: SvgPicture.asset('assets/icons/settings.svg', height: 27.0, width: 27.0,),
             ),
           )
         ],
       ),
 
       // Circular countdown timer
-      body: Container(
-        padding: const EdgeInsets.only(bottom: 200.0),
-        margin: const EdgeInsets.all(50.0),
-        //color: Colors.black,
-        child: Center(
-          child: CircularCountDownTimer(
-            width: MediaQuery.of(context).size.width / 1.75,
-            height: MediaQuery.of(context).size.height / 1.75,
-            duration: _focusTimer,
-            fillColor: const Color(0xFF0FA3B1),
-            ringColor: Color(_isStarted ? 0xFFF4F1DE : 0xFF0FA3B1),
-            controller: _controller,
-            backgroundColor: const Color(0xFFF9F7F3),
-            strokeWidth: 15.0,
-            strokeCap: StrokeCap.round,
-            isTimerTextShown: true,
-            isReverseAnimation: true,
-            isReverse: true,
-            autoStart: false,
-            textFormat: CountdownTextFormat.MM_SS,
-            textStyle: const TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 50.0,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF333232)),
-            onComplete: () {
-              if (_isOnging){
-                showDialog(
-                context: context,
-                builder: (BuildContext dialogContext) {
-                  return const Dialog(
-                    //insetAnimationDuration: const Duration(seconds: 3.0),
-                    
-                    insetPadding: EdgeInsets.all(20.0),
-                    backgroundColor: Color(0xFFF9F7F3),
-                    shadowColor: Color(0xFF333232),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text("Congrats! You finished your session!",
-                        style: TextStyle( fontFamily: 'Poppins', fontSize: 15.0),
-                      ),
-                    ),
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(bottom: 200.0),
+            margin: const EdgeInsets.all(50.0),
+            //color: Colors.black,
+            child: Center(
+              child: CircularCountDownTimer(
+                width: MediaQuery.of(context).size.width / 1.75,
+                height: MediaQuery.of(context).size.height / 1.75,
+                duration: _focusTimer,
+                fillColor: const Color(0xFF0FA3B1),
+                ringColor: Color(_isStarted ? 0x450FA3B1 : 0xFF0FA3B1),
+                controller: _controller,
+                backgroundColor: const Color(0xFFFAEBD2),
+                strokeWidth: 15.0,
+                strokeCap: StrokeCap.round,
+                isTimerTextShown: true,
+                isReverseAnimation: true,
+                isReverse: true,
+                autoStart: false,
+                textFormat: CountdownTextFormat.MM_SS,
+                textStyle: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 50.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF3D405B)),
+                onComplete: () {
+                  if (_isOnging){
+                    showDialog(
+                    context: context,
+                    builder: (BuildContext dialogContext) {
+                      return const Dialog(
+                        insetAnimationDuration: Duration(seconds: 3),
+                        insetPadding: EdgeInsets.all(20.0),
+                        backgroundColor: Color(0xFFF9F7F3),
+                        shadowColor: Color(0xFF3D405B),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("Congrats! You finished your session!",
+                            style: TextStyle( fontFamily: 'Poppins', fontSize: 15.0),
+                          ),
+                        ),
+                      );
+                    },
                   );
+                  }
+                  // _focusTimer = _shortBreak;
+                  // _controller.reset();
+                  // _controller.start();
                 },
-              );
-              }
-              // _focusTimer = _shortBreak;
-              // _controller.reset();
-              // _controller.start();
-            },
-            onStart: () {
-              debugPrint('Countdown Started');
-            },
-            // onChange: (String timeStamp){
-            //   // if ($timeStamp = ''){
-
-            //   // }
-            //   debugPrint('Countdown Changed $timeStamp');
-            // },
-            // onComplete: () {
-            //   Container(
-            //     margin: EdgeInsets.only(left: 0.0,top: 60.0, bottom: 50.0, right:0.0),    
-            //     child: Text('denifniefre', style: new 
-            //       TextStyle( color: Colors.black, fontWeight: FontWeight.bold, fontSize: 100.0 ))
-            //   , );
-            //   //debugPrint('Countdown Changed $timeStamp');
-            // }
+                onStart: () {
+                  debugPrint('Countdown Started');
+                },
+                // onChange: (String timeStamp){
+                //   // if ($timeStamp = ''){
+          
+                //   // }
+                //   debugPrint('Countdown Changed $timeStamp');
+                // },
+                // onComplete: () {
+                //   Container(
+                //     margin: EdgeInsets.only(left: 0.0,top: 60.0, bottom: 50.0, right:0.0),    
+                //     child: Text('denifniefre', style: new 
+                //       TextStyle( color: Colors.black, fontWeight: FontWeight.bold, fontSize: 100.0 ))
+                //   , );
+                //   //debugPrint('Countdown Changed $timeStamp');
+                // }
+              ),
+            ),
           ),
-        ),
+
+          Container(),
+        ],
       ),
       
       floatingActionButton: Container(
@@ -202,9 +204,9 @@ class _PomodoroState extends State<Pomodoro> {
             //extStyle(),
             Text(_isStarted ? 'RESET' : 'START',
               style: const TextStyle(
-                color: Color(0xFFF7F9F3),
+                color: Color(0xFFFAEBD2),
                 fontFamily: 'Poppins',
-                fontSize: 19.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
