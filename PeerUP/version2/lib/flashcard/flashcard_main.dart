@@ -650,7 +650,9 @@ class _ViewCardState extends State<ViewCard> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Practice(),
+                              builder: (context) => PracticeReview(
+                                flashcardSetId: flashcardSetId,
+                              ),
                             ),
                           );
                         },
