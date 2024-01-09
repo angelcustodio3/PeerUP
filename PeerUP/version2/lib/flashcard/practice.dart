@@ -23,6 +23,7 @@ class _PracticeReviewState extends State<PracticeReview> {
   String _currentFlashcard = '';
   final String flashcardSetId;
   late Stream<QuerySnapshot<Map<String, dynamic>>> flashcards;
+  late QuerySnapshot<Map<String, dynamic>> flashcardSnapshot;
 
   @override
   initState() {
@@ -35,6 +36,8 @@ class _PracticeReviewState extends State<PracticeReview> {
     await flashcards.first.then((snapshot) {
       // Here you get the first flashcard
       _currentFlashcard = snapshot.docs.first.id;
+      flashcardSnapshot = snapshot;
+      answeredQuestions.add(_currentFlashcard);
     });
   }
 
@@ -50,8 +53,17 @@ class _PracticeReviewState extends State<PracticeReview> {
     });
   }
 
-  handleNextQuestion() {
-    // flashcards.docs
+  handleNextQuestion() async {
+    print('handleNextQuestion');
+
+    QueryDocumentSnapshot<Map<String, dynamic>> result = flashcardSnapshot.docs
+        .firstWhere((element) => !answeredQuestions.contains(element.id));
+
+    setState(() {
+      _currentFlashcard = result.id;
+    });
+    answeredQuestions.add(result.id);
+    isShowingQuestion = true;
   }
 
   @override
@@ -104,8 +116,10 @@ class _PracticeReviewState extends State<PracticeReview> {
                   onPressed: handleQuestionPress);
             } else {
               return AnswerCard(
-                  answer: flashcardData['answer'],
-                  onPressed: handleAnswerPress);
+                answer: flashcardData['answer'],
+                onPressed: handleAnswerPress,
+                onNext: handleNextQuestion,
+              );
             }
           },
         ));
