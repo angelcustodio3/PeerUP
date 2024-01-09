@@ -24,7 +24,7 @@ class _HomepageState extends State<Homepage> {
   String selectedBackground = 'default'; // For default background
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Color(0x10FAEBD2),
+      backgroundColor: Color(0x10FAEBD2),
       // appBar: AppBar(
       //   //backgroundColor: Colors.transparent,
       //   elevation: 0,
@@ -39,142 +39,141 @@ class _HomepageState extends State<Homepage> {
       //   ],
       // ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          onPressed: () => _showBackgroundMenu(context),
-          child: SvgPicture.asset('assets/icons/photo.svg', height: 30.0, width: 30.0,
-          ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        onPressed: () => _showBackgroundMenu(context),
+        child: SvgPicture.asset(
+          'assets/icons/photo.svg',
+          height: 30.0,
+          width: 30.0,
         ),
+      ),
       floatingActionButtonLocation: CustomFloatingActionButtonLocation(),
 
       // Body of Homepage
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          Color(0xFF0FA3B1), // Top color with 50% transparency
-          Color(0x600FA3B1),  // Middle color fully opaque
-          Color(0x30F2CC8F), // Bottom color fully opaque
-        ],
-      ),
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF0FA3B1), // Top color with 50% transparency
+              Color(0x600FA3B1), // Middle color fully opaque
+              Color(0x30F2CC8F), // Bottom color fully opaque
+            ],
+          ),
           image: DecorationImage(
             image: _getImage(selectedBackground),
             fit: BoxFit.fill,
           ),
         ),
         child: Column(
-            children: [
-              Container(
-                //width: double.infinity,
-                alignment: Alignment.topLeft,
-                //  decoration: BoxDecoration(
-                //   color: Color(0xFF6493A5),
-                // ),
-                //margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                padding: const EdgeInsets.only(left: 30, top: 95),
-                child: Text(
-                    'Hello, peer!',
-                    //textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF3D405B),
-                      fontSize: 28,
-                      fontWeight: FontWeight.w600,
-                  )
-                ),
-              ),
-              
-              Container(
-                alignment: Alignment.topLeft,
-                // decoration: BoxDecoration(
-                //   color: Color(0xFF6493A5),
-                // ),
-                //margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                padding: const EdgeInsets.only(left: 30),
-                child: Text(
-                  'How are you doing today?',
+          children: [
+            Container(
+              //width: double.infinity,
+              alignment: Alignment.topLeft,
+              //  decoration: BoxDecoration(
+              //   color: Color(0xFF6493A5),
+              // ),
+              //margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              padding: const EdgeInsets.only(left: 30, top: 95),
+              child: Text('Hello, peer!',
+                  //textAlign: TextAlign.left,
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     color: Color(0xFF3D405B),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w200,
-                  ),
+                    fontSize: 28,
+                    fontWeight: FontWeight.w600,
+                  )),
+            ),
+
+            Container(
+              alignment: Alignment.topLeft,
+              // decoration: BoxDecoration(
+              //   color: Color(0xFF6493A5),
+              // ),
+              //margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+              padding: const EdgeInsets.only(left: 30),
+              child: Text(
+                'How are you doing today?',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: Color(0xFF3D405B),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w200,
                 ),
               ),
+            ),
 
-              // Quote of the Day Section
-              Container(
-                // width: 250,
-                height: 200,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Color(0x500FA3B1),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                margin: const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
-                padding: const EdgeInsets.all(15),
-                child: Text(
-                  '❝ It is during our darkest moments \nthat we must focus to see the light❞\n\n\t\t-Anonymous',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16,
-                    fontStyle: FontStyle.italic,
-                  ),
+            // Quote of the Day Section
+            Container(
+              // width: 250,
+              height: 200,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Color(0x500FA3B1),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              margin: const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
+              padding: const EdgeInsets.all(15),
+              child: Text(
+                '❝ It is during our darkest moments \nthat we must focus to see the light❞\n\n\t\t-Anonymous',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                  fontStyle: FontStyle.italic,
                 ),
               ),
+            ),
 
-              // // SEARCH BAR SECTION ------------------------------------------------------------
-              // Padding(
-              //   padding: const EdgeInsets.all(16.0),
-              //   child: TextField(
-              //     onChanged: (query) {
-              //       setState(() {
-              //         filteredSubjects = subjects
-              //             .where((subject) => subject
-              //                 .toLowerCase()
-              //                 .contains(query.toLowerCase()))
-              //             .toList();
-              //       });
-              //     },
-              //     decoration: InputDecoration(
-              //       border: OutlineInputBorder(),
-              //       hintText: 'Search',
-              //       prefixIcon: Icon(Icons.search),
-              //     ),
-              //   ),
-              // ),
+            // // SEARCH BAR SECTION ------------------------------------------------------------
+            // Padding(
+            //   padding: const EdgeInsets.all(16.0),
+            //   child: TextField(
+            //     onChanged: (query) {
+            //       setState(() {
+            //         filteredSubjects = subjects
+            //             .where((subject) => subject
+            //                 .toLowerCase()
+            //                 .contains(query.toLowerCase()))
+            //             .toList();
+            //       });
+            //     },
+            //     decoration: InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       hintText: 'Search',
+            //       prefixIcon: Icon(Icons.search),
+            //     ),
+            //   ),
+            // ),
 
-              // Subject Grid View
-              // GridView.builder(
-              //   shrinkWrap: true,
-              //   physics: NeverScrollableScrollPhysics(),
-              //   padding: const EdgeInsets.all(30.0),
-              //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              //     crossAxisCount: 2,
-              //     crossAxisSpacing: 8,
-              //     mainAxisSpacing: 8,
-              //   ),
-              //   itemCount: filteredSubjects.isEmpty
-              //       ? subjects.length
-              //       : filteredSubjects.length,
-              //   itemBuilder: (BuildContext context, int index) {
-              //     final subject = filteredSubjects.isEmpty
-              //         ? subjects[index]
-              //         : filteredSubjects[index];
+            // Subject Grid View
+            // GridView.builder(
+            //   shrinkWrap: true,
+            //   physics: NeverScrollableScrollPhysics(),
+            //   padding: const EdgeInsets.all(30.0),
+            //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            //     crossAxisCount: 2,
+            //     crossAxisSpacing: 8,
+            //     mainAxisSpacing: 8,
+            //   ),
+            //   itemCount: filteredSubjects.isEmpty
+            //       ? subjects.length
+            //       : filteredSubjects.length,
+            //   itemBuilder: (BuildContext context, int index) {
+            //     final subject = filteredSubjects.isEmpty
+            //         ? subjects[index]
+            //         : filteredSubjects[index];
 
-              //     // Retrieve color from the map
-              //     final color = subjectColors[subject] ?? Colors.blue;
+            //     // Retrieve color from the map
+            //     final color = subjectColors[subject] ?? Colors.blue;
 
-              //     return SubjectCard(subject: subject, color: color);
-              //   },
-              // ),
-
-              
-            ],
-          ),
+            //     return SubjectCard(subject: subject, color: color);
+            //   },
+            // ),
+          ],
         ),
+      ),
     );
   }
 

@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api png, library_private_types_in_public_api
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:peerup/flashcard/practice.dart';
 import 'package:peerup/functions/addFlashcard.dart';
 import 'package:peerup/functions/addFlashcardSet.dart';
 import 'package:peerup/functions/fetchFlashcard.dart';
@@ -99,7 +100,8 @@ class FlashcardState extends State<Flashcard> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => const Practice(),
+                                        builder: (context) => PracticeReview(
+                                            flashcardSetId: document.id),
                                       ),
                                     );
                                   },
@@ -787,9 +789,14 @@ class _ViewCardState extends State<ViewCard> {
   }
 }
 
-class Practice extends StatelessWidget {
+class Practice extends StatefulWidget {
   const Practice({super.key});
 
+  @override
+  _FlashcardState createState() => _FlashcardState();
+}
+
+class _FlashcardState extends State<Practice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
