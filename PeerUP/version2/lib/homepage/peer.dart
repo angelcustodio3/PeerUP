@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -12,13 +13,9 @@ class Peer extends StatefulWidget {
 class _PeerState extends State<Peer> {
   late TextEditingController _textController1;
   late TextEditingController _textController2;
-  late TextEditingController _textController3;
-  late TextEditingController _textController4;
 
   late FocusNode _textFieldFocusNode1;
   late FocusNode _textFieldFocusNode2;
-  late FocusNode _textFieldFocusNode3;
-  late FocusNode _textFieldFocusNode4;
 
   File? _pickedImage;
 
@@ -28,28 +25,43 @@ class _PeerState extends State<Peer> {
 
     _textController1 = TextEditingController();
     _textController2 = TextEditingController();
-    _textController3 = TextEditingController();
-    _textController4 = TextEditingController();
 
     _textFieldFocusNode1 = FocusNode();
     _textFieldFocusNode2 = FocusNode();
-    _textFieldFocusNode3 = FocusNode();
-    _textFieldFocusNode4 = FocusNode();
   }
 
   @override
   void dispose() {
     _textController1.dispose();
     _textController2.dispose();
-    _textController3.dispose();
-    _textController4.dispose();
 
     _textFieldFocusNode1.dispose();
     _textFieldFocusNode2.dispose();
-    _textFieldFocusNode3.dispose();
-    _textFieldFocusNode4.dispose();
 
     super.dispose();
+  }
+
+    Future<void> updateEmailAndPassword() async {
+    try {
+      final String newEmail = _textController1.text.trim();
+      final String newPassword = _textController2.text.trim();
+
+      if (newEmail.isNotEmpty && newPassword.isNotEmpty) {
+        User? user = FirebaseAuth.instance.currentUser;
+
+        if (user != null) {
+          await user.updateEmail(newEmail);
+          await user.updatePassword(newPassword);
+          print('Email and password updated successfully!');
+        } else {
+          print('User is not authenticated.');
+        }
+      } else {
+        print('Email or password cannot be empty.');
+      }
+    } catch (e) {
+      print('Error updating email and password: $e');
+    }
   }
 
   Future<void> _pickImage(ImageSource source) async {
@@ -78,16 +90,6 @@ class _PeerState extends State<Peer> {
         appBar: AppBar(
           backgroundColor: const Color(0xFF6493A5),
           automaticallyImplyLeading: false,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 30,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
           actions: const [],
           centerTitle: true,
           elevation: 2,
@@ -131,41 +133,12 @@ class _PeerState extends State<Peer> {
                     color: Colors.black,
                   ),
                 ),
-                const SizedBox(height: 20), // Adjust the height as needed
-
+                const SizedBox(height: 30), // Adjust the height as needed
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     controller: _textController1,
                     focusNode: _textFieldFocusNode1,
-                    decoration: const InputDecoration(
-                      labelText: 'Username',
-                      // Add other input decoration properties as needed
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 20), // Adjust the height as needed
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    controller: _textController2,
-                    focusNode: _textFieldFocusNode2,
-                    decoration: const InputDecoration(
-                      labelText: 'Description',
-                      // Add other input decoration properties as needed
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 20), // Adjust the height as needed
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    controller: _textController3,
-                    focusNode: _textFieldFocusNode3,
                     decoration: const InputDecoration(
                       labelText: 'Email',
                       // Add other input decoration properties as needed
@@ -173,20 +146,20 @@ class _PeerState extends State<Peer> {
                   ),
                 ),
 
-                const SizedBox(height: 20), // Adjust the height as needed
+                const SizedBox(height: 50), // Adjust the height as needed
 
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    controller: _textController4,
-                    focusNode: _textFieldFocusNode4,
+                    controller: _textController2,
+                    focusNode: _textFieldFocusNode2,
                     decoration: const InputDecoration(
                       labelText: 'Password',
                       // Add other input decoration properties as needed
                     ),
                   ),
                 ),
-
+                const SizedBox(height: 60),
                 ElevatedButton(
                   onPressed: () {
                     print('Button pressed ...');

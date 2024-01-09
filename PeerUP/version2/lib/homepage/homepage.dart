@@ -195,7 +195,7 @@ class _HomepageState extends State<Homepage> {
       case 'Town':
         return AssetImage('assets/graphics/town.jpg');
       default:
-        return AssetImage('assets/graphics/white.jpeg');
+        return AssetImage('assets/graphics/white.jpg');
     }
   }
 
