@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:peerup/flashcard/flashcard_main.dart';
 
 class AnswerCard extends StatelessWidget {
-  AnswerCard({super.key, required this.answer, required this.onPressed});
+  AnswerCard(
+      {super.key,
+      required this.answer,
+      required this.onPressed,
+      required this.onNext});
   final String answer;
   final Function() onPressed;
+  final Function() onNext;
 
   @override
   Widget build(BuildContext context) {
@@ -75,12 +80,7 @@ class AnswerCard extends StatelessWidget {
             alignment: const Alignment(-0.30, 0.90),
             child: ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const ReviewCompletePage(),
-                //   ),
-                // );
+                onNext();
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
@@ -95,12 +95,7 @@ class AnswerCard extends StatelessWidget {
             alignment: const Alignment(0.30, 0.90),
             child: ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const ReviewCompletePage(),
-                //   ),
-                // );
+                onNext();
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
