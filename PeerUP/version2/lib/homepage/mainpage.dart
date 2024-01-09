@@ -6,7 +6,6 @@ import 'package:peerup/progress/to-do-page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
-
   @override
   State<MainPage> createState() => _MainPageState();
 }
@@ -27,7 +26,7 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-// main page
+// Navigation Bar
   @override
   Widget build(BuildContext context) {
     return Scaffold(

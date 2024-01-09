@@ -2,185 +2,179 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'dart:math';
 import 'package:peerup/homepage/drawer.dart';
-import 'package:peerup/homepage/history.dart';
-import 'package:peerup/homepage/peer.dart';
-import 'package:peerup/homepage/technique.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
-
   @override
   State<Homepage> createState() => _HomepageState();
 }
 
+class CustomFloatingActionButtonLocation extends FloatingActionButtonLocation {
+  @override
+  Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
+    // Adjust the X and Y coordinates to customize the position
+    return Offset(335.0, 25.0);
+  }
+
+  @override
+  String toString() => 'CustomFloatingActionButtonLocation';
+}
+
 class _HomepageState extends State<Homepage> {
-
-  // SUBJECTS SECTION -----------------------------------------------------------------
-  List<String> subjects = [
-    'CMSC 128',
-    'CMSC 129',
-    'CMSC 134',
-    'CMSC 137',
-    'CMSC 11',
-    'CMSC 10',
-  ];
-
-  List<String> filteredSubjects = [];
-  Map<String, Color> subjectColors = {};
   String selectedBackground = 'default'; // For default background
-
-  @override
-  void initState() {
-    super.initState();
-    _generateSubjectColors();
-  }
-  void _generateSubjectColors() {
-    // Generate colors for each subject and store them in the map
-    final random = Random();
-    for (String subject in subjects) {
-      final color = Color.fromRGBO(
-        random.nextInt(156),
-        random.nextInt(156),
-        random.nextInt(256),
-        1.0,
-      );
-      subjectColors[subject] = color;
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAEBD2),
-
-      // APPBAR, PROFILE DRAWER, ----------------------------------------------------------
-      drawer: MyDrawer(), 
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFAEBD2),
-        elevation: 0,
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              onPressed: () => Scaffold.of(context).openDrawer(),
-              icon: SvgPicture.asset(
-                'assets/icons/profile.svg',
-                height: 30.0,
-                width: 30.0,
-                color: const Color(0xFF3D405B),
-              ),
-            );
-          },
-        ),
-
-        title: Text(
-          'Welcome, Peer!',
-          style: TextStyle(
-            fontFamily: 'Poppins',
-            color: Color(0xFF3D405B),
-            fontSize: 32,
-            fontWeight: FontWeight.w500,
+      backgroundColor:Color(0x10FAEBD2),
+      // appBar: AppBar(
+      //   //backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   toolbarHeight: 70.0,
+      //   actions: [
+      //     IconButton(
+      //       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      //       icon: SvgPicture.asset('assets/icons/photo.svg', height: 30.0, width: 30.0,),
+      //       color: Color(0xFF3D405B),
+      //       onPressed: () => _showBackgroundMenu(context),
+      //     ),
+      //   ],
+      // ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          onPressed: () => _showBackgroundMenu(context),
+          child: SvgPicture.asset('assets/icons/photo.svg', height: 30.0, width: 30.0,
           ),
         ),
-        actions: [
-          IconButton(
-            icon: SvgPicture.asset('assets/icons/photo.svg', height: 30.0, width: 30.0,),
-            color: Color(0xFF3D405B),
-            onPressed: () => _showBackgroundMenu(context),
-          ),
+      floatingActionButtonLocation: CustomFloatingActionButtonLocation(),
+
+      // Body of Homepage
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Color(0xFF0FA3B1), // Top color with 50% transparency
+          Color(0x500FA3B1),  // Middle color fully opaque
+          Color(0x30F2CC8F), // Bottom color fully opaque
         ],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: _getImage(selectedBackground),
-              fit: BoxFit.cover,
-            ),
+          image: DecorationImage(
+            image: _getImage(selectedBackground),
+            fit: BoxFit.fill,
           ),
-
-          // QUOTES SECTION ----------------------------------------------------
-          child: Column(
+        ),
+        child: Column(
             children: [
-              // Quote
               Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Color(0xFF6493A5),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-                padding: const EdgeInsets.all(25),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        Text('QUOTE OF THE DAY'),
-                        Text(
-                          '❝ It is during our darkest moments \nthat we must focus to see the light ❞',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                //width: double.infinity,
+                alignment: Alignment.topLeft,
+                //  decoration: BoxDecoration(
+                //   color: Color(0xFF6493A5),
+                // ),
+                //margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                padding: const EdgeInsets.only(left: 30, top: 95),
+                child: Text(
+                    'Hello, peer!',
+                    //textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: Color(0xFF3D405B),
+                      fontSize: 28,
+                      fontWeight: FontWeight.w600,
+                  )
                 ),
               ),
-
-              // SEARCH BAR SECTION ------------------------------------------------------------
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextField(
-                  onChanged: (query) {
-                    setState(() {
-                      filteredSubjects = subjects
-                          .where((subject) => subject
-                              .toLowerCase()
-                              .contains(query.toLowerCase()))
-                          .toList();
-                    });
-                  },
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Search',
-                    prefixIcon: Icon(Icons.search),
+              
+              Container(
+                alignment: Alignment.topLeft,
+                // decoration: BoxDecoration(
+                //   color: Color(0xFF6493A5),
+                // ),
+                //margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                padding: const EdgeInsets.only(left: 30),
+                child: Text(
+                  'How are you doing today?',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    color: Color(0xFF3D405B),
+                    fontSize: 15,
+                    fontWeight: FontWeight.w200,
                   ),
                 ),
               ),
 
-              // Subject Grid View
-              GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.all(30.0),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
+              // Quote of the Day Section
+              Container(
+                // width: 250,
+                height: 200,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Color(0x500FA3B1),
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                itemCount: filteredSubjects.isEmpty
-                    ? subjects.length
-                    : filteredSubjects.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final subject = filteredSubjects.isEmpty
-                      ? subjects[index]
-                      : filteredSubjects[index];
-
-                  // Retrieve color from the map
-                  final color = subjectColors[subject] ?? Colors.blue;
-
-                  return SubjectCard(subject: subject, color: color);
-                },
+                margin: const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  '❝ It is during our darkest moments \nthat we must focus to see the light❞\n\n\t\t-Anonymous',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
               ),
+
+              // // SEARCH BAR SECTION ------------------------------------------------------------
+              // Padding(
+              //   padding: const EdgeInsets.all(16.0),
+              //   child: TextField(
+              //     onChanged: (query) {
+              //       setState(() {
+              //         filteredSubjects = subjects
+              //             .where((subject) => subject
+              //                 .toLowerCase()
+              //                 .contains(query.toLowerCase()))
+              //             .toList();
+              //       });
+              //     },
+              //     decoration: InputDecoration(
+              //       border: OutlineInputBorder(),
+              //       hintText: 'Search',
+              //       prefixIcon: Icon(Icons.search),
+              //     ),
+              //   ),
+              // ),
+
+              // Subject Grid View
+              // GridView.builder(
+              //   shrinkWrap: true,
+              //   physics: NeverScrollableScrollPhysics(),
+              //   padding: const EdgeInsets.all(30.0),
+              //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //     crossAxisCount: 2,
+              //     crossAxisSpacing: 8,
+              //     mainAxisSpacing: 8,
+              //   ),
+              //   itemCount: filteredSubjects.isEmpty
+              //       ? subjects.length
+              //       : filteredSubjects.length,
+              //   itemBuilder: (BuildContext context, int index) {
+              //     final subject = filteredSubjects.isEmpty
+              //         ? subjects[index]
+              //         : filteredSubjects[index];
+
+              //     // Retrieve color from the map
+              //     final color = subjectColors[subject] ?? Colors.blue;
+
+              //     return SubjectCard(subject: subject, color: color);
+              //   },
+              // ),
+
+              
             ],
           ),
         ),
-      ),
     );
   }
 
@@ -202,7 +196,7 @@ class _HomepageState extends State<Homepage> {
   void _showBackgroundMenu(BuildContext context) {
     showMenu(
       context: context,
-      position: RelativeRect.fromLTRB(10, 50, 0, 0),
+      position: RelativeRect.fromLTRB(25, 75, 0, 0),
       items: [
         PopupMenuItem<String>(
           value: 'Sunset',
@@ -236,27 +230,27 @@ class _HomepageState extends State<Homepage> {
 }
 
 // SUBJECT CARD CLASS
-class SubjectCard extends StatelessWidget {
-  final String subject;
-  final Color color;
+// class SubjectCard extends StatelessWidget {
+//   final String subject;
+//   final Color color;
 
-  const SubjectCard({required this.subject, required this.color});
+//   const SubjectCard({required this.subject, required this.color});
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: color,
-      child: Center(
-        child: Text(
-          subject,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       color: color,
+//       child: Center(
+//         child: Text(
+//           subject,
+//           style: TextStyle(
+//             fontSize: 20,
+//             fontWeight: FontWeight.bold,
+//             color: Colors.white,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
