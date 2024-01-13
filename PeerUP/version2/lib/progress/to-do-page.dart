@@ -20,33 +20,68 @@ class Tasks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-            backgroundColor: const Color(0xFFFAEBD2), // Change background color here
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(0.00, -1.00),
-              end: Alignment(0, 1),
-              colors: [Color(0xFFD7B883), Color(0x00F7E0BA), Color(0xFFFAEBD2)],
-            ),
-          ),
-        ),
-        title: const Center(
-          child: Text(
-            'Tasks',
-            style: TextStyle(
-              color: Color(0xFF333232),
-              fontFamily: 'Poppins',
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
-      ),
+     backgroundColor: const Color(0xFFFAEBD2), // Change background color here
+      // appBar: AppBar(
+      //   flexibleSpace: Container(
+      //     decoration: BoxDecoration(
+      //       gradient: LinearGradient(
+      //         begin: Alignment(0.00, -1.00),
+      //         end: Alignment(0, 1),
+      //         colors: [Color(0xFFD7B883), Color(0x00F7E0BA), Color(0xFFFAEBD2)],
+      //       ),
+      //     ),
+      //   ),
+      //   title: const Center(
+      //     child: Text(
+      //       'Tasks',
+      //       style: TextStyle(
+      //         color: Color(0xFF333232),
+      //         fontFamily: 'Poppins',
+      //         fontSize: 20,
+      //         fontWeight: FontWeight.w700,
+      //       ),
+      //     ),
+      //   ),
+      // ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+
+          // Task girl illustration 
+          Container(
+              padding: const EdgeInsets.only(left: 30, top: 75, right: 30),
+              alignment: Alignment.center,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/graphics/task-girl.png',
+                  width: 175,
+                  height: 165,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+
+            // "YOUR TASKS" text space
+            Container(
+              padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
+              alignment: Alignment.center,
+              child: Text(
+                'YOUR TASKS',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: const Color(0xFF3D405B),
+                  fontSize: 25,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+
           Container(
             child: const Expanded(
               child: TodoListWidget(),
@@ -119,12 +154,12 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                 title: Text(
                   todoItems[index].text,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 18,
                     fontWeight: FontWeight.normal,
                     decoration: todoItems[index].isDone
                         ? TextDecoration.lineThrough
                         : TextDecoration.none,
-                    color: todoItems[index].isDone ? Colors.grey : Colors.black,
+                    color: todoItems[index].isDone ? const Color(0x803D405B) : const Color(0xFF3D405B),
                     fontFamily: 'Poppins',
                   ),
                 ),
@@ -139,19 +174,21 @@ class _TodoListWidgetState extends State<TodoListWidget> {
             },
           ),
         ),
+
+        // Add new tasks button
         Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(30),
           child: Container(
             decoration: BoxDecoration(
-              color: const Color(0x7081B29A),
-              borderRadius: BorderRadius.circular(12),
+              color: const Color(0x500FA3B1),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Row(
               children: [
                 IconButton(
                   icon: const Icon(Icons.add_rounded),
                   onPressed: addTodoItem,
-                  color: Colors.black,
+                  color: const Color(0xFF3D405B),
                 ),
                 SizedBox(width: 6),
                 Expanded(
@@ -167,7 +204,7 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         
-                        color: Colors.black,
+                        color: const Color(0xFF3D405B),
                         fontFamily: 'Poppins',
                       ),
                       textAlign: TextAlign.left,
