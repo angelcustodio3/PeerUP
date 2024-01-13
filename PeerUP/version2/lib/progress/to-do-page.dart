@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,8 +61,8 @@ class Tasks extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
                   'assets/graphics/task-girl.png',
-                  width: 175,
-                  height: 165,
+                  width: 200,
+                  height: 185,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -69,7 +70,7 @@ class Tasks extends StatelessWidget {
 
             // "YOUR TASKS" text space
             Container(
-              padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
+              padding: const EdgeInsets.only(left: 30, right: 30, top: 25),
               alignment: Alignment.center,
               child: Text(
                 'YOUR TASKS',
@@ -133,7 +134,7 @@ class _TodoListWidgetState extends State<TodoListWidget> {
 
       // If the task is done, wait for 0.5 seconds, then remove it from the list
       if (isChecked) {
-        Future.delayed(const Duration(milliseconds: 500), () {
+        Future.delayed(const Duration(milliseconds: 700), () {
           setState(() {
             todoItems.removeAt(index);
           });
@@ -186,14 +187,16 @@ class _TodoListWidgetState extends State<TodoListWidget> {
             child: Row(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.add_rounded),
+                  //padding: EdgeInsets.symmetric(vertical: 5),
+                  iconSize: 25,
+                  icon: SvgPicture.asset('assets/icons/plus.svg', height: 10.0, width: 10.0,),
                   onPressed: addTodoItem,
                   color: const Color(0xFF3D405B),
                 ),
-                SizedBox(width: 6),
+                SizedBox(width: 5),
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    padding: const EdgeInsets.symmetric(vertical: 5),
                     child: TextField(
                       controller: controller,
                       decoration: const InputDecoration(
@@ -201,9 +204,8 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                         border: InputBorder.none,
                       ),
                       style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
                         color: const Color(0xFF3D405B),
                         fontFamily: 'Poppins',
                       ),

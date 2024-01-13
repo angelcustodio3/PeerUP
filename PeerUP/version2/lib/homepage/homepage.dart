@@ -46,6 +46,7 @@ class _HomepageState extends State<Homepage> {
           'assets/icons/photo.svg',
           height: 30.0,
           width: 30.0,
+          color: Color(0xFFFDFCF8)
         ),
       ),
       floatingActionButtonLocation: CustomFloatingActionButtonLocation(),
@@ -81,8 +82,8 @@ class _HomepageState extends State<Homepage> {
                   //textAlign: TextAlign.left,
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: Color(0xFF3D405B),
-                    fontSize: 28,
+                    color: Color(0xFFFDFCF8),
+                    fontSize: 30,
                     fontWeight: FontWeight.w600,
                   )),
             ),
@@ -98,7 +99,7 @@ class _HomepageState extends State<Homepage> {
                 'How are you doing today?',
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  color: Color(0xFF3D405B),
+                  color: Color(0xFFFDFCF8),
                   fontSize: 15,
                   fontWeight: FontWeight.w200,
                 ),
@@ -117,7 +118,7 @@ class _HomepageState extends State<Homepage> {
               margin: const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
               padding: const EdgeInsets.all(15),
               child: Text(
-                '❝ It is during our darkest moments \nthat we must focus to see the light❞\n\n\t\t-Anonymous',
+                '❝ It is during our darkest moments \nthat we must focus to see the light ❞\n\n\t\t-Anonymous',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 16,
