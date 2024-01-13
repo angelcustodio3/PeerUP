@@ -17,6 +17,22 @@ class Techniques extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MainPage(),
+                    ),
+                  ),
+        child: SvgPicture.asset(
+          'assets/icons/home.svg',
+          height: 30.0,
+          width: 30.0,
+        ),
+      ),
+      floatingActionButtonLocation: CustomFloatingActionButtonLocation(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:peerup/functions/logout.dart';
 
 class Peer extends StatefulWidget {
   const Peer({super.key});
@@ -140,7 +141,7 @@ class _PeerState extends State<Peer> {
                     controller: _textController1,
                     focusNode: _textFieldFocusNode1,
                     decoration: const InputDecoration(
-                      labelText: 'Email',
+                      labelText: 'Change Email',
                       // Add other input decoration properties as needed
                     ),
                   ),
@@ -154,7 +155,7 @@ class _PeerState extends State<Peer> {
                     controller: _textController2,
                     focusNode: _textFieldFocusNode2,
                     decoration: const InputDecoration(
-                      labelText: 'Password',
+                      labelText: 'Change Password',
                       // Add other input decoration properties as needed
                     ),
                   ),
@@ -178,7 +179,25 @@ class _PeerState extends State<Peer> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20), // Adjust the height as needed
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    logOut(context);
+                  },
+                  child: const Text('LOGOUT'),
+                                    style: ElevatedButton.styleFrom(
+                    primary: const Color.fromARGB(255, 40, 95, 139),
+                    onPrimary: Colors.white,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    textStyle: const TextStyle(
+                      fontSize: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ), // Adjust the height as needed
               ],
             ),
           ),
