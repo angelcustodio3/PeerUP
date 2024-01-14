@@ -46,7 +46,7 @@ class _HomepageState extends State<Homepage> {
           'assets/icons/photo.svg',
           height: 30.0,
           width: 30.0,
-          color: Color(0xFF3D405B)
+          color: Color(0xFFFDFCF8)
         ),
       ),
       floatingActionButtonLocation: CustomFloatingActionButtonLocation(),
@@ -58,9 +58,9 @@ class _HomepageState extends State<Homepage> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF0FA3B1), // Top color with 50% transparency
-              Color(0x800FA3B1), // Middle color fully opaque
-              Color(0x30F2CC8F), // Bottom color fully opaque
+              Color(0xFF0FA3B1), // Top color full opaque
+              Color(0x800FA3B1), // Middle color 80% transparency
+              Color(0x30F2CC8F), // Bottom color 30% transparency
             ],
           ),
           image: DecorationImage(
@@ -112,7 +112,7 @@ class _HomepageState extends State<Homepage> {
               height: 200,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Color(0x500FA3B1),
+                color: Color(0x850FA3B1),
                 borderRadius: BorderRadius.circular(15),
               ),
               margin: const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
@@ -122,56 +122,11 @@ class _HomepageState extends State<Homepage> {
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 16,
+                  fontWeight: FontWeight.w500,
                   fontStyle: FontStyle.italic,
                 ),
               ),
             ),
-
-            // // SEARCH BAR SECTION ------------------------------------------------------------
-            // Padding(
-            //   padding: const EdgeInsets.all(16.0),
-            //   child: TextField(
-            //     onChanged: (query) {
-            //       setState(() {
-            //         filteredSubjects = subjects
-            //             .where((subject) => subject
-            //                 .toLowerCase()
-            //                 .contains(query.toLowerCase()))
-            //             .toList();
-            //       });
-            //     },
-            //     decoration: InputDecoration(
-            //       border: OutlineInputBorder(),
-            //       hintText: 'Search',
-            //       prefixIcon: Icon(Icons.search),
-            //     ),
-            //   ),
-            // ),
-
-            // Subject Grid View
-            // GridView.builder(
-            //   shrinkWrap: true,
-            //   physics: NeverScrollableScrollPhysics(),
-            //   padding: const EdgeInsets.all(30.0),
-            //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            //     crossAxisCount: 2,
-            //     crossAxisSpacing: 8,
-            //     mainAxisSpacing: 8,
-            //   ),
-            //   itemCount: filteredSubjects.isEmpty
-            //       ? subjects.length
-            //       : filteredSubjects.length,
-            //   itemBuilder: (BuildContext context, int index) {
-            //     final subject = filteredSubjects.isEmpty
-            //         ? subjects[index]
-            //         : filteredSubjects[index];
-
-            //     // Retrieve color from the map
-            //     final color = subjectColors[subject] ?? Colors.blue;
-
-            //     return SubjectCard(subject: subject, color: color);
-            //   },
-            // ),
           ],
         ),
       ),
@@ -182,14 +137,14 @@ class _HomepageState extends State<Homepage> {
     switch (imageName) {
       case 'Sunset':
         return AssetImage('assets/graphics/sunset.jpg');
-      case 'Road':
-        return AssetImage('assets/graphics/road.jpg');
+      case 'Plain':
+        return AssetImage('assets/graphics/white.jpg');
       case 'Lofi':
         return AssetImage('assets/graphics/lofi.jpeg');
       case 'Town':
         return AssetImage('assets/graphics/town.jpg');
       default:
-        return AssetImage('assets/graphics/white.jpg');
+        return AssetImage('assets/graphics/road.jpg');
     }
   }
 
@@ -203,8 +158,8 @@ class _HomepageState extends State<Homepage> {
           child: Text('Sunset'),
         ),
         PopupMenuItem<String>(
-          value: 'Road',
-          child: Text('Road'),
+          value: 'Plain',
+          child: Text('Plain'),
         ),
         PopupMenuItem<String>(
           value: 'Lofi',
@@ -228,29 +183,4 @@ class _HomepageState extends State<Homepage> {
     });
   }
 }
-
-// SUBJECT CARD CLASS
-// class SubjectCard extends StatelessWidget {
-//   final String subject;
-//   final Color color;
-
-//   const SubjectCard({required this.subject, required this.color});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       color: color,
-//       child: Center(
-//         child: Text(
-//           subject,
-//           style: TextStyle(
-//             fontSize: 20,
-//             fontWeight: FontWeight.bold,
-//             color: Colors.white,
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
