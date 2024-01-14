@@ -21,20 +21,21 @@ class SignUpPage extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFB5E2FA),
+      backgroundColor: const Color(0xFFFAEBD2),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 80),
             const Center(
               child: Padding(
                 padding: EdgeInsets.only(top: 30, left: 10),
                 child: Text(
                   'Hello, Peer!',
                   style: TextStyle(
-                    color: Color(0xFFF7A072),
-                    fontSize: 40,
+                    color: Color(0xFF3D405B),
+                    fontSize: 32,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w900,
                     height: 0,
@@ -42,7 +43,7 @@ class SignUpPage extends State<SignUp> {
                 ),
               ),
             ),
-            const SizedBox(height: 0),
+            const SizedBox(height: 50),
             Center(
               child: Image.asset(
                 'assets/graphics/wws.png',
@@ -50,7 +51,7 @@ class SignUpPage extends State<SignUp> {
                 height: 200,
               ),
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 50),
             Center(
               child: SizedBox(
                 width: 270,
@@ -59,7 +60,7 @@ class SignUpPage extends State<SignUp> {
                   hintText: 'Enter Email',
                   obscureText: false,
                   marginBottom: 10,
-                  borderColor: Colors.white,
+                  borderColor: const Color(0xFFFDFCF8),
                   focusColor: Colors.red,
                   removeBorder: true,
                   controller: emailController,
@@ -75,7 +76,7 @@ class SignUpPage extends State<SignUp> {
                   hintText: 'Enter Password',
                   obscureText: true,
                   marginBottom: 10,
-                  borderColor: Colors.white,
+                  borderColor: const Color(0xFFFDFCF8),
                   focusColor: Colors.red,
                   removeBorder: true,
                   controller: passwordController,
@@ -93,15 +94,15 @@ class SignUpPage extends State<SignUp> {
                       color: Colors.grey,
                       fontSize: 12,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w400,
                     ),
                   )),
             ),
             const SizedBox(height: 15),
             Center(
               child: SizedBox(
-                width: 184,
-                height: 33,
+                width: 185,
+                height: 45,
                 child: ElevatedButton(
                   onPressed: () async {
                     UserCredential? userCredential = await signUp(
@@ -109,12 +110,12 @@ class SignUpPage extends State<SignUp> {
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFFEDDEA4)),
+                        MaterialStateProperty.all(const Color(0xFF0FA3B1)),
                   ),
                   child: const Text(
                     'Create Account',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color(0xFFF9F7F3),
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,

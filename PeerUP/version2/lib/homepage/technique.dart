@@ -200,7 +200,7 @@ void showPomodoroDialog(BuildContext context) {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    'assets/graphics/Clock.png',
+                    'assets/graphics/clock.png',
                     width: 85,
                     height: 85,
                     fit: BoxFit.cover,
@@ -272,7 +272,7 @@ void showFlashcardDialog(BuildContext context) {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    'assets/graphics/RedCard.png',
+                    'assets/graphics/quiz.png',
                     width: 85,
                     height: 85,
                     fit: BoxFit.cover,

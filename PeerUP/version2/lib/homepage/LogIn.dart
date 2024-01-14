@@ -21,20 +21,21 @@ class LoginPage extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F7F3),
+      backgroundColor: const Color(0xFFFAEBD2),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 80),
             const Center(
               child: Padding(
                 padding: EdgeInsets.only(top: 30, left: 10),
                 child: Text(
                   'Welcome Back!',
                   style: TextStyle(
-                    color: Color(0xFF0D1238),
-                    fontSize: 40,
+                    color: Color(0xFF3D405B),
+                    fontSize: 32,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w900,
                     height: 0,
@@ -42,15 +43,15 @@ class LoginPage extends State<Login> {
                 ),
               ),
             ),
-            const SizedBox(height: 0),
+            const SizedBox(height: 50),
             Center(
               child: Image.asset(
-                'assets/graphics/wws.png',
+                'assets/graphics/wwss.png',
                 width: 290,
                 height: 200,
               ),
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 50),
             Center(
               child: SizedBox(
                 width: 270,
@@ -59,7 +60,7 @@ class LoginPage extends State<Login> {
                   hintText: 'Email',
                   obscureText: false,
                   marginBottom: 10,
-                  borderColor: Colors.white,
+                  borderColor: const Color(0xFFFDFCF8),
                   focusColor: Colors.red,
                   removeBorder: true,
                   controller: emailController,
@@ -75,7 +76,7 @@ class LoginPage extends State<Login> {
                   hintText: 'Password',
                   obscureText: true,
                   marginBottom: 10,
-                  borderColor: Colors.white,
+                  borderColor: const Color(0xFFFDFCF8),
                   focusColor: Colors.red,
                   removeBorder: true,
                   controller: passwordController,
@@ -85,8 +86,8 @@ class LoginPage extends State<Login> {
             const SizedBox(height: 15),
             Center(
               child: SizedBox(
-                width: 134,
-                height: 33,
+                width: 150,
+                height: 45,
                 child: ElevatedButton(
                   onPressed: () async {
                     UserCredential? userCredential =
@@ -95,7 +96,7 @@ class LoginPage extends State<Login> {
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF146C94)),
+                        MaterialStateProperty.all(const Color(0xFF0FA3B1)),
                   ),
                   child: const Text(
                     'Log In',
@@ -120,7 +121,7 @@ class LoginPage extends State<Login> {
                 child: const Text(
                   'Sign Up',
                   style: TextStyle(
-                    color: Color(0xFFF9F7F3),
+                    color: Color(0xFF3D405B),
                     fontSize: 15,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
