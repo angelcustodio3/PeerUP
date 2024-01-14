@@ -32,15 +32,16 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor:Color(0xFFFDFCF8),
         onTap: onTap,
         currentIndex: currentIndex,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor:Color(0xFFFDFCF8),
         selectedItemColor:Color(0xFF0FA3B1),
         unselectedItemColor: Color(0xFFB1B3BD),
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        elevation: 0,
+        elevation: 2,
+        iconSize: 30,
         items: const [
           BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home_rounded)),
           BottomNavigationBarItem(label: 'Technique', icon: Icon(Icons.book_rounded)),

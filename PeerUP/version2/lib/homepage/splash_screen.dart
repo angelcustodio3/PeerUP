@@ -22,9 +22,9 @@ class SplashScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color.fromRGBO(28, 104, 157, 69.27), // Top color
-              Color.fromRGBO(100, 147, 165, 100), // Middle color
-              Color.fromRGBO(255, 255, 255, 100), // Bottom color
+              Color(0xFF0FA3B1), // Top color with 50% transparency
+              Color(0x800FA3B1), // Middle color fully opaque
+              Color(0x30F2CC8F), // Bottom color fully opaque
             ],
           ),
         ),
@@ -33,18 +33,18 @@ class SplashScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               // Stroked text as border.
-              Text(
-                'PEERUP',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  foreground: Paint()
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2
-                    ..color = const Color(0x9C6493A5),
-                ),
-              ),
+              // Text(
+              //   'PEERUP',
+              //   style: TextStyle(
+              //     fontFamily: 'Poppins',
+              //     fontSize: 48,
+              //     fontWeight: FontWeight.bold,
+              //     foreground: Paint()
+              //       ..style = PaintingStyle.stroke
+              //       ..strokeWidth = 2
+              //       ..color = const Color(0x9C6493A5),
+              //   ),
+              // ),
               // Solid text as fill.
               const Text(
                 'PEERUP',

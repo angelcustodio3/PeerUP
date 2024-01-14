@@ -6,7 +6,6 @@ import 'package:peerup/functions/logout.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
-
   @override
   _ProfileState createState() => _ProfileState();
 }
@@ -14,7 +13,6 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   late TextEditingController _textController1;
   late TextEditingController _textController2;
-
   late FocusNode _textFieldFocusNode1;
   late FocusNode _textFieldFocusNode2;
 
@@ -26,7 +24,6 @@ class _ProfileState extends State<Profile> {
 
     _textController1 = TextEditingController();
     _textController2 = TextEditingController();
-
     _textFieldFocusNode1 = FocusNode();
     _textFieldFocusNode2 = FocusNode();
   }
@@ -35,7 +32,6 @@ class _ProfileState extends State<Profile> {
   void dispose() {
     _textController1.dispose();
     _textController2.dispose();
-
     _textFieldFocusNode1.dispose();
     _textFieldFocusNode2.dispose();
 
@@ -87,14 +83,7 @@ class _ProfileState extends State<Profile> {
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xFFF2CC8F),
-        // appBar: AppBar(
-        //   backgroundColor: const Color(0xFF6493A5),
-        //   automaticallyImplyLeading: false,
-        //   actions: const [],
-        //   centerTitle: true,
-        //   elevation: 2,
-        // ),
+        backgroundColor: Color(0xFFFAEBD2),
         body: SafeArea(
           top: true,
           child: SingleChildScrollView(
@@ -130,14 +119,16 @@ class _ProfileState extends State<Profile> {
                   'Edit Profile',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
                     color: const Color(0xFF3D405B),
                   ),
                 ),
-                const SizedBox(height: 30), // Adjust the height as needed
+                const SizedBox(height: 50), // Adjust the height as needed
+
+                // Change Password text box section
                 Padding(
-                  padding: const EdgeInsets.all(15),
+                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 30),
                   child: TextFormField(
                     controller: _textController1,
                     focusNode: _textFieldFocusNode1,
@@ -145,17 +136,17 @@ class _ProfileState extends State<Profile> {
                       labelStyle: TextStyle(
                         fontFamily: 'Poppins',
                         color: const Color(0xFF3D405B),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 50), // Adjust the height as needed
 
+                // Change Password text box section
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 30),
                   child: TextFormField(
                     controller: _textController2,
                     focusNode: _textFieldFocusNode2,
@@ -164,50 +155,56 @@ class _ProfileState extends State<Profile> {
                       labelStyle: TextStyle(
                         fontFamily: 'Poppins',
                         color: const Color(0xFF3D405B),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 60),
+                const SizedBox(height: 100),
+
+                // Save Changes floating button
                 ElevatedButton(
                   onPressed: () {
                     print('Button pressed ...');
                   },
-                  child: const Text('Save Changes'),
-                                    style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    onPrimary: Colors.white,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  child: const Text('Save Changes', style: TextStyle(color: Color(0xFFFDFCF8))),
+                    style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF0FA3B1),
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                     textStyle: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
+
+                // Log Out floating button
                 ElevatedButton(
                   onPressed: () {
                     logOut(context);
                   },
-                  child: const Text('LOGOUT'),
-                                    style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(255, 40, 95, 139),
-                    onPrimary: Colors.white,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  child: const Text('LOGOUT', style: TextStyle(color: Color(0xFFFDFCF8))),
+                    style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFF7A072),
+                    padding: const EdgeInsets.symmetric(horizontal: 54, vertical: 20),
                     textStyle: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w700,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                ), // Adjust the height as needed
+                ),
+                const SizedBox(height: 50),
+
               ],
             ),
           ),

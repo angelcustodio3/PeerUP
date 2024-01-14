@@ -106,7 +106,7 @@ class Techniques extends StatelessWidget {
                       fontFamily: 'Poppins',
                       color: Color(0xFF3D405B),
                       fontSize: 18,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                 )
               ),
             ),
@@ -122,7 +122,7 @@ class Techniques extends StatelessWidget {
                       fontFamily: 'Poppins',
                       color: Color(0xFF3D405B),
                       fontSize: 18,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                 )
               ),
             ),
@@ -190,10 +190,11 @@ void showPomodoroDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
+        backgroundColor: Color(0xFFFDFCF8),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipRRect(
@@ -205,31 +206,32 @@ void showPomodoroDialog(BuildContext context) {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(width: 25), // Add some spacing between the image and text
+                const SizedBox(width: 50, height: 50), 
                 const Text(
                   'POMODORO',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: Color(0xFFFDFCF8),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF3D405B),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
+                const SizedBox(width: 30, height: 30),
               ],
             ),
-            const Text(
-              'Pomodoro is a time management study method based on 25-minute stretches of focused work broken by 5-minute breaks with 15-minute long breaks after consecutive Pomodoro sessions.',
+            const Text('Pomodoro is a time management study method based on 25-minute stretches of focused work broken by 5-minute breaks with 15-minute long breaks after consecutive Pomodoro sessions.',
               style: TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 15,
               ),
             ),
-            SizedBox(
-              width: 25,
-            ), // Add some spacing between the image and text
+            const SizedBox(width: 30, height: 30), 
             Container(
-              padding: EdgeInsets.only(top: 5.0),
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.all(15),
+                  backgroundColor: const Color(0xFF0FA3B1)
+                ),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -240,9 +242,12 @@ void showPomodoroDialog(BuildContext context) {
                 },
                 child: const Text('Use Pomodoro',
                 style: TextStyle(
+                 color: Color(0xFFFDFCF8),
                   fontFamily: 'Poppins',
-                  fontSize: 15,
-                ),),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500
+                ),
+                ),
               ),
             ),
           ],
@@ -257,10 +262,11 @@ void showFlashcardDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
+        backgroundColor: Color(0xFFFDFCF8),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipRRect(
@@ -272,25 +278,31 @@ void showFlashcardDialog(BuildContext context) {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(
-                    width: 16), // Add some spacing between the image and text
+                const SizedBox(width: 50, height: 50), // Add some spacing between the image and text
                 const Text(
-                  'FLASHCARD',
+                  'FLASHCARDS',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: Color(0xFFFDFCF8),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
+                    color:  Color(0xFF3D405B),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
+                const SizedBox(width: 30, height: 30),
               ],
             ),
-            const Text(
-              'The Flashcard study technique helps engage learners in an active learning exercises that simulates the memories.',
+            const Text('The Flashcard study technique helps engage learners in an active learning exercises that simulates the memories.',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 15,
+              ),
             ),
-            const SizedBox(
-                width: 16), // Add some spacing between the image and text
+            const SizedBox(width: 30, height: 30), 
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.all(15),
+                  backgroundColor: const Color(0xFF0FA3B1)
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -299,7 +311,14 @@ void showFlashcardDialog(BuildContext context) {
                   ),
                 );
               },
-              child: const Text('Use Flaschcard'),
+              child: const Text('Use Flaschcard',
+              style: TextStyle(
+                 color: Color(0xFFFDFCF8),
+                  fontFamily: 'Poppins',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500
+                ),
+              ),
             ),
           ],
         ),

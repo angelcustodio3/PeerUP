@@ -61,7 +61,7 @@ class Tasks extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
                   'assets/graphics/task-girl.png',
-                  width: 200,
+                  width: 210,
                   height: 195,
                   fit: BoxFit.cover,
                 ),
@@ -181,14 +181,14 @@ class _TodoListWidgetState extends State<TodoListWidget> {
           padding: const EdgeInsets.all(30),
           child: Container(
             decoration: BoxDecoration(
-              color: const Color(0x500FA3B1),
+              color: const Color(0x600FA3B1),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Row(
               children: [
                 IconButton(
-                  //padding: EdgeInsets.symmetric(vertical: 5),
-                  iconSize: 10,
+                  padding: EdgeInsets.all(15),
+                  iconSize: 30,
                   icon: SvgPicture.asset('assets/icons/plus.svg', color:  const Color(0xFF3D405B)),
                   onPressed: addTodoItem,
                   //color: const Color(0xFF3D405B),

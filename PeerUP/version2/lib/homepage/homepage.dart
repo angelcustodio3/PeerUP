@@ -59,7 +59,7 @@ class _HomepageState extends State<Homepage> {
             end: Alignment.bottomCenter,
             colors: [
               Color(0xFF0FA3B1), // Top color with 50% transparency
-              Color(0x600FA3B1), // Middle color fully opaque
+              Color(0x800FA3B1), // Middle color fully opaque
               Color(0x30F2CC8F), // Bottom color fully opaque
             ],
           ),

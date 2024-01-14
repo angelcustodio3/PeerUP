@@ -2,11 +2,9 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:peerup/homepage/technique.dart';
-//import 'package:peerup/pomodoro/pomodoro_settings.dart';
 
 class Pomodoro extends StatefulWidget {
   const Pomodoro({Key? key}) : super(key: key);
-
   @override
   State<Pomodoro> createState() => _PomodoroState();
 }
@@ -57,28 +55,8 @@ class _PomodoroState extends State<Pomodoro> {
             ),
           ),
         ),
-        // actions: [
-        //   GestureDetector(
-        //     onTap: () {
-        //       Navigator.push(
-        //         context,
-        //         MaterialPageRoute(builder: (context) => const PomodoroSettings()),
-        //       );
-        //     },
-        //     child: Container(
-        //       width: 37,
-        //       alignment: Alignment.center,
-        //       margin: const EdgeInsets.all(15),
-        //       decoration: const BoxDecoration(color: Color(0xFFFAEBD2)),
-        //       child: SvgPicture.asset(
-        //         'assets/icons/settings.svg',
-        //         height: 27.0,
-        //         width: 27.0,
-        //       ),
-        //     ),
-        //   )
-        // ],
       ),
+      
       body: Column(
         children: [
           Container(
@@ -160,7 +138,7 @@ class _PomodoroState extends State<Pomodoro> {
           label: Text(
             _isStarted ? 'RESET' : 'START',
             style: const TextStyle(
-              color: Color(0xFFFAEBD2),
+              color: Color(0xFFFDFCF8),
               fontFamily: 'Poppins',
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
