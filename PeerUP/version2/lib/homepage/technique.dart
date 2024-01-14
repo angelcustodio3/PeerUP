@@ -30,6 +30,7 @@ class Techniques extends StatelessWidget {
           'assets/icons/home.svg',
           height: 30.0,
           width: 30.0,
+          color: Color(0xFF3D405B),
         ),
       ),
       floatingActionButtonLocation: CustomFloatingActionButtonLocation(),

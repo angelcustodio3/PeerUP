@@ -332,7 +332,7 @@ class AddCard extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.all(10),
             child: Text(
-              'Create Flashcard Set',
+              'Create Flashcard',
               style: TextStyle(
                 fontSize: 24,
                 fontFamily: 'Poppins',
@@ -590,8 +590,7 @@ class ViewCard extends StatefulWidget {
   const ViewCard({super.key, required this.flashcardSetId});
 
   @override
-  _ViewCardState createState() =>
-      _ViewCardState(flashcardSetId: flashcardSetId);
+  _ViewCardState createState() => _ViewCardState(flashcardSetId: flashcardSetId);
 }
 
 class _ViewCardState extends State<ViewCard> {
@@ -612,8 +611,9 @@ class _ViewCardState extends State<ViewCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFAEBD2),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(51, 50, 50, 1),
+        backgroundColor: const Color(0xFFFAEBD2),
       ),
       body: Padding(
           padding: const EdgeInsets.only(top: 5.0, bottom: 15.0),
@@ -629,12 +629,103 @@ class _ViewCardState extends State<ViewCard> {
                 }
 
                 if (snapshot.data?.docs == null) {
-                  return const Text('No flashcard yet');
+                  return const Text('\n\t\t\tNo flashcard yet');
                 }
 
                 if (snapshot.data!.docs.isEmpty) {
-                  return Column(children: [
-                    Text(' No flashcard added'),
+                  return Container(
+                    padding: EdgeInsets.symmetric(vertical: 15),
+                    child: Column(
+                      children: [
+                      Text('\n\t\t\tNo flashcard added'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddCard(flashcardSetId: flashcardSetId),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color(0xFF0FA3B1),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: const Row(
+                              children: [
+                                Icon(
+                                  Icons.add,
+                                  color: Color(0xFFFDFCF8),
+                                ),
+                                Text(
+                                  'ADD CARD',
+                                  style: TextStyle(
+                                    color: Color(0xFFFDFCF8),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Practice(),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color(0xFF0FA3B1),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: const Row(
+                              children: [
+                                Text(
+                                  'PRACTICE',
+                                  style: TextStyle(
+                                    color: Color(0xFFFDFCF8),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.w500
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Color(0xFFFDFCF8),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ]),
+                  );
+                  // return const Text('No flashcard yet');
+                }
+
+                return Container(
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                  child: Column(
+                    children: [
+                    ...snapshot.data!.docs.map((DocumentSnapshot document) {
+                      return _buildCard(
+                          (document.data() as Map<String, dynamic>)['question'],
+                          (document.data() as Map<String, dynamic>)['answer']);
+                    }).toList(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -649,8 +740,7 @@ class _ViewCardState extends State<ViewCard> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                Color(0xFF3D405B),
+                            backgroundColor:const Color(0xFF0FA3B1),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -659,14 +749,15 @@ class _ViewCardState extends State<ViewCard> {
                             children: [
                               Icon(
                                 Icons.add,
-                                color: Color(0xFF3D405B),
+                                color: Color(0xFFFDFCF8),
                               ),
                               Text(
                                 'ADD CARD',
                                 style: TextStyle(
-                                  color: Color(0xFF3D405B),
+                                  color: Color(0xFFFDFCF8),
                                   fontFamily: 'Poppins',
-                                  fontSize: 16.0,
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.w500
                                 ),
                               ),
                             ],
@@ -677,13 +768,14 @@ class _ViewCardState extends State<ViewCard> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const Practice(),
+                                builder: (context) => PracticeReview(
+                                  flashcardSetId: flashcardSetId,
+                                ),
                               ),
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                Color(0xFF3D405B),
+                            backgroundColor:const Color(0xFF0FA3B1),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -693,123 +785,42 @@ class _ViewCardState extends State<ViewCard> {
                               Text(
                                 'PRACTICE',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Color(0xFFFDFCF8),
                                   fontFamily: 'Poppins',
-                                  fontSize: 12.0,
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.w500
                                 ),
                               ),
                               Icon(
                                 Icons.arrow_forward,
-                                color: Colors.black,
+                                color: Color(0xFFFDFCF8),
                               ),
                             ],
                           ),
                         ),
                       ],
                     ),
-                  ]);
-                  // return const Text('No flashcard yet');
-                }
-
-                return Column(children: [
-                  ...snapshot.data!.docs.map((DocumentSnapshot document) {
-                    return _buildCard(
-                        (document.data() as Map<String, dynamic>)['question'],
-                        (document.data() as Map<String, dynamic>)['answer']);
-                  }).toList(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  AddCard(flashcardSetId: flashcardSetId),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromRGBO(247, 160, 114, 1),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                        ),
-                        child: const Row(
-                          children: [
-                            Icon(
-                              Icons.add,
-                              color: Colors.black,
-                            ),
-                            Text(
-                              'Add Card',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Poppins',
-                                fontSize: 12.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => PracticeReview(
-                                flashcardSetId: flashcardSetId,
-                              ),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromRGBO(247, 160, 114, 1),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                        ),
-                        child: const Row(
-                          children: [
-                            Text(
-                              'Practice',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Poppins',
-                                fontSize: 12.0,
-                              ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ]);
+                  ]),
+                );
               })),
     );
   }
 
   Widget _buildCard(String title, String subtitle) {
     return Card(
-      color: const Color.fromRGBO(237, 222, 164, 1),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+      color: const Color(0xFFFDFCF8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Column(
         children: [
           ListTile(
+            contentPadding: EdgeInsets.all(15),
             title: Text(
               title,
               style: const TextStyle(
                 fontFamily: 'Poppins',
                 // fontSize: 20, // Set the desired font family
-                fontWeight: FontWeight.bold, // Set the desired font weight
-                color: Colors.black, // Set the desired font color
+                fontWeight: FontWeight.w700, // Set the desired font weight
+                color: Color(0xFF3D405B), // Set the desired font color
               ),
             ),
             subtitle: Text(
@@ -817,11 +828,11 @@ class _ViewCardState extends State<ViewCard> {
               style: const TextStyle(
                 fontFamily: 'Poppins', // Set the desired font family
                 // fontSize: 15,
-                fontWeight: FontWeight.normal, // Set the desired font weight
-                color: Colors.black, // Set the desired font color
+                fontWeight: FontWeight.w500, // Set the desired font weight
+                color: Color(0xFF3D405B), // Set the desired font color
               ),
             ),
-            contentPadding: const EdgeInsets.all(8.0),
+            // contentPadding: const EdgeInsets.all(8.0),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -833,14 +844,14 @@ class _ViewCardState extends State<ViewCard> {
                   },
                   icon: Icon(
                     isHeartFilled ? Icons.favorite : Icons.favorite_border,
-                    color: isHeartFilled ? Colors.red : Colors.black,
+                    color: isHeartFilled ? Colors.red : Color(0xFF3D405B),
                   ),
                 ),
                 GestureDetector(
                   onTap: () {
                     _showOptionsDialog(context);
                   },
-                  child: const Icon(Icons.more_vert, color: Colors.black),
+                  child: const Icon(Icons.more_vert, color: Color(0xFF3D405B)),
                 ),
               ],
             ),
@@ -911,12 +922,12 @@ class _FlashcardState extends State<Practice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xAD060606),
+      backgroundColor: const Color(0xFFFAEBD2),
       appBar: AppBar(
         title: const Text('Practice',
             style:
                 TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
-        backgroundColor: const Color(0xFF0FA3B1),
+        backgroundColor: const Color(0xFFFAEBD2),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
@@ -931,7 +942,7 @@ class _FlashcardState extends State<Practice> {
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.4,
           child: Card(
-            color: const Color(0xFFE6F0F2),
+            color: const Color(0xFFFDFCF8),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -945,7 +956,8 @@ class _FlashcardState extends State<Practice> {
                       'Practice', // Add your text inside the Text widget
                       style: TextStyle(
                         fontSize: 24,
-                        fontFamily: "'Poppins' Medium Regular",
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500
                       ),
                     ),
                   ),
@@ -1245,7 +1257,7 @@ Widget build(BuildContext context) {
             child: Text(
               'Multiple Choice',
               style: TextStyle(
-                color: Colors.black,
+                color: Color(0xFF3D405B),
                 fontSize: 20,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
@@ -1263,7 +1275,7 @@ Widget build(BuildContext context) {
             child: Text(
               'Select the correct answer',
               style: TextStyle(
-                color: Colors.black,
+                color: Color(0xFF3D405B),
                 fontSize: 14,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400,
@@ -1281,7 +1293,7 @@ Widget build(BuildContext context) {
             child: Text(
               'Classic flashcard',
               style: TextStyle(
-                color: Colors.black,
+                color: Color(0xFF3D405B),
                 fontSize: 14,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400,
@@ -1312,7 +1324,7 @@ Widget build(BuildContext context) {
             child: Text(
               'Practice',
               style: TextStyle(
-                color: Colors.black,
+                color: Color(0xFF3D405B),
                 fontSize: 25,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600,
@@ -1329,7 +1341,7 @@ Widget build(BuildContext context) {
             child: Text(
               'Basic Flashcard Review',
               style: TextStyle(
-                color: Colors.black,
+                color: Color(0xFF3D405B),
                 fontSize: 20,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,

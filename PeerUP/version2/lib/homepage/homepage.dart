@@ -46,7 +46,7 @@ class _HomepageState extends State<Homepage> {
           'assets/icons/photo.svg',
           height: 30.0,
           width: 30.0,
-          color: Color(0xFFFDFCF8)
+          color: Color(0xFF3D405B)
         ),
       ),
       floatingActionButtonLocation: CustomFloatingActionButtonLocation(),
