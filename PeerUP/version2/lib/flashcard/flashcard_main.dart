@@ -102,7 +102,6 @@ class FlashcardState extends State<Flashcard> {
             }
 
             return Column(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 return Stack(
                   alignment: AlignmentDirectional.topCenter,
@@ -311,51 +310,74 @@ class AddCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFAEBD2),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0FA3B1),
+        toolbarHeight: 75.0,
+        backgroundColor: const Color(0xFFFAEBD2),
+        // leading:
+        //   Container(
+        //     padding: EdgeInsets.only(left: 15),
+        //     alignment: Alignment.center,
+        //     decoration: const BoxDecoration(color: Color(0xFFFAEBD2)),
+        //     child: SvgPicture.asset(
+        //       'assets/icons/back-arrow.svg',
+        //       height: 20.0,
+        //       width: 20.0,
+        //     ),
+        //   ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(10),
             child: Text(
-              'Create FlashCard',
+              'Create Flashcard Set',
               style: TextStyle(
                 fontSize: 24,
-                fontFamily: 'Poppins Medium Regular',
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF3D405B)
               ),
             ),
           ),
           Center(
             child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
+              width: MediaQuery.of(context).size.width * 0.8,
               child: Card(
-                color: Colors.grey[350],
+                color: Color(0xFFFDFCF8),
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(25.0),
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 22.0),
+                        padding: const EdgeInsets.only(bottom: 25.0),
                         child: TextField(
                           controller: questionController,
                           maxLines: null,
                           decoration: const InputDecoration(
-                            labelText: ('Question / Topic'),
+                            labelText: ('Question/Topic'),
                             border: OutlineInputBorder(),
                           ),
+                          style: TextStyle(
+                            color: Color(0xFF3D405B),
+                            fontFamily: 'Poppins',
+                            fontSize: 15,),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 6.0),
+                        padding: const EdgeInsets.only(bottom: 10),
                         child: TextField(
                           controller: answerController,
                           maxLines: null,
                           decoration: const InputDecoration(
-                            labelText: 'Answer / Description',
+                            labelText: 'Answer/Definition',
                             border: OutlineInputBorder(),
                           ),
+                          style: TextStyle(
+                            color: Color(0xFF3D405B),
+                            fontFamily: 'Poppins',
+                            fontSize: 15,),
                         ),
                       ),
                       Builder(
@@ -365,7 +387,7 @@ class AddCard extends StatelessWidget {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    const Color.fromRGBO(100, 147, 165, 100),
+                                  const Color(0xFF0FA3B1),
                               ),
                               onPressed: () async {
                                 String question = questionController.text;
@@ -379,8 +401,8 @@ class AddCard extends StatelessWidget {
                                     const SnackBar(
                                       content: Text("Flashcard Added",
                                           style: TextStyle(
-                                              fontFamily: 'Poppins Regular')),
-                                      duration: Duration(seconds: 1),
+                                              fontFamily: 'Poppins')),
+                                      duration: Duration(seconds: 2),
                                     ),
                                   );
                                 } else {
@@ -388,8 +410,8 @@ class AddCard extends StatelessWidget {
                                     const SnackBar(
                                       content: Text("Invalid Input",
                                           style: TextStyle(
-                                              fontFamily: 'Poppins Regular')),
-                                      duration: Duration(seconds: 1),
+                                              fontFamily: 'Poppins')),
+                                      duration: Duration(seconds: 2),
                                     ),
                                   );
                                 }
@@ -397,11 +419,13 @@ class AddCard extends StatelessWidget {
                                 answerController.clear();
                               },
                               child: const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Text('Add Card',
+                                padding: EdgeInsets.all(15),
+                                child: Text('ADD CARD',
                                     style: TextStyle(
                                       fontSize: 16,
-                                      fontFamily: "'Poppins' SemiBold Regular",
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w800,
+                                      color: Color(0xFFFDFCF8),
                                     )),
                               ),
                             ),
@@ -477,7 +501,7 @@ class AddFlashcardSet extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 22.0),
+                        padding: const EdgeInsets.only(bottom: 25.0),
                         child: TextField(
                           controller: nameController,
                           maxLines: null,
@@ -626,23 +650,23 @@ class _ViewCardState extends State<ViewCard> {
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor:
-                                const Color.fromRGBO(247, 160, 114, 1),
+                                Color(0xFF3D405B),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(0),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           child: const Row(
                             children: [
                               Icon(
                                 Icons.add,
-                                color: Colors.black,
+                                color: Color(0xFF3D405B),
                               ),
                               Text(
-                                'Add Card',
+                                'ADD CARD',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Color(0xFF3D405B),
                                   fontFamily: 'Poppins',
-                                  fontSize: 12.0,
+                                  fontSize: 16.0,
                                 ),
                               ),
                             ],
@@ -659,15 +683,15 @@ class _ViewCardState extends State<ViewCard> {
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor:
-                                const Color.fromRGBO(247, 160, 114, 1),
+                                Color(0xFF3D405B),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(0),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           child: const Row(
                             children: [
                               Text(
-                                'Practice',
+                                'PRACTICE',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'Poppins',
