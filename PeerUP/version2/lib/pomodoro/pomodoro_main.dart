@@ -15,7 +15,7 @@ class _PomodoroState extends State<Pomodoro> {
   bool _isOngoing = false;
   bool _focus = true;
   bool _short = false;
-  int _focusTimer = 15;
+  int _focusTimer = 1500;
   int _focusNum = 2;
   final int _shortBreak = 5;
   final int _longBreak =7;
