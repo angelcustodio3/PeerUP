@@ -87,12 +87,15 @@ class _PracticeReviewState extends State<PracticeReview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xAD060606),
+        backgroundColor: const Color(0xFFFAEBD2),
         appBar: AppBar(
           title: const Text('Practice',
               style: TextStyle(
-                  fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
-          backgroundColor: const Color(0xFF0FA3B1),
+                  fontFamily: 'Poppins', 
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24,
+                  )),
+          backgroundColor: const Color(0xFFFAEBD2),
           actions: [
             IconButton(
               icon: const Icon(Icons.close),

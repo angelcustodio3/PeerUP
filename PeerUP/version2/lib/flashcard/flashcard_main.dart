@@ -1053,321 +1053,320 @@ class AnotherPage extends StatelessWidget {
   }
 }
 
-class PracticePageAndCard extends StatelessWidget {
-  const PracticePageAndCard({super.key});
+// class PracticePageAndCard extends StatelessWidget {
+//   const PracticePageAndCard({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xAD060606),
-      appBar: AppBar(
-        title: const Text('Practice',
-            style:
-                TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height /
-                2, // Half of the screen's height
-            child: Card(
-              child: Column(
-                children: [
-                  const ListTile(
-                    title: Text(
-                      'Practice',
-                      style: TextStyle(
-                          fontFamily: 'Poppins', fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  PracticeCard(
-                    title: 'Card 1',
-                    subtitle: 'Practice Card 1',
-                    onTap: () {
-                      // Navigate to another page for Card 1
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ViewFlashcard(),
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-          PracticeCard(
-            title: 'Card 2',
-            subtitle: 'Practice Card 2',
-            onTap: () {
-              // Navigate to another page for Card 2
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AnotherPage(),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xAD060606),
+//       appBar: AppBar(
+//         title: const Text('Practice',
+//             style:TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
+//         leading: null,
+//         actions: [
+//           IconButton(
+//             icon: const Icon(Icons.close),
+//             onPressed: () {
+//               Navigator.pop(context);
+//             },
+//           ),
+//         ],
+//       ),
+//       body: Column(
+//         children: [
+//           SizedBox(
+//             height: MediaQuery.of(context).size.height /2, // Half of the screen's height
+//             child: Card(
+//               child: Column(
+//                 children: [
+//                   const ListTile(
+//                     title: Text(
+//                       'Practice',
+//                       style: TextStyle(
+//                           fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+//                     ),
+//                   ),
+//                   PracticeCard(
+//                     title: 'Card 1',
+//                     subtitle: 'Practice Card 1',
+//                     onTap: () {
+//                       // Navigate to another page for Card 1
+//                       Navigator.push(
+//                         context,
+//                         MaterialPageRoute(
+//                           builder: (context) => const ViewFlashcard(),
+//                         ),
+//                       );
+//                     },
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           PracticeCard(
+//             title: 'Card 2',
+//             subtitle: 'Practice Card 2',
+//             onTap: () {
+//               // Navigate to another page for Card 2
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(
+//                   builder: (context) => const AnotherPage(),
+//                 ),
+//               );
+//             },
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
-class PracticeCards extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final VoidCallback onTap;
+// class PracticeCards extends StatelessWidget {
+//   final String title;
+//   final String subtitle;
+//   final VoidCallback onTap;
 
-  const PracticeCards({
-    super.key,
-    required this.title,
-    required this.subtitle,
-    required this.onTap,
-  });
+//   const PracticeCards({
+//     super.key,
+//     required this.title,
+//     required this.subtitle,
+//     required this.onTap,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: const Color(0xFF0FA3B1),
-      child: ListTile(
-        title: Text(title,
-            style: const TextStyle(
-                fontFamily: 'Poppins', fontWeight: FontWeight.w500)),
-        subtitle: Text(subtitle,
-            style: const TextStyle(
-                fontFamily: 'Poppins', fontWeight: FontWeight.w400)),
-        onTap: onTap,
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       color: const Color(0xFF0FA3B1),
+//       child: ListTile(
+//         title: Text(title,
+//             style: const TextStyle(
+//                 fontFamily: 'Poppins', fontWeight: FontWeight.w500)),
+//         subtitle: Text(subtitle,
+//             style: const TextStyle(
+//                 fontFamily: 'Poppins', fontWeight: FontWeight.w400)),
+//         onTap: onTap,
+//       ),
+//     );
+//   }
+// }
 
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-      body: Container(
-    width: 360,
-    height: 800,
-    clipBehavior: Clip.antiAlias,
-    decoration: ShapeDecoration(
-      color: const Color(0xAD060606),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25),
-      ),
-    ),
-    child: Stack(
-      children: [
-        Positioned(
-          left: -1458,
-          top: -520,
-          child: Container(
-            width: 512,
-            height: 512,
-            padding: const EdgeInsets.only(
-              top: 64,
-              left: 64,
-              right: 63.88,
-              bottom: 63.88,
-            ),
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(),
-            child: const Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                //
-              ],
-            ),
-          ),
-        ),
-        Positioned(
-          left: -1458,
-          top: -520,
-          child: Container(
-            width: 512,
-            height: 512,
-            padding: const EdgeInsets.only(
-              top: 127.91,
-              left: 128,
-              right: 128.11,
-              bottom: 127.88,
-            ),
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(),
-            child: const Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // children here
-              ],
-            ),
-          ),
-        ),
-        Positioned(
-          left: 0,
-          right: 0,
-          top: 139,
-          child: Container(
-            width: 127,
-            height: 278,
-            decoration: ShapeDecoration(
-              color: const Color(0xFFE6F0F2),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          left: 30,
-          top: 331,
-          child: Container(
-            width: 305,
-            height: 66,
-            decoration: const BoxDecoration(color: Color(0xFF0FA3B1)),
-          ),
-        ),
-        Positioned(
-          left: 28,
-          top: 238,
-          child: Container(
-            width: 305,
-            height: 66,
-            decoration: const BoxDecoration(color: Color(0xFF0FA3B1)),
-          ),
-        ),
-        const Positioned(
-          left: 62,
-          top: 340,
-          child: SizedBox(
-            width: 314,
-            child: Text(
-              'Multiple Choice',
-              style: TextStyle(
-                color: Color(0xFF3D405B),
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
-                height: 0,
-              ),
-            ),
-          ),
-        ),
-        const Positioned(
-          left: 62,
-          top: 370,
-          child: SizedBox(
-            width: 208,
-            height: 27,
-            child: Text(
-              'Select the correct answer',
-              style: TextStyle(
-                color: Color(0xFF3D405B),
-                fontSize: 14,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w400,
-                height: 0,
-              ),
-            ),
-          ),
-        ),
-        const Positioned(
-          left: 62,
-          top: 278,
-          child: SizedBox(
-            width: 208,
-            height: 27,
-            child: Text(
-              'Classic flashcard',
-              style: TextStyle(
-                color: Color(0xFF3D405B),
-                fontSize: 14,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w400,
-                height: 0,
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          left: 96,
-          top: 404,
-          child: Container(
-            width: 200,
-            height: 225,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage("https://via.placeholder.com/200x225"),
-                fit: BoxFit.contain,
-              ),
-            ),
-          ),
-        ),
-        const Positioned(
-          left: 26,
-          top: 169,
-          child: SizedBox(
-            width: 314,
-            child: Text(
-              'Practice',
-              style: TextStyle(
-                color: Color(0xFF3D405B),
-                fontSize: 25,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600,
-                height: 0,
-              ),
-            ),
-          ),
-        ),
-        const Positioned(
-          left: 62,
-          top: 248,
-          child: SizedBox(
-            width: 314,
-            child: Text(
-              'Basic Flashcard Review',
-              style: TextStyle(
-                color: Color(0xFF3D405B),
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
-                height: 0,
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          left: 296,
-          top: 164,
-          child: Container(
-            width: 30,
-            height: 40,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage("https://via.placeholder.com/30x40"),
-                fit: BoxFit.contain,
-              ),
-            ),
-          ),
-        ),
-      ],
-    ),
-  ));
-}
+// @override
+// Widget build(BuildContext context) {
+//   return Scaffold(
+//     body: Container(
+//     width: 360,
+//     height: 800,
+//     clipBehavior: Clip.antiAlias,
+//     decoration: ShapeDecoration(
+//       color: const Color(0xAD060606),
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(25),
+//       ),
+//     ),
+//     child: Stack(
+//       children: [
+//         Positioned(
+//           left: -1458,
+//           top: -520,
+//           child: Container(
+//             width: 512,
+//             height: 512,
+//             padding: const EdgeInsets.only(
+//               top: 64,
+//               left: 64,
+//               right: 64,
+//               bottom: 64,
+//             ),
+//             clipBehavior: Clip.antiAlias,
+//             decoration: const BoxDecoration(),
+//             child: const Row(
+//               mainAxisSize: MainAxisSize.min,
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               children: [
+//                 //
+//               ],
+//             ),
+//           ),
+//         ),
+//         Positioned(
+//           left: -1458,
+//           top: -520,
+//           child: Container(
+//             width: 512,
+//             height: 512,
+//             padding: const EdgeInsets.only(
+//               top: 127.91,
+//               left: 128,
+//               right: 128.11,
+//               bottom: 127.88,
+//             ),
+//             clipBehavior: Clip.antiAlias,
+//             decoration: const BoxDecoration(),
+//             child: const Row(
+//               mainAxisSize: MainAxisSize.min,
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               children: [
+//                 // children here
+//               ],
+//             ),
+//           ),
+//         ),
+//         Positioned(
+//           left: 0,
+//           right: 0,
+//           top: 139,
+//           child: Container(
+//             width: 127,
+//             height: 278,
+//             decoration: ShapeDecoration(
+//               color: const Color(0xFFE6F0F2),
+//               shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(10),
+//               ),
+//             ),
+//           ),
+//         ),
+//         Positioned(
+//           left: 30,
+//           top: 331,
+//           child: Container(
+//             width: 305,
+//             height: 66,
+//             decoration: const BoxDecoration(color: Color(0xFF0FA3B1)),
+//           ),
+//         ),
+//         Positioned(
+//           left: 28,
+//           top: 238,
+//           child: Container(
+//             width: 305,
+//             height: 66,
+//             decoration: const BoxDecoration(color: Color(0xFF0FA3B1)),
+//           ),
+//         ),
+//         const Positioned(
+//           left: 62,
+//           top: 340,
+//           child: SizedBox(
+//             width: 314,
+//             child: Text(
+//               'Multiple Choice',
+//               style: TextStyle(
+//                 color: Color(0xFF3D405B),
+//                 fontSize: 20,
+//                 fontFamily: 'Poppins',
+//                 fontWeight: FontWeight.w500,
+//                 height: 0,
+//               ),
+//             ),
+//           ),
+//         ),
+//         const Positioned(
+//           left: 62,
+//           top: 370,
+//           child: SizedBox(
+//             width: 208,
+//             height: 27,
+//             child: Text(
+//               'Select the correct answer',
+//               style: TextStyle(
+//                 color: Color(0xFF3D405B),
+//                 fontSize: 14,
+//                 fontFamily: 'Poppins',
+//                 fontWeight: FontWeight.w400,
+//                 height: 0,
+//               ),
+//             ),
+//           ),
+//         ),
+//         const Positioned(
+//           left: 62,
+//           top: 278,
+//           child: SizedBox(
+//             width: 208,
+//             height: 27,
+//             child: Text(
+//               'Classic flashcard',
+//               style: TextStyle(
+//                 color: Color(0xFF3D405B),
+//                 fontSize: 14,
+//                 fontFamily: 'Poppins',
+//                 fontWeight: FontWeight.w400,
+//                 height: 0,
+//               ),
+//             ),
+//           ),
+//         ),
+//         Positioned(
+//           left: 96,
+//           top: 404,
+//           child: Container(
+//             width: 200,
+//             height: 225,
+//             decoration: const BoxDecoration(
+//               image: DecorationImage(
+//                 image: NetworkImage("https://via.placeholder.com/200x225"),
+//                 fit: BoxFit.contain,
+//               ),
+//             ),
+//           ),
+//         ),
+//         const Positioned(
+//           left: 26,
+//           top: 169,
+//           child: SizedBox(
+//             width: 314,
+//             child: Text(
+//               'Practice',
+//               style: TextStyle(
+//                 color: Color(0xFF3D405B),
+//                 fontSize: 25,
+//                 fontFamily: 'Poppins',
+//                 fontWeight: FontWeight.w600,
+//                 height: 0,
+//               ),
+//             ),
+//           ),
+//         ),
+//         const Positioned(
+//           left: 62,
+//           top: 248,
+//           child: SizedBox(
+//             width: 314,
+//             child: Text(
+//               'Basic Flashcard Review',
+//               style: TextStyle(
+//                 color: Color(0xFF3D405B),
+//                 fontSize: 20,
+//                 fontFamily: 'Poppins',
+//                 fontWeight: FontWeight.w500,
+//                 height: 0,
+//               ),
+//             ),
+//           ),
+//         ),
+//         Positioned(
+//           left: 296,
+//           top: 164,
+//           child: Container(
+//             width: 30,
+//             height: 40,
+//             decoration: const BoxDecoration(
+//               image: DecorationImage(
+//                 image: NetworkImage("https://via.placeholder.com/30x40"),
+//                 fit: BoxFit.contain,
+//               ),
+//             ),
+//           ),
+//         ),
+//       ],
+//     ),
+//   ));
+// }
 
 class ViewFlashcard extends StatelessWidget {
   const ViewFlashcard({super.key});
@@ -1595,38 +1594,22 @@ class ReviewCompletePage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF0FA3B1),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.white,
-            size: 30,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: const [],
-        centerTitle: true,
-        elevation: 2,
-      ),
+      backgroundColor: const Color(0xFFFAEBD2),
       body: Center(
         child: InkWell(
           child: Container(
-            width: screenWidth * 0.9, // 90% of screen width
-            height: screenHeight * 0.75, // 75% of screen height
+            width: screenWidth * 0.85, // 85% of screen width
+            height: screenHeight * 0.65, // 75% of screen height
             decoration: BoxDecoration(
-              color: const Color(0xFFE6F0F2),
+              color: const Color(0xFFFDFCF8),
               boxShadow: const [
                 BoxShadow(
-                  blurRadius: 4,
-                  color: Color(0x40000000),
-                  offset: Offset(0, 4),
+                  blurRadius: 5,
+                  color: Color(0xFF3D405B),
                   spreadRadius: 0,
                 ),
               ],
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(15),
             ),
             child: Stack(
               children: [
@@ -1641,9 +1624,10 @@ class ReviewCompletePage extends StatelessWidget {
                       'Review\nCompleted!',
                       textAlign: TextAlign.start,
                       style: TextStyle(
+                        fontWeight: FontWeight.w800,
                         fontFamily: 'Poppins',
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                        color: Color(0xFF3D405B),
                       ),
                     ),
                   ),
@@ -1656,7 +1640,7 @@ class ReviewCompletePage extends StatelessWidget {
                       'assets/graphics/welcome.png',
                       width: screenWidth * 0.25, // Adjust the width
                       height: screenHeight * 0.3, // Adjust the height
-                      fit: BoxFit.cover,
+                      fit: BoxFit.scaleDown,
                     ),
                   ),
                 ),
@@ -1668,7 +1652,7 @@ class ReviewCompletePage extends StatelessWidget {
                       'assets/graphics/confetti.png',
                       width: screenWidth * 0.3, // Adjust the width
                       height: screenHeight * 0.12, // Adjust the height
-                      fit: BoxFit.cover,
+                      fit: BoxFit.scaleDown,
                     ),
                   ),
                 ),
@@ -1680,66 +1664,67 @@ class ReviewCompletePage extends StatelessWidget {
                       'assets/graphics/confetti.png',
                       width: screenWidth * 0.3, // Adjust the width
                       height: screenHeight * 0.12, // Adjust the height
-                      fit: BoxFit.cover,
+                      fit: BoxFit.scaleDown,
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const Alignment(0.00, 0.23),
+                  alignment: const Alignment(0.00, 0.25),
                   child: Text(
                     'Score Summary',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: screenWidth * 0.08, // Adjust the font size
+                      fontSize: 20, 
+                      fontWeight: FontWeight.w800,
+                      color: Color(0xFF3D405B),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: const Alignment(0.04, 0.40),
+                  child: Text(
+                    "Correct: ${score}",
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: Color.fromARGB(255, 66, 244, 119),
+                      fontSize: 18, 
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const Alignment(0.04, 0.44),
-                  child: Text(
-                    "Correct: ${score}",
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: const Color(0xFF0CDF4C),
-                      fontSize: screenWidth * 0.06, // Adjust the font size
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: const Alignment(0.05, 0.62),
+                  alignment: const Alignment(0.05, 0.50),
                   child: Text(
                     "Wrong: ${totalItems - score}",
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       color: const Color(0xFFFF5964),
-                      fontSize: screenWidth * 0.06, // Adjust the font size
+                      fontSize: 18, 
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const Alignment(0, 0.90),
+                  alignment: const Alignment(0, 0.80),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context); // Pop the current page
-                      // Navigator.pop(context); // Pop the current page
-
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const Flashcard(),
-                      //   ),
-                      // );
+                      Navigator.pop(context); 
                     },
                     style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                       backgroundColor: const Color(0xFF0FA3B1),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: const Text('Done'),
+                    child: const Text(
+                      'Done', 
+                      style: TextStyle(
+                        color: Color(0xFFFDFCF8),
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600),
+                      ),
                   ),
                 ),
               ],
