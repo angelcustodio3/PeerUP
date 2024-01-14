@@ -21,7 +21,7 @@ class LoginPage extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2925F),
+      backgroundColor: const Color(0xFFF9F7F3),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -100,7 +100,7 @@ class LoginPage extends State<Login> {
                   child: const Text(
                     'Log In',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color(0xFFF9F7F3),
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
@@ -120,7 +120,7 @@ class LoginPage extends State<Login> {
                 child: const Text(
                   'Sign Up',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFFF9F7F3),
                     fontSize: 15,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
@@ -171,7 +171,7 @@ class _TextFormWidgetState extends State<TextFormWidget> {
         decoration: InputDecoration(
           hintText: widget.hintText,
           filled: true,
-          fillColor: Colors.white,
+          fillColor: Color(0xFFF9F7F3),
           border: widget.removeBorder
               ? InputBorder.none
               : OutlineInputBorder(

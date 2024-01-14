@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'dart:math';
-import 'package:peerup/homepage/drawer.dart';
+//import 'dart:math';
+//import 'package:peerup/homepage/drawer.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:peerup/functions/logout.dart';
 
-class Peer extends StatefulWidget {
-  const Peer({super.key});
+class Profile extends StatefulWidget {
+  const Profile({super.key});
 
   @override
-  _PeerState createState() => _PeerState();
+  _ProfileState createState() => _ProfileState();
 }
 
-class _PeerState extends State<Peer> {
+class _ProfileState extends State<Profile> {
   late TextEditingController _textController1;
   late TextEditingController _textController2;
 
@@ -87,14 +87,14 @@ class _PeerState extends State<Peer> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: const Color(0xFF6493A5),
-          automaticallyImplyLeading: false,
-          actions: const [],
-          centerTitle: true,
-          elevation: 2,
-        ),
+        backgroundColor: Color(0xFFF2CC8F),
+        // appBar: AppBar(
+        //   backgroundColor: const Color(0xFF6493A5),
+        //   automaticallyImplyLeading: false,
+        //   actions: const [],
+        //   centerTitle: true,
+        //   elevation: 2,
+        // ),
         body: SafeArea(
           top: true,
           child: SingleChildScrollView(
@@ -108,8 +108,8 @@ class _PeerState extends State<Peer> {
                     await _pickImage(ImageSource.gallery);
                   },
                   child: Container(
-                    width: 120,
-                    height: 120,
+                    width: 150,
+                    height: 150,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: _pickedImage != null
@@ -129,20 +129,25 @@ class _PeerState extends State<Peer> {
                 const Text(
                   'Edit Profile',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: const Color(0xFF3D405B),
                   ),
                 ),
                 const SizedBox(height: 30), // Adjust the height as needed
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(15),
                   child: TextFormField(
                     controller: _textController1,
                     focusNode: _textFieldFocusNode1,
-                    decoration: const InputDecoration(
-                      labelText: 'Change Email',
-                      // Add other input decoration properties as needed
+                    decoration: const InputDecoration(labelText: 'Change Email',
+                      labelStyle: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: const Color(0xFF3D405B),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ),
                 ),
@@ -156,7 +161,12 @@ class _PeerState extends State<Peer> {
                     focusNode: _textFieldFocusNode2,
                     decoration: const InputDecoration(
                       labelText: 'Change Password',
-                      // Add other input decoration properties as needed
+                      labelStyle: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: const Color(0xFF3D405B),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ),
                 ),

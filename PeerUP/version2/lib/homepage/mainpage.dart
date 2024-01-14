@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peerup/homepage/homepage.dart';
-import 'package:peerup/homepage/peer.dart';
+import 'package:peerup/homepage/profile.dart';
 import 'package:peerup/homepage/technique.dart';
 import 'package:peerup/progress/to-do-page.dart';
 
@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
     Homepage(),
     Techniques(),
     Tasks(),
-    Peer(),
+    Profile(),
   ];
 
   int currentIndex = 0;

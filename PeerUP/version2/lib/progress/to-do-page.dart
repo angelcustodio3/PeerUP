@@ -62,7 +62,7 @@ class Tasks extends StatelessWidget {
                 child: Image.asset(
                   'assets/graphics/task-girl.png',
                   width: 200,
-                  height: 185,
+                  height: 195,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -70,7 +70,7 @@ class Tasks extends StatelessWidget {
 
             // "YOUR TASKS" text space
             Container(
-              padding: const EdgeInsets.only(left: 30, right: 30, top: 25),
+              padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
               alignment: Alignment.center,
               child: Text(
                 'YOUR TASKS',
@@ -188,10 +188,10 @@ class _TodoListWidgetState extends State<TodoListWidget> {
               children: [
                 IconButton(
                   //padding: EdgeInsets.symmetric(vertical: 5),
-                  iconSize: 25,
-                  icon: SvgPicture.asset('assets/icons/plus.svg', height: 10.0, width: 10.0,),
+                  iconSize: 10,
+                  icon: SvgPicture.asset('assets/icons/plus.svg', color:  const Color(0xFF3D405B)),
                   onPressed: addTodoItem,
-                  color: const Color(0xFF3D405B),
+                  //color: const Color(0xFF3D405B),
                 ),
                 SizedBox(width: 5),
                 Expanded(
