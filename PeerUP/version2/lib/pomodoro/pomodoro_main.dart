@@ -26,12 +26,13 @@ class _PomodoroState extends State<Pomodoro> {
       backgroundColor: const Color(0xFFFAEBD2),
       appBar: AppBar(
         toolbarHeight: 75.0,
-        title: const Text(
+        title: 
+        const Text(
           'POMODORO',
           style: TextStyle(
             color: Color(0xFF3D405B),
             fontFamily: 'Poppins',
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -41,17 +42,17 @@ class _PomodoroState extends State<Pomodoro> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Techniques()),
+              MaterialPageRoute(builder: (context) => Techniques()),
             );
           },
           child: Container(
-            margin: const EdgeInsets.all(15),
+            padding: EdgeInsets.only(left: 15),
             alignment: Alignment.center,
             decoration: const BoxDecoration(color: Color(0xFFFAEBD2)),
             child: SvgPicture.asset(
               'assets/icons/back-arrow.svg',
-              height: 27.0,
-              width: 27.0,
+              height: 20.0,
+              width: 20.0,
             ),
           ),
         ),
@@ -91,7 +92,7 @@ class _PomodoroState extends State<Pomodoro> {
                       builder: (BuildContext dialogContext) {
                         return const Dialog(
                           insetAnimationDuration: Duration(seconds: 2),
-                          insetPadding: EdgeInsets.all(20.0),
+                          insetPadding: EdgeInsets.all(25.0),
                           backgroundColor: Color(0xFFF9F7F3),
                           shadowColor: Color(0xFF3D405B),
                           child: Padding(
@@ -107,7 +108,7 @@ class _PomodoroState extends State<Pomodoro> {
                         );
                       },
                     );
-                    
+                    //_controller.reset();
                   }
                 },
               ),

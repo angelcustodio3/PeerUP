@@ -175,7 +175,7 @@ class _ProfileState extends State<Profile> {
                     textStyle: const TextStyle(
                       fontSize: 18,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -192,7 +192,7 @@ class _ProfileState extends State<Profile> {
                   child: const Text('LOGOUT', style: TextStyle(color: Color(0xFFFDFCF8))),
                     style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFF7A072),
-                    padding: const EdgeInsets.symmetric(horizontal: 54, vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 20),
                     textStyle: const TextStyle(
                       fontSize: 18,
                       fontFamily: 'Poppins',

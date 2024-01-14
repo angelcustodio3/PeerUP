@@ -1,11 +1,13 @@
 // ignore_for_file: library_private_types_in_public_api png, library_private_types_in_public_api
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:peerup/flashcard/practice.dart';
 import 'package:peerup/functions/addFlashcard.dart';
 import 'package:peerup/functions/addFlashcardSet.dart';
 import 'package:peerup/functions/fetchFlashcard.dart';
 import 'package:peerup/functions/fetchFlashcardSet.dart';
+import 'package:peerup/homepage/technique.dart';
 import 'package:peerup/main.dart';
 import 'FC_QuizPage.dart';
 //import 'package:flip_card/flip_card.dart';
@@ -16,7 +18,6 @@ void main() {
 
 class Flashcard extends StatefulWidget {
   const Flashcard({super.key});
-
   @override
   FlashcardState createState() => FlashcardState();
 }
@@ -26,16 +27,44 @@ class FlashcardState extends State<Flashcard> {
   @override
   void initState() {
     super.initState();
-
     flashcardSets = fetchFlashcardSet();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFAEBD2),
       appBar: AppBar(
-        title: const Text('Flashcard Sets'),
-        backgroundColor: const Color(0xFF0FA3B1),
+        toolbarHeight: 75.0,
+        title: const Text(
+          'FLASHCARD SETS',
+          style: TextStyle(
+            color: Color(0xFF3D405B),
+            fontFamily: 'Poppins',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Color(0xFFFAEBD2),
+        centerTitle: true,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Techniques()),
+            );
+          },
+          child: Container(
+            padding: EdgeInsets.only(left: 15),
+            alignment: Alignment.center,
+            decoration: const BoxDecoration(color: Color(0xFFFAEBD2)),
+            child: SvgPicture.asset(
+              'assets/icons/back-arrow.svg',
+              height: 20.0,
+              width: 20.0,
+            ),
+          ),
+        ),
       ),
       body: StreamBuilder(
           stream: flashcardSets,
@@ -49,16 +78,34 @@ class FlashcardState extends State<Flashcard> {
             }
 
             if (snapshot.data?.docs == null) {
-              return const Text('No flashcard sets yet');
+              return const Text(
+                '\n\n\t\t\tNo flashcard sets yet', 
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 15,
+                  color: Color(0xFF3D405B),
+                ),
+              );
             }
 
             if (snapshot.data!.docs.isEmpty) {
-              return const Text('No flashcard sets yet');
+              return const Text(
+                '\n\n\t\t\tNo flashcard sets yet', 
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 15,
+                  color: Color(0xFF3D405B),
+                ),
+                );
             }
 
             return Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 return Stack(
+                  alignment: AlignmentDirectional.topCenter,
                   children: [
                     GestureDetector(
                       onTap: () {
@@ -71,9 +118,10 @@ class FlashcardState extends State<Flashcard> {
                         );
                       },
                       child: Container(
-                        color: const Color(0xFFE6F0F2),
+                        color: const Color(0xFF),
                         child: Card(
-                          margin: EdgeInsets.zero,
+                          margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          elevation: 2,
                           child: Column(
                             children: [
                               ListTile(
@@ -106,16 +154,16 @@ class FlashcardState extends State<Flashcard> {
                                     );
                                   },
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFFFBAD2F),
+                                    backgroundColor: const Color(0xFF0FA3B1),
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(0),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
                                   child: const Text(
                                     'PRACTICE',
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
-                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      color: Color(0xFFFDFCF8),
                                     ),
                                   ),
                                 ),
@@ -139,7 +187,12 @@ class FlashcardState extends State<Flashcard> {
             ),
           );
         },
-        child: const Icon(Icons.add),
+        child: const Icon(
+          Icons.add_rounded, 
+          color: Color(0xFFFDFCF8),
+          size: 25,
+          ),
+        backgroundColor:  const Color(0xFF0FA3B1)
       ),
     );
   }
@@ -376,29 +429,51 @@ class AddFlashcardSet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFAEBD2),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0FA3B1),
+        toolbarHeight: 75.0,
+        backgroundColor: const Color(0xFFFAEBD2),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Flashcard()),
+            );
+          },
+          child: Container(
+            padding: EdgeInsets.only(left: 15),
+            alignment: Alignment.center,
+            decoration: const BoxDecoration(color: Color(0xFFFAEBD2)),
+            child: SvgPicture.asset(
+              'assets/icons/back-arrow.svg',
+              height: 20.0,
+              width: 20.0,
+            ),
+          ),
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(10),
             child: Text(
-              'Create FlashCard Set',
+              'Create Flashcard Set',
               style: TextStyle(
                 fontSize: 24,
-                fontFamily: 'Poppins Medium Regular',
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF3D405B)
               ),
             ),
           ),
           Center(
             child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
+              width: MediaQuery.of(context).size.width * 0.8,
               child: Card(
-                color: Colors.grey[350],
+                color: Color(0xFFFDFCF8),
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(25.0),
                   child: Column(
                     children: [
                       Padding(
@@ -407,20 +482,28 @@ class AddFlashcardSet extends StatelessWidget {
                           controller: nameController,
                           maxLines: null,
                           decoration: const InputDecoration(
-                            labelText: ('Add subject title...'),
+                            labelText: ('Add subject title...\n'),
                             border: OutlineInputBorder(),
                           ),
+                          style: TextStyle(
+                            color: Color(0xFF3D405B),
+                            fontFamily: 'Poppins',
+                            fontSize: 15,),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 6.0),
+                        padding: const EdgeInsets.only(bottom: 10),
                         child: TextField(
                           controller: descriptionController,
                           maxLines: null,
                           decoration: const InputDecoration(
-                            labelText: 'Add description...',
+                            labelText: 'Add description...\n',
                             border: OutlineInputBorder(),
                           ),
+                          style: TextStyle(
+                            color: Color(0xFF3D405B),
+                            fontFamily: 'Poppins',
+                            fontSize: 15,),
                         ),
                       ),
                       Builder(
@@ -430,7 +513,7 @@ class AddFlashcardSet extends StatelessWidget {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    const Color.fromRGBO(100, 147, 165, 100),
+                                  const Color(0xFF0FA3B1),
                               ),
                               onPressed: () async {
                                 String name = nameController.text;
@@ -445,18 +528,20 @@ class AddFlashcardSet extends StatelessWidget {
                                     const SnackBar(
                                       content: Text("Invalid Input",
                                           style: TextStyle(
-                                              fontFamily: 'Poppins Regular')),
-                                      duration: Duration(seconds: 1),
+                                            fontFamily: 'Poppins')),
+                                      duration: Duration(seconds: 2),
                                     ),
                                   );
                                 }
                               },
                               child: const Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(15),
                                 child: Text('ADD SET',
                                     style: TextStyle(
                                       fontSize: 16,
-                                      fontFamily: "'Poppins' SemiBold Regular",
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w800,
+                                      color: Color(0xFFFDFCF8),
                                     )),
                               ),
                             ),

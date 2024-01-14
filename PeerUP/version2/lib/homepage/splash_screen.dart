@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
       );
     });
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
+      //backgroundColor: const Color.fromRGBO(100, 147, 165, 100),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
             colors: [
               Color(0xFF0FA3B1), // Top color with 50% transparency
               Color(0x800FA3B1), // Middle color fully opaque
-              Color(0x30F2CC8F), // Bottom color fully opaque
+              Color(0x30FAEBD2), // Bottom color fully opaque
             ],
           ),
         ),
@@ -32,7 +32,18 @@ class SplashScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              // Stroked text as border.
+              // Solid text as fill.
+              const Text(
+                'PEERUP',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: Color(0xFFFDFCF8),
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              //Stroked text as border.
               // Text(
               //   'PEERUP',
               //   style: TextStyle(
@@ -45,17 +56,8 @@ class SplashScreen extends StatelessWidget {
               //       ..color = const Color(0x9C6493A5),
               //   ),
               // ),
-              // Solid text as fill.
-              const Text(
-                'PEERUP',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 45),
+              
+              const SizedBox(height: 150),
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(

@@ -201,12 +201,12 @@ void showPomodoroDialog(BuildContext context) {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
                     'assets/graphics/clock.png',
-                    width: 85,
-                    height: 85,
-                    fit: BoxFit.cover,
+                    width: 230,
+                    height: 145,
+                    fit: BoxFit.scaleDown,
                   ),
                 ),
-                const SizedBox(width: 50, height: 50), 
+                const SizedBox(width: 50, height: 25), 
                 const Text(
                   'POMODORO',
                   style: TextStyle(
@@ -273,12 +273,12 @@ void showFlashcardDialog(BuildContext context) {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
                     'assets/graphics/quiz.png',
-                    width: 85,
-                    height: 85,
-                    fit: BoxFit.cover,
+                    width: 230,
+                    height: 145,
+                    fit: BoxFit.scaleDown,
                   ),
                 ),
-                const SizedBox(width: 50, height: 50), // Add some spacing between the image and text
+                const SizedBox(width: 50, height: 25), // Add some spacing between the image and text
                 const Text(
                   'FLASHCARDS',
                   style: TextStyle(
